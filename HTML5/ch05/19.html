@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>datalist</title> <!-- input:text -->
+    </head>
+        <body>
+
+            <form action="http://localhost:8888" method="post">  
+                
+                과일 선택 : <input id="XXXX" name="fruit" placeholder="과일 목록." list="fruits">
+
+                <datalist id="fruits">                <!-- input의 list와 datalist id가 같게-->
+                    <option value="사과"></option>
+                    <option value="바나나"></option>
+                    <option value="체리"></option>
+                </datalist>
+               
+                <br>
+                <input type="submit" value="제출">
+
+            </form>
+
+        </body>
+</html>

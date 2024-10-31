@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="myBtn">Click Me</button>
+    <script>
+        var city = ["Seoul", "Busan", "Incheon"];   // 배열 리터럴
+        
+        function printArr(){  // 함수선언
+            var i;  // 카운터 변수선언
+
+            //배열의 순회(Traverse)
+            for (i=0;i<city.length;i++){
+                //배열의 특정 dnjsthd
+                console.log(city[i]);
+            }
+        }
+        
+        printArr();  //
+
+        var myBtn = document.querySelector('#myBtn');  
+        console.log(myBtn)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>오디오 자동 재생</h3>
+    <audio src="./audio/eagle.mp3" controls loop autoplay></audio>
+    <!-- controls - 조작가능한 인터페이스 제공, loop - 반복재생 , autoplay - 랜더링 되자마자 자동재생 -->
+
+    <h3>오디오 수동 재생</h3>
+    <audio src="./audio/bear.mp3" controls></audio>
+    
+    <h3>오디오 다중 재생</h3>
+    <audio controls>
+        <source src="./audio/chicken.mp3" type="audio/mpeg">
+        <source src="./audio/chicken.ogg" type="audio/ogg">
+        <source src="./audio/chicken.wav" type="audio/wav">
+        오디오 파일을 재생할 수 없습니다.
+    </audio>
+
+</body>
+
+</html>

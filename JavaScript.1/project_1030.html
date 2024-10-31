@@ -1,0 +1,76 @@
+<!-- 
+<script>
+    //현재 위치에서 높이 증가 , 날짜 증가 후 if 문으로 2가지 상황 발생 
+    //-> 1. 탈출 높이 일 경우 탈출 , 2. 탈출 못한 높이일 경우 높이 감소
+
+    function func1(현재위치, 증가높이, 날짜){              // 
+        
+        현재위치 = 현재위치 + 증가높이
+        return 현재위치
+              
+        if(현재위치 < 꼭대기){
+            func2();                   // 탈출 못할시 가정
+        }else {func3();                 // 탈출 했을시 가정
+        }
+    }   
+
+    function func2(현재위치, 감소높이, 날짜){
+        
+        현재위치 = 현재위치 - 감소높이
+        return 현재위치
+        
+        func3();
+    }
+
+    function func3(){
+        console.trace('func3() invoked.');
+
+        
+    }
+</script> -->
+
+<script>
+    var currentHeight = 0; // 현재 위치
+    var day = 1;  // 올라가기 시작 일
+    var dayClimb = 17; // 하루마다 올라간 높이
+    var dayDescend = 7; // 잠들면서 떨어진 높이
+    var topHeight = 137; // 꼭대기 높이
+
+    function 올라가는높이(현재높이,올라가는밸류){
+        현재높이 += 올라가는밸류;
+        console.log("올라가는 높이", "현재높이=", 현재높이)
+        return 현재높이;
+        
+    }
+
+    function 내려가는높이(현재높이,내려가는밸류){
+        현재높이 -=내려가는밸류;
+        console.log("내려가는 높이", "현재높이=", 현재높이)
+        return 현재높이;
+    }
+    
+    function 꼭대기인지체크(현재높이, 꼭대기높이){
+        if(현재높이 >= 꼭대기높이){
+            console.log("yes");
+            return true;
+        }else{
+            console.log("no");
+            return false;
+        }
+    }
+    function 날짜돌리기(){
+        for(;;){
+            console.log("day= ", day)
+            currentHeight = 올라가는높이(currentHeight,dayClimb);              //1번실행
+            if(꼭대기인지체크(currentHeight,topHeight)){                            // 2번실행
+                break;
+            }
+            currentHeight = 내려가는높이(currentHeight, dayDescend);            //3번실행
+            day ++;
+        } 
+        return day; 
+    }
+
+    
+    console.log(날짜돌리기());
+</script>

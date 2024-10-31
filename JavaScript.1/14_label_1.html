@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    
+</head>
+
+<body>
+    <script>
+        //구구단
+        // 플래그변수(flag: 깃발의미) : boolean 타입의 변수를 의미.
+        var isExit = false; // 그만하고 빠져 나오라
+
+    Label1: for(var 단수=2; 단수 <=9; ++단수){
+            
+                // if(isExit) break; // 플래그가 켜졌으면 (true), break로 깨뜨립니다.
+            
+                Label2:
+                for(var 곱하는수 = 1; 곱하는수<=9; ++곱하는수){
+                    if(단수 ===7 && 곱하는수 === 9){
+                        // isExit =true;
+                        // break;
+                        //break <라벨명>; // 지정된 라벨이 붙어있는 반복문까지
+                        // break Label2;
+                        // break Label1;
+                        // continue Label1;
+                        break Label1;  //
+                    }
+                    console.log(`${단수} x ${곱하는수} = ${단수 * 곱하는수}`);
+                }
+                console.log('-------'); // 단수 구별
+            }
+            console.log("Done");
+    </script>
+</body>
+</html>

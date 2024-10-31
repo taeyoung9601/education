@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 List</title>
+</head>
+<body>
+    <!--section*3
+    section>article*3
+    (section>article)*3
+    section>article>(h2+ul)
+    section>article>(h2+ol)
+    section>article>(h2+dl) -->
+
+
+    <!-- 무순서 목록 -->
+    <!--section>article(h2+ul>(li*3)) -->
+
+
+    <section>
+        <article>
+            <h2>무순서 목록</h2>
+            <ul>
+                <li>Coffee</li>
+                <li>Tea
+                    <!-- ul>(li*2) -->
+                    <ul>
+                        <li>Black tea</li>
+                        <li>Green tea</li>
+                    </ul>
+                </li>
+                <li>Milk</li>
+            </ul>
+        </article>
+    </section>
+
+
+    <!-- 순서 목록 -->
+    <!-- section>article(h2+ol>(li*4)) -->
+
+    <section>
+        <article>
+            <h2>순서 목록</h2>
+            
+            <ol>
+                <li>Apples</li>
+                <li>Bananas</li>
+                <li>Lemons</li>
+                <li>Oranges</li>
+            </ol>
+        </article>
+    </section>
+
+
+    <!-- 정의형 목록 -->
+    <!-- section>article(h2+dl>((dt+dd)*3)) -->
+
+    <section>
+        <article>
+            <h2>정의형 목록</h2>
+            <dl>
+                <dt>첫 번째 아이템</dt>
+                    <dd>- HTML1</dd>
+                    <dd>- HTML2</dd>
+                    <dd>- HTML3</dd>
+                    <dd>- HTML4</dd>
+                    <dd>- HTML5</dd>
+                <dt>두 번째 아이템</dt>
+                    <dd>- CSS3</dd>
+                    <dd>- HTML</dd>
+                    <dd>- JavaScript</dd>
+                <dt>세 번째 아이템</dt>
+                    <dd>- JavaScript</dd>
+                    <dd>- HTML</dd>
+                    <dd>- TYPESCRIPT</dd>
+                    <dd>- JAVA</dd>
+                    <dd>- PYTHON</dd>
+
+            </dl>
+        </article>
+    </section>
+</body>
+</html>

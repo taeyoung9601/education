@@ -1,0 +1,31 @@
+ <script>
+
+    //매개변수도 없고, 리턴 값도 없는 간단한 함수
+    function func1(){
+        console.log('func1() invoked.');
+        
+        //다른 함수의 기능을 가져다 사용하자! => 함수호출
+        func2();
+    }
+
+    function func2(){
+        console.debug('func2() invoked.');
+        
+        func3();
+    }
+
+    function func3(){
+        console.trace('func3() invoked.');
+
+        
+    }
+
+    // 함수호출
+    func1();
+    
+    //아래의 메시지와 같이, 사용자의 올바라느 입력을 유도하는 메세지를 "프롬프트(Prompt)메세지"라고 합니다
+    // var age = prompt('나이를 입력해주세요');
+    // console.info('사용자의 나이는?',age);
+    
+ </script>
+

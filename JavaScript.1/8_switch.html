@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>switch</title>
+        
+    </head>
+    <body>
+        
+        <script>
+            var day;
+            var week = new Date().getDay();  //이 행은 js가 제공하는 기능을 통해, 오늘 요일을 정수로 구합니다.
+
+            week = 100 ;
+            // week = 7; => 없는 요일
+            var doWhat; // 오늘은 무엇을 해야하는가?를 값으로 넣는 변수.
+
+            if (week == 0){
+                else if(week ==1){  
+                    
+            }   else if(week == 2){
+
+            }   else if(week == 3){
+
+            }   else if(week == 4){
+
+            }   else if(week == 5){
+                
+            }   else if(week == 6){
+
+            } else {} //swhitch문의 default 케이스와 동일한 역할
+        }  
+            
+
+            
+            switch (week) {
+               
+                case 0 :
+                    day = "일요일";
+                    // doWhat = "쉬는 요일";
+                    break;
+                case 1 :
+                    day = "월요일";
+                    // doWhat = "일하는 요일"
+                    break;
+                case 2 :
+                    day = "화요일"; 
+                    // doWhat = "일하는 요일"
+                    break;
+                case 3 :
+                    day = "수요일"; 
+                    // doWhat = "일하는 요일"
+                    break;
+                case 4 :
+                    day = "목요일"; 
+                    // doWhat = "일하는 요일"
+                    break;
+                case 5 :
+                    day = "금요일"; 
+                    // doWhat = "일하는 요일"
+                    break;
+                case 6 :
+                    day = "토요일"; 
+                    // doWhat = "쉬는 요일"
+                    break;
+                    
+                default :
+                console.log('default 케이스가 수행되었습니다');
+                day = "없는 요일";
+                break;  
+
+            }
+
+            console.log('오늘은', day, "입니다");
+            // console.log('오늘은', doWhat, "입니다");
+        </script>
+    </body>
+</html>
