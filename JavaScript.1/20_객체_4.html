@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal Method</title>
+
+</head>
+
+<body>
+    <!-- p[id=d]*4 -->
+
+    //객체 리터럴 방식의 객체 생성(1회성 객체 생성방식)
+    <p id="carname"></p>
+    <p id="carcolor"></p>
+    <p id="carspeed"></p>
+
+    <script>
+
+        console.group('그룹명');
+
+        var car = { // 1회성 객체인, 리터럴 방식의 객체 생성
+            name:'Sonata',
+            speed:50,
+            color:'white',
+            
+            start:function(){
+                return this.speed + 10 ;
+            },
+        };
+        console.table('car:', car);
+
+        var cname= document.querySelector("#carname");
+        console.log('1. cname:', cname);
+        cname.textContent = car.name;   // 태그의 컨텐츠 변경
+
+
+        var colname = document.querySelector("#carcolor");
+        console.log('2. colname:', colname);
+        colname.textContent = car.color;  // 태그의 컨텐츠 변경
+
+        var cspeed= document.querySelector("#carspeed");
+        console.log('3. cspeed:', cspeed);
+        cspeed.textContent = car.start();
+
+        console.groupEnd()
+    </script>
+
+</body>
+
+</html>

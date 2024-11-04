@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal Method</title>
+
+    <script>
+        //객체를 리터럴방식으로 생성해보자!
+
+        var car = {
+            model: 'Sonata',
+            속도: 100,
+            color: "White",
+            door: 4,
+            // 현재속도: this.start(),
+
+            //메소드란 멤버의 값은 "함수" 이다
+            start: function run() {
+                console.log('start() invoked.');
+
+                //this란 키워드는 오로지 함수 중괄호 블록 안에서만 사용가능.
+                //사용 가능: 이 객체의 다른 속성과 메소드를 this를 통해서 얼마든지 사용가능하다!
+                console.log('this:', this);
+                this.stop();
+                return this.속도 + 10;         // this로 속성 사용가능
+            },
+            stop: function pressBreak() {
+                console.log('stop() invoked.');
+            }
+        };
+
+        console.log('car: ', car);
+
+        //-------------------------
+        console.log('1. car model:', car.model);
+        console.log('2. car 속도:', car.속도);
+        console.log('3. start 함수호출:');
+
+        // 메소드호출공식== 함수호출공식(즉 , give and take)
+        var startSpeed = car.start();
+        console.log('4. startSpped:', startSpeed);
+
+        //참조변수명[속성명]을 통해서도, 객체의 멤버
+        console.log('5.car[model]:', car['model']);
+        console.log('6. car[start]:', car['start']());
+        console.log('7.car[stop]:', car['stop']());
+
+
+    </script>
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

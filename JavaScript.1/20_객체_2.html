@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal Method</title>
+
+</head>
+
+<body>
+    <!-- p[id=d]*4 -->
+    <p id="d1"></p>
+    <p id="d2"></p>
+    <p id="d3"></p>
+    <p id="d4"></p>
+
+    <script>
+
+        //전역JS객체인 Date()를 이용한 날짜객체 생성
+        // document.getElementById("d1").innerHTML = new Date();
+        // document.querySelector("#d1").innerHTML = new Date();
+        document.querySelector("#d1").innerHTML = new Date();  // 태그를 찾지 못하면 null 반환
+
+        //1970.01.01 이후의 밀리초 계산
+        document.querySelector("#d2").innerHTML = new Date(1491803527400);
+
+        //문자열 날짜
+        document.querySelector("#d3").innerHTML = new Date("October15, 2018 06:18:07");
+
+        // 주의사항: 월(month)은 0부터 시작
+        // 날짜 지정
+        document.querySelector("#d4").innerHTML = new Date(2018, 11, 25, 18, 30, 29);
+
+    </script>
+
+</body>
+
+</html>

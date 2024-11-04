@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Literal Method</title>
+
+</head>
+
+<body>
+    <!-- p[id=d]*4 -->
+
+    //객체 리터럴 방식의 객체 생성(1회성 객체 생성방식)
+
+    <p id="msg1"></p>
+    <p id="msg2"></p>
+    <p id="msg3"></p>
+
+
+    <script>
+        //객체 리터럴 방식의 객체 생성(1회성 객체 생성방식)
+        var obj = {
+            m1: function () {
+                return " Hello Sonata";
+            },
+            m2: function (a) {
+                var result = a;
+                return result;
+            },
+            m3: function (a, b) {
+                var result = a + b;
+                return result;
+            }
+        };
+        console.log('obj:', obj);
+
+        //document: DOM 모델에 따라, 만들어진 웹 브라우저의 메모리에 생성된 tag객체의 트리 
+        //이 DOM tree의 최상단 객체를 가리키고 있는 참조변수가 바로 내장객체인 document이다
+        console.log('document', document);
+
+
+        document.querySelector("#msg1").innerHTML = obj.m1();
+        document.querySelector("#msg2").innerHTML = obj.m2(100);
+        document.querySelector("#msg3").innerHTML = obj.m3(100, 200);
+
+
+        var car = { // 1회성 객체인, 리터럴 방식의 객체 생성
+            name:'Sonata',
+            speed:50,
+            color:'white',
+            
+            start:function(){
+                return this.speed + 10 ;
+            },
+        };
+        console.log('car:', car);
+    </script>
+
+</body>
+
+</html>
