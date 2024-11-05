@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <text> //CDN 방슥으로 제이쿼리 라이브러리 연결 </text>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <p>Hello</p>
+
+    <script>
+
+        //jQuery의 시작코드 (=Startup Code, Entry Point)
+        // HTML Tag 처리엔진이, 현재 이 HTML 파일 안에 있는 모든 태그를 찾아서 
+        // 각 태그를 HTML<태그명> Element 타입의 객채로 만들어서,
+        // 모든 태그 객체를 트리형태로 만든, DOM Tree 가 완성된 이후에,
+        // ready 메소드에 전달한 콜백함수를 수행하라!! 라는 심오한 의미
+
+        //ready 메소드의 이름대로, DOM tree가 준비된 이후에, 콜백함수를 
+        //수행시키는 메소드이랍니다.
+        // $(document).ready(function(){
+        //     console.debug('1. jQuery Entry Point Invoked.');
+
+        //     var pTag = $('p');
+        //     console.log('\t + pTag:', pTag);
+
+        // }); //.jq 
+
+        //위의 jQuery Entry Point 코드도 "단축형" 방식이 있고 
+        //당연히 단축형이 더 심플하기 때문에, 이 방식으로
+        // 제이쿼리의 실행진입점(Entry Point)코드를 작성합니다.
+
+        //$(function jqEntryPoint(){ 실전에서 사용하는 방식(단축형)
+        $(function () {
+            console.debug('2. jQuery Entry Point Invoked.');
+
+            //Step1. 선택자로 맘대로 조작할 태그를 DOM Tree에서 선택
+            var pTag = $('p');
+            console.log('pTag:', pTag);
+
+            //Step2. Step1에서 제대로 태그가 선택되었다면,
+            // 선택된 태그를 DOM Tree에서 감춰버립시다!
+            // pTag.hide();  // display: None; 을 인라인방식으로 적용해서
+            // 박스모델까지 렌더링되지않게 감추는 메소드
+
+            //선택자로 선택한 태그의 컨텐츠를 변경해보자!!
+            // pTag.html("<mark>tae<mark>");
+            pTag.text("<mark>tae<mark>");
+        });  // .jq
+    </script>
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리구문을 배우자!!!!</title>
+</head>
+
+<body>
+
+    <script>
+        // JS언에서는 try, catch, finally 3개의 키워드를 이용해서
+        // 각각의 블록을 만듦니다: (1) try 블록  (2) catch 블록  (3) finally 블록
+        // 블록: 중괄호기호가 열리고/닫히면, 그 사이영역을 블록이라!
+        //              라고 하고, 이 블록에 실행문장을 넣습니다.
+
+        // 이 try 블록 안에서 수행되는 실행문에서는,
+        // 예외가 발생하수도 있고, 안할 수도 있습니다.
+
+        // 아래의 3가지 블록의 가능한 조합:
+        //   (1) try-catch (2) try-finally (3) try-catch-finally
+
+        // 1st. Example : 잘못된 코드로 인해서 발생하는 기계적인 오류(예외)가 자동발생하는 경우
+        try {   // try block 단독으로는 사용불가!! - catch and/or finally block과 함께 사용
+            
+            // 정의되지 않은 변수를 사용 -> 자동으로 ReferenceError가 발생 -> 예외객체가 catch block의 매개변수에 전달
+            // var number = 100;
+            // console.log(number1);
+
+        } catch(err) {  // catch(예외를 받아서 저장할 변수명 지정)
+                               //  위 catch(변수명)에서, 변수명은 여러분 맘대로 가능
+                               // 하지만 보통 가능하면 짧게합니다. 가장 많이 사용하는
+                               // 예외처리변수명은 'e'.
+
+            console.log('err:', err); 
+        } finally { // try block 에서 예외가 발생하든/안하든 무조건 실행을 보장
+                        // 하는 block.
+            console.log('finally');
+        }
+    </script>
+
+    <script>
+        // 비지니스 상 발생하는 예외처리
+        // (1) 비지니스 로직상 오류를 의미하는 사용자-정의 예외 생성
+        const 소스계좌유효성검증실패 = new Error("소스계좌유효성검증실패");
+        const 타겟계좌유효성검증실패 = new Error("타겟계좌유효성검증실패");
+
+        console.log('1. 소스계좌유효성검증실패:', 소스계좌유효성검증실패);
+        console.log('2. 타겟계좌유효성검증실패:', 타겟계좌유효성검증실패);
+
+        // (2) 비지니스 로직상 오류임이 확인되면, 위 (1)에서 생성한 예외 직접 발생
+
+        const 소스계좌 = {
+            계좌번호: 1234,
+            예금주: "Yoseph",
+            잔고 : 5,                    // 단위: 억
+            유효성: true,
+        };
+
+        console.log('3. 소스계좌:', 소스계좌);
+
+        const 타겟계좌 = {
+            계좌번호: 5678,
+            예금주: "원장님",
+            잔고 : 0,                    // 단위: 억
+            유효성: true,
+        };
+        
+        console.log('4. 타겟계좌:', 타겟계좌);
+
+        
+        function 이체(소스계좌, 타겟계좌, 이체금액) {
+            // Step1. 소스계좌에 대한 유효성 검증 수행
+            if(소스계좌 != null && !소스계좌.유효성)  { 
+                // throw 소스계좌유효성검증실패;                   // 사용자-정의 예외 던짐!
+                // throw new Error("소스계좌유효성검증실패");
+            }   // 검증실패 : 비지니스 예외 발생시킴
+
+            // Step2. 타겟계좌에 대한 유효성 검증 수행
+            if(타겟계좌 != null && !타겟계좌.유효성)  {
+                throw 타겟계좌유효성검증실패;                       // 사용자-정의 예외 던짐
+             }   // 검증실패 : 비지니스 예외 발생시킴
+
+            // Step3. 소스계좌의 잔고 >= 이체금액 확인
+            if(소스계좌.잔고 < 이체금액) {
+                throw new Error("소스계좌잔고부족");                // 사용자-정의 예외 던짐
+            } // 잔고확인실패 : 비지니스 예외 발생시킴
+
+            // Step4. 소스계좌에서 이채할금액만큼 잔고감소시킴
+            소스계좌.잔고 = 소스계좌.잔고 - 이체금액;
+
+            // Step5. 타겟계좌의 잔고 + 이체할금액 증가시킴
+            타겟계좌.잔고 = 타겟계좌.잔고 + 이체금액;
+
+            // Step6. 이체결과의 성공여부를 boolean 값으로 반환
+            return true;
+        }  // 이체
+
+
+        //계좌이체수행
+        try {   
+            이체(소스계좌,타겟계좌,7);
+        } catch(e) {  
+            console.error("-------------------");
+            console.error(e);
+            console.error(e.name);
+            console.error(e.message);
+        } finally {   //try블록에서 예외가 발생하든, 안하든 무조건 수행되는 블록
+            console.log('Done');
+        }   
+    </script>
+
+
+</body>
+
+</html>
