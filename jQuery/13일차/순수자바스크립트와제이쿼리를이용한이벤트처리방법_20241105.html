@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- CDN 방식으로 jquery link -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+
+        // 제이쿼리 실행진입점 작성
+        // $(document).ready(function () {
+        //     $("button").click(function () {
+        //         $("p").hide();
+        //     });
+        // });  // .jq
+
+        $(function () {
+
+            // Step1. button 에서, mouse click 이벤트가 발생되었을 때에,
+            // callback 함수가, 해당 이벤트를 처리하는
+            // Event Handler (이벤트 처리기)
+            $('button').click(function () {
+                console.debug('click event invoked.');
+
+                // Step2. p 태그를 선택해서, 숨겨버려라!
+                $('p').hide(1000 * 1);    // 1.5 -> 1.2 -> 1.0
+            });
+
+            var buttonTag = document.querySelector('button');
+
+            /*
+            // ? : Null Assertion Operator 연산자의 기능은 아래의 IF문과 같습니다.
+                if(buttonTag == null) {}
+                else {
+                    buttonTag.onclick = function () {};
+                }
+            */
+
+            buttonTag?.onclick = function () { // ? : Null Assertion Operator
+                console.debug('onclick event triggered.');
+
+                var pTag = document.querySelector('p');
+                // pTag.style.display = "none";     // Box Model 영역까지 삭제
+                pTag.style?.visibility = 'hidden';     // Box Model 영역은 그대로 둠
+            };
+
+            
+        });  // .jq
+    </script>
+</head>
+
+<body>
+    <!-- p+button -->
+
+    <p>메시지 : 제이쿼리를 공부하고 있습니다.</p>
+    <button>메시지 삭제</button>
+
+</body>
+
+</html>
+
