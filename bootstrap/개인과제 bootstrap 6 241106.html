@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인과제 bootstrap 6 241106</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--위 코드 추가하니 6-10 작용-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+</head>
+
+<body>
+    <!--   6-1   -->
+    <div class="container border">
+        <h2>테이블</h2>
+
+        <p>"table 클래스는 테이블에 기본적인 스타일(가벼운 패딩과 수평 구분선)을 추가합니다."</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                  <th>Firstname</th>
+                  <th>Lastname</th>
+                  <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                  <td>John</td>
+                  <td>Doe</td>
+                  <td>john@example.com</td>
+                </tr>
+                <tr>
+                  <td>Mary</td>
+                  <td>Moe</td>
+                  <td>mary@example.com</td>
+                </tr>
+                <tr>
+                  <td>July</td>
+                  <td>Dooley</td>
+                  <td>july@example.com</td>
+                </tr>
+            </tbody>
+
+            <tfoot></tfoot>
+        </table>
+    </div>
+    <!--   6-2   -->
+    <div class="container">
+        <h2>줄무늬가 있는 행(Striped Rows)</h2>
+        
+        <p>table-striped" 클래스는 테이블에 얼룩무늬(zebra-stripes)를 추가합니다.</p>
+
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-3   -->
+    <div class="container border">
+        <h2>테두리 있는 테이블</h2>
+        <p>.table-bordered" 클래스는 테이블과 셀의 모든 면에 테두리를 추가합니다</p>
+
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-4   -->
+    <div class="container border">
+        <h2>호버(마우스를 특정 요소 위에 올리는 동작) 행(Hover Rows)</h2>
+
+        <p>.table-hover" 클래스는 테이블 행에 마우스를 올리면(호버 상태) 배경이 회색으로 변하는 효과를 활성화합니다</p>
+
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-5   -->
+    <div class="container border">
+        <h2>어두운 테이블</h2>
+
+        <p>테이블 배경이 어둡게 함</p>
+
+        <table class="table table-dark">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-6   -->
+    <div class="container border">
+        <h2>어두운계열의 얼룩 테이블</h2>
+        <p>어두운 테이블과 얼룩 테이블의 결합으로 어두운 얼룩 테이블</p>
+
+        <table class="table table-dark table-striped">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-7   -->
+    <div class="container border">
+        <h2>호버 가능한 어두운 테이블(Hoverable Dark Table)</h2>
+        <p>table-hover" 클래스는 테이블 행에 마우스를 올리면(호버 상태) 배경이 회색으로 변하는 효과를 추가합니다.</p>
+
+        <table class="table table-dark table-hover">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-8   -->
+    <div class="container border">
+        <h2>테두리가 없는 테이블(Borderless Table)</h2>
+        <p>.table-borderless" 클래스는 테이블에서 테두리를 제거합니다.</p>
+
+        <table class="table table-borderless">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-9   -->
+    <div class="container border">
+        <h2>문맥에 맞는 클래스(Contextual Classes)</h2>
+        <p>문맥에 맞는 클래스는 테이블, 테이블 행 또는 테이블 셀에 색상을 적용하는 데 사용할 수 있습니다<br>
+            사용할 수 있는 클래스는 다음과 같습니다:
+
+            <ul>
+                <li><code>.table-primary</code></li>
+                <li><code>.table-success</code></li>
+                <li><code>.table-info</code></li>
+                <li><code>.table-warning</code></li>
+                <li><code>.table-danger</code></li>
+                <li><code>.table-active</code></li>
+                <li><code>.table-secondary</code></li>
+                <li><code>.table-light</code></li>
+                <li><code>.table-dark</code></li>
+            </ul>
+        </p>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Class</td>
+                <td>Default</td>
+                <td>Defaultson</td>
+                <td>def@somemail.com</td>
+              </tr>      
+              <tr class="table-primary">
+                <td><code>.table-primary</code></td>
+                <td>Primary</td>
+                <td>Joe</td>
+                <td>joe@example.com</td>
+              </tr>
+              <tr class="table-success">
+                <td><code>.table-success</code></td>
+                <td>Success</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr class="table-danger">
+                <td><code>.table-danger</code></td>
+                <td>Danger</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr class="table-info">
+                <td><code>.table-info</code></td>
+                <td>Info</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+              <tr class="table-warning">
+                <td><code>.table-warning</code></td>
+                <td>Warning</td>
+                <td>Refs</td>
+                <td>bo@example.com</td>
+              </tr>
+              <tr class="table-active">
+                <td><code>.table-active</code></td>
+                <td>Active</td>
+                <td>Activeson</td>
+                <td>act@example.com</td>
+              </tr>
+              <tr class="table-secondary">
+                <td><code>.table-secondary</code></td>
+                <td>Secondary</td>
+                <td>Secondson</td>
+                <td>sec@example.com</td>
+              </tr>
+              <tr class="table-light">
+                <td><code>.table-light</code></td>
+                <td>Light</td>
+                <td>Angie</td>
+                <td>angie@example.com</td>
+              </tr>
+              <tr class="table-dark text-dark">
+                <td><code>.table-dark</code>, <code>.text-dark</code></td>
+                <td>Dark</td>
+                <td>Bo</td>
+                <td>bo@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-10   -->
+    <div class="container border">
+        <h2>테이블 헤드 색상(Table Head Colors)</h2>
+
+        <p>.thead-dark" 클래스는 테이블 헤더에 검은색 배경을 추가하고, ".thead-light" 클래스는 테이블 헤더에 회색 배경을 추가합니다.</p>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Class</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td rowspan="3"><code>.thead-dark</code></td>
+                    <td>John</td>
+                    <td>Doe</td>
+                    <td>john@example.com</td>
+                </tr>
+                <tr>
+                    <td>Mary</td>
+                    <td>Moe</td>
+                    <td>mary@example.com</td>
+                </tr>
+                <tr>
+                    <td>July</td>
+                    <td>Dooley</td>
+                    <td>july@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <hr>
+
+        <table class="table">
+            <thead class="thead-light">
+            <tr>
+                <th>Class</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <tr>
+                <td rowspan="3"><code>.thead-light</code></td>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--   6-11  --> 
+    <div class="container border">
+        <h2>작은 테이블(Small Table)</h2>
+        <p>.table-sm" 클래스는 셀 패딩을 절반으로 줄여 테이블을 더 작게 만듭니다.</p>
+
+        <table class="table table-bordered table-sm">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+              <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--  6-12  -->
+    <div class="container border">
+        <h2>반응형 테이블(Responsive Table)</h2>
+        <p>table-responsive" 클래스는 필요할 때 테이블에 스크롤바를 추가합니다.</p>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+        <!-- <div>
+            <table class="table table-bordered table-responsive"> -->
+
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Sex</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Anna</td>
+                    <td>Pitt</td>
+                    <td>35</td>
+                    <td>New York</td>
+                    <td>USA</td>
+                    <td>Female</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+    <!--  6-13  -->
+    <div class="container border">
+        <h2>반응형 테이블(Responsive Table)</h2>
+
+        <p>.table-responsive-sm" 클래스는 576px보다 작은 화면에서 가로로 스크롤되는 반응형 테이블을 생성합니다.</p>
+
+        <p>브라우저 창 크기를 조정하여 효과를 확인하세요</p>
+
+        <div class="table-responsive-sm">
+            <table class="table table-bordered">
+        <!-- <div>
+            <table class="table table-bordered table-responsive-sm"> -->
+
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Age</th>
+                    <th>City</th>
+                    <th>Country</th>
+                    <th>Sex</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                    <th>Example</th>
+                  </tr>
+                </thead>
+                
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Anna</td>
+                    <td>Pitt</td>
+                    <td>35</td>
+                    <td>New York</td>
+                    <td>USA</td>
+                    <td>Female</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                    <td>Yes</td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+</head>
+
+<body>
+    <!--  7-1  -->
+    <div class="container border">
+            <h2>둥근 모서리(Rounded Corners)</h2>
+
+            <p>rounded 클래스는 이미지에 둥근 모서리를 추가합니다.</p>
+
+        <img src="https://picsum.photos/304/236" alt=".rounded" class="rounded">
+    </div>
+    <!--  7-2  -->
+    <div class="container border">
+        <h2>원형(Circle)</h2>
+        <p>rounded-circle" 클래스는 이미지를 원형으로 만듭니다.</p>
+
+        <img src="https://picsum.photos/304/236" alt=".rounded-circle" class="rounded-circle">
+    </div>
+    <!--  7-3  -->
+    <div class="container border">
+        <h2>썸네일(Thumbnail)</h2>
+        <p>.img-thumbnail 클래스는 이미지의 썸네일을 생성합니다.</p>
+
+        <img src="https://picsum.photos/304/236" alt=".img-thumbnail" class="img-thumbnail">
+    </div>
+    <!--  7-4  (같이하면 적용안됨 - 공부 더 필요 ,따로하면 적용됨)-->
+    <div class="container border ">
+        <h2>이미지 정렬(Aligning images)</h2>
+        <p>이미지를 왼쪽 또는 오른쪽으로 정렬하려면 float 클래스(<code>.float-left</code>, <code>.float-right</code>)를 사용하세요.</p>
+
+        <img src="https://picsum.photos/id/684/304/236" alt=".float-left"   class="float-left ">
+        <img src="https://picsum.photos/id/634/304/236" alt=".float-right"  class="float-right ">
+    </div>
+      <!-- 7-5  
+    alt는 대체 텍스트(alternative text)를 정의하는 속성입니다.
+    역할:
+    이미지가 로드되지 않거나, 시각 장애가 있는 사용자가 스크린 리더를 사용할 때, 이미지가 무엇인지 설명하는 역할을 합니다.
+    이 속성은 웹 접근성(Accessibility)을 고려할 때 매우 중요합니다.
+    스크린 리더(Screen Reader)**는 시각 장애가 있는 사람들이 컴퓨터나 스마트폰을 사용할 수 있도록 돕는 소프트웨어입니다. 
+    화면에 표시된 내용을 음성으로 읽어주는 프로그램 -->
+    <div class="container border">
+        <h2>가운데 정렬</h2>
+
+        <p>이미지를 가운데 정렬하려면, 유틸리티 클래스인 **.mx-auto**와 **.d-block**을 이미지에 추가해야 합니다.</p>
+
+        <img src="https://picsum.photos/id/40/304/236" alt=".mx-auto .d-block" class="mx-auto d-block"> <br>
+        <img src="https://picsum.photos/id/50/304/236" alt=".mx-auto .d-block" class="mx-auto d-block">
+    </div>  
+    <!--  7-6  -->
+    <div class="container border">
+        <h2>반응형 이미지</h2>
+        <p>.img-fluid 클래스는 이미지를 부모 요소에 맞게 잘 조정되도록 크기를 자동으로 변경합니다.<br>
+            (브라우저 창 크기를 조정하여 그 효과를 확인할 수 있습니다.)</p>
+
+        <img src="https://picsum.photos/460/345" alt=".img-fluid" class="img-fluid">
+    </div>
+
+</body> 
+
+</html>
