@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.js"></script>
+
+    <script>
+
+        $(function () {
+
+            $("button.move").click(function () {
+                $("img").animate({
+                    left: '300px',
+                    width: '350px',
+                    height: '300px'
+                });
+            });
+
+
+            $("button.init").click(function(){
+                $("img").animate({
+                    left:'0px',
+                    height:'100px',
+                    width : '130px'
+                });
+            });
+
+        }); // .jq
+
+    </script>
+</head>
+
+<body>
+    <button class="move">확대</button>
+    <button class="init">축소</button>
+
+    <p></p>
+
+    <img name="pic1" 
+        src="https://picsum.photos/id/237/600/400" 
+        width="130" 
+        height="100" 
+        style="position:relative;" />
+    <!-- position : ? => ?에 대해서 적용해보면서 연습-->
+
+</body>
+
+</html>

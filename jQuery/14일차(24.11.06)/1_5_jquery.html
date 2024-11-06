@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.js"></script>
+
+    <script>
+
+        $(function () {
+
+            $("button").click(function (e) {
+                console.debug("click(", e, ")invoked.");
+
+                //아래의 P 태그에 CSS 스타일 적용 with css()메소드
+                $("p")
+                    //반횐되는 객체의 멤버를 계속해서 사용하기위해
+                    //.(도트연산자)로 계속해서 메소드를 호출하는 기법을
+                    //"Method Chaining"(메소드 체이닝)이라고 합니다.
+                    .css({ "background-color": "yellow", "font-size": "200%",})
+                    .css({ "color": "red", }); //마지막 속성뒤에도 쉼표(,)넣으세요
+
+                })
+        });
+
+
+    </script>
+</head>
+
+<body>
+    <div class="container" style="width:300px">
+        <p>김길동</p>
+        <div>02-123-4567</div>
+
+        <p>이길동</p>
+        <div>042-567-2929</div>
+
+        <p>홍길동</p>
+        <div>123-234-4567</div>
+    </div>
+
+    <br><br>
+
+    <button>이름강조</button>
+</body>
+
+</html>

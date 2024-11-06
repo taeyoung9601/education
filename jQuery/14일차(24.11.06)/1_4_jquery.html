@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.js"></script>           <!--min.js 먼저 migrate.js 나중-->
+    
+    <script>
+
+        $(function(){
+
+            //event를 하나 처리하려면, 아래와 같은 요소가 필요합니다
+            // 1. 이벤트를 발생시킬 태그객체
+            // 2. 발생될 이벤트의 타입(예:click 이벤트,....)
+            // 3. 이벤트 리스너(이건, v8 engine)
+            // 4. 이벤트 핸들러(개발자가 넣어준 callback함수)
+            // 5. 어떠한 이벤트가 발생했는지 등의 이벤트에 대한 모든 정보를
+            // 멤버로 가지고 있는 **이벤트 객체**
+            $('#myName').keypress(function(event){
+                console.debug('kepress(',event,') invoked.');
+                
+                //어떻게 하면, 키보드로 input박스에 입력된
+                //문자열을 얻어내어 출력할 수 있을까?
+                console.log(event.target.value);
+                console.log(event.originalEvent);
+            });
+
+
+
+        });  //.jq
+
+    </script>
+
+<input type="text" name ="myName" id = "myName" placeholder="Enter your name...">
+
+</head>
+<body>
+    
+</body>
+</html>
