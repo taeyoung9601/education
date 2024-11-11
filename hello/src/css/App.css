@@ -1,0 +1,11 @@
+p {
+  margin: 10px;
+  padding: 10px;
+  border: 3px outset gold;
+
+  color : green;
+
+  font-family: D2Coding;
+  font-weight: bold;
+  font-size: 20px;
+}
