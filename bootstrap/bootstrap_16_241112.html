@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+</head>
+
+<body>
+<!-- 16-1 리스트 그룹형태 -->
+    <div class="container border">
+        <h2>Basic List Group</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item">First item</li>
+            <li class="list-group-item">Second item</li>
+            <li class="list-group-item">Third item</li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 16-2 리스트 그룹 활성화 -->
+    <div class="container border">
+        <h2>Active Item in a List Group</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item active">Active item</li>
+            <li class="list-group-item">Second item</li>
+            <li class="list-group-item">Third item</li>
+        </ul>
+        
+        <p></p>
+    </div>
+
+<!-- 16-3 리스트 그룹 링크(div 태그 사용 굳이 안해도될것같다.)-->
+    <div class="container border">
+        <h2>List Group With Linked Items</h2>
+
+        <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">First item</a>
+            <a href="#" class="list-group-item list-group-item-action">Second item</a>
+            <a href="#" class="list-group-item list-group-item-action">Third item</a>
+        </ul>
+
+        <p></p>
+    </div>
+    <!-- 16-4 리스트그룹 비활성화-->
+    <div class="container border">
+        <h2>List Group With a Disabled Item</h2>
+
+        <p>The <code>.disabled</code> class adds a <strong>lighter</strong> text color to the <strong>disabled</strong> item.<br>
+        And if used on links, it will <strong>remove</strong> the <strong>default hover effect</strong>.</p>
+
+        <div class="list-group">
+            <a href="#" class="list-group-item disabled">Disabled item</a>
+            <a href="#" class="list-group-item disabled">Disabled item</a>
+            <a href="#" class="list-group-item">Third item</a>
+        </div>
+
+        <p></p>
+    </div>
+    <!-- 16-5  옆 테두리 제거-->
+    <div class="container border">
+        <h2>Flush / Remove Borders</h2>
+
+        <p>Use the <code>.list-group-flush</code> class to <strong>remove some borders and rounded corners</strong>:</p>
+    </div>
+
+    <p></p>
+
+    <div class="container border">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">First item</li>
+            <li class="list-group-item">Second item</li>
+            <li class="list-group-item">Third item</li>
+            <li class="list-group-item">Fourth item</li>
+        </ul>
+    </div>
+<!-- 16-6 수평리스트나열-->
+    <div class="container border">
+        <h2>Horizontal List Groups</h2>
+        
+        <p>The <code>.list-group-horizontal</code> class displays the list items <strong>horizontally</strong> instead of vertically:</p>
+
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">First item</li>
+            <li class="list-group-item">Second item</li>
+            <li class="list-group-item">Third item</li>
+            <li class="list-group-item">Fourth item</li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 16-7 color-->
+    <div class="container border">
+        <h2>List Group With Contextual Classes</h2>
+
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-success">1. Success item : <code>.list-group-item, .list-group-item-success</code></li>
+            <li class="list-group-item list-group-item-secondary">2. Secondary item: <code>.list-group-item, .list-group-item-secondary</code></li>
+            <li class="list-group-item list-group-item-info">3. Info item : <code>.list-group-item, .list-group-item-info</code></li>
+            <li class="list-group-item list-group-item-warning">4. Warning item : <code>.list-group-item, .list-group-item-warning</code></li>
+            <li class="list-group-item list-group-item-danger">5. Danger item : <code>.list-group-item, .list-group-item-danger</code></li>
+            <li class="list-group-item list-group-item-primary">6. Primary item : <code>.list-group-item, .list-group-item-primary</code></li>
+            <li class="list-group-item list-group-item-dark">7. Dark item : <code>.list-group-item, .list-group-item-dark</code></li>
+            <li class="list-group-item list-group-item-light">8. Light item : <code>.list-group-item, .list-group-item-light</code></li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 16-8 -->
+    <div class="container border">
+        <h2>Linked Items With Contextual Classes</h2>
+
+        <p>Move the mouse over the linked items to see the hover effect:</p>
+
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action">1. Action item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-success">2. Success item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-secondary">3. Secondary item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-info">4. Info item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-warning">5. Warning item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-danger">6. Danger item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-primary">7. Primary item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-dark">8. Dark item</a>
+            <a href="#" class="list-group-item list-group-item-action list-group-item-light">9. Light item</a>
+        </div>
+
+        <p></p>
+    </div>
+<!-- 16-9 -->
+    <div class="container border">
+        <h2>List Group With Badges</h2>
+
+        <p>Combine <code>.badge</code> classes with <strong>utility/helper</strong> classes 
+            to <strong>add badges</strong> inside the list group:</p>
+
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Inbox <span class="badge badge-primary badge-pill">12</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Ads <span class="badge badge-primary badge-pill">50</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Junk <span class="badge badge-primary badge-pill">99</span>
+            </li>
+        </ul>
+
+        <p></p>
+    </div>
+</body>
+
+</html>

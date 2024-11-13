@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+</head>
+
+<body>
+<!-- 15-1 -->
+    <div class="container border">
+        <h2>Pagination</h2>
+
+        <p>To create a <strong>basic</strong> pagination, add the <code>.pagination</code> class to an <strong>ul</strong> element.<br>
+           Then add the <code>.page-item</code> to <strong>each li</strong> element and a <code>.page-link</code> class 
+           to <strong>each link</strong> inside <strong>li</strong>:</p>
+
+        <ul class="pagination">
+            <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 15-2 -->
+    <div class="container border">
+        <h2>Pagination - Active State</h2>
+        
+        <p>Add class <code>.active</code> to let the user know <strong>which page he/she is on</strong>:</p>
+
+        <ul class="pagination">
+            <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item active"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 15-3 -->
+    <div class="container border">
+        <h2>Pagination - Disabled State</h2>
+
+        <p>Add class <code>.disabled</code> if a page for some reason is <strong>disabled</strong></p>
+
+        <ul class="pagination">
+            <li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p></p>
+    </div>
+ <!--15-4  -->
+    <div class="container border">
+        <h2>Pagination - Sizing</h2>
+
+        <p></p>
+
+        <p>Add class <code>.pagination-lg</code> for <strong>larger</strong> blocks or 
+        <code>.pagination-sm</code> for <strong>smaller</strong> blocks to <strong>ul</strong> element.</p>
+
+        <p><strong>1. Large:</strong></p>
+
+        <ul class="pagination pagination-lg">
+            <li class="page-item disabled"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item active"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p><strong>2. Default:</strong></p>
+
+        <ul class="pagination">
+        <!-- <ul class="pagination pagination-md"> -->
+            <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item active"><a href="#" class="page-link">2</a></li>
+            <li class="page-item"><a href="#" class="page-link">3</a></li>
+            <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p><strong>3. Small:</strong></p>
+
+        <ul class="pagination pagination-sm">
+            <li class="page-item"><a href="#" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="#" class="page-link">1</a></li>
+            <li class="page-item"><a href="#" class="page-link">2</a></li>
+            <li class="page-item active"><a href="#" class="page-link">3</a></li>
+            <li class="page-item disabled"><a href="#" class="page-link">Next</a></li>
+        </ul>
+
+        <p></p>
+    </div>
+<!-- 15-5 -->
+    <div class="container border">
+        <h2>Pagination</h2>
+
+        <p>Use <strong>utilitiy</strong> classes to change the <strong>alignment</strong> of the pagination:</p>
+
+        <p>1. Left-ailgned using <code>.justify-content-start</code>:</p>
+        <!-- <ul class="pagination"> -->
+        <ul class="pagination justify-content-start">
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Next</a></li>
+        </ul>
+
+        <p>2. Center-aligned using <code>.justify-content-center</code>:</p>
+        <ul class="pagination justify-content-center">
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Next</a></li>
+        </ul>
+
+        <p>3. Right-aligned using <code>.justify-content-right</code>:</p>
+        <ul class="pagination justify-content-end">
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Prev</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">1</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">2</a></li>
+            <li class="page-item"><a href="javascript:void(0);" class="page-link">Next</a></li>
+        </ul>
+
+        <p></p>
+<!-- 15-6 -->
+        <div class="container border">
+            <h2>Breadcrumbs</h2>  //해당 링크로 이동(경로표시)
+    
+            <p>The <code>.breadcrumb, .breadcrumb-item</code> classes indicates the <strong>current</strong> page's location
+               within a <strong>navigational hierarchy</strong>:</p>
+    
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Photos</a></li>
+                <li class="breadcrumb-item"><a href="#">Summer 2021</a></li>
+                <li class="breadcrumb-item"><a href="#">Italy</a></li>
+                <li class="breadcrumb-item active"><a href="#">Rome</a></li>
+            </ul>
+            
+            <p></p>
+        </div>
+</div>
+</body>
+
+</html>
