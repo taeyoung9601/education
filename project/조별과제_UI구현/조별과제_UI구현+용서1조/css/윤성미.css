@@ -1,0 +1,77 @@
+body.smyoon {
+    background-color:#e6f8eb;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 1.2rem;
+}
+section{
+    width: 340px;
+
+    padding: 30px 50px;
+    margin: 30px auto;
+    border-radius: 10px;
+
+    background-color: white;
+    box-shadow: 10px 10px 30px #dddddd;
+}
+
+/* ================== */
+
+nav.menu a:first-child i{
+    float: left;
+}
+nav.menu a:last-child i{
+    float:right;
+}
+
+/* ================== */
+
+.profile {
+    margin-top: 50px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+.profile > img {
+    width: 250px;
+    height: 250px;        
+    margin-bottom: 30px;
+
+    border-radius: 50%;
+    box-shadow: 5px 10px 15px #c9fdd7;
+}
+.profile h3 {
+    color: #cccccc;
+    margin-bottom: 30px;
+}
+.profile .btn_view_more {
+    padding: 5px 35px;
+
+    background-image: linear-gradient(to bottom left, #79d1c3, #c9fdd7);
+    border-radius: 25px;
+    box-shadow: 5px 5px 15px #c9fdd7;
+
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px white;
+}
+
+/* ================== */
+
+.contact {
+    margin: 20px 40px;
+    margin-inline-start: 0px;
+    list-style-type: none;
+
+}
+.contact li {
+    padding: 5px;
+    color: #999999;
+}
+.contact li:first-child {
+    border-bottom: 1px solid #dddddd;
+}
+.contact li i {
+    padding: 5px;
+    margin-right: 20px;
+    color: #333333;
+}
