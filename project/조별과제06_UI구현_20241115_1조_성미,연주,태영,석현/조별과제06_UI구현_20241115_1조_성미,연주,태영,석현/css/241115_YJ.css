@@ -1,0 +1,328 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: #fefae0;
+}
+
+
+header {
+    width: 400px;
+    height: 100%;
+
+    background: linear-gradient(20deg, #faedcd, #faf9f4);
+
+    position: fixed;
+
+    /* top에 값은 왜 주는 건가요? */
+    top: 0px;
+    left: 0px;
+}
+
+
+main {
+    /* box-sizing과 border-box의 연관성? 왜 쓰느건지? */
+    box-sizing: border-box;
+
+    margin-left: 400px;
+    padding: 20px;
+}
+
+header h1 {
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-thickness: 3px;
+
+    font-size: 45px;
+    font-weight: bold;
+    font-style: italic;
+    font-family: "Merriweather", serif;
+    letter-spacing: 3px;
+    line-height: 1.5em;
+    color: #d4a373;
+
+
+    /* transform이 하는 역할? */
+    position: absolute;
+    top: 50%;
+    left: 10px;
+
+    transform: translateY(-150px);
+}
+
+/* before after를 사용하는 이유? */
+header h3 {
+    font-family: "Merriweather", serif;
+    color: #d4a373;
+
+    position: absolute;
+    top: 50%;
+    left: 10px;
+
+}
+
+header ul {
+    padding-inline-start: 0px;
+    position: absolute;
+    
+    left: auto;
+    right: 20px;
+    bottom: 25px;
+
+    list-style-type: none;
+}
+
+header ul li {
+    float: right;
+    margin-right: 10px;
+}
+
+header ul li a {
+    font-family: "Merriweather", serif;
+    text-decoration-line: none;
+    color: #d4a373;
+}
+
+
+/* 먹히지 않는 거 같은데..? */
+header ul li a span {
+    font-weight: bold;
+    opacity: .7;
+    /* 이해 필요
+    transform: scale(.7) translate(-8px); */
+}
+
+main section {
+    width: 100%;
+}
+
+
+/* ::before ::after 가 대체 뭔데.. */
+main section::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+main section article {
+    box-sizing: border-box;
+    margin: 15px;
+
+    width: 20%;
+    float: left;
+}
+
+main section article div {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    padding: 14px;
+    border-radius: 4px;
+
+    background-color: #faedcd;
+    box-shadow: 5px 5px 20px #d4a373;
+
+    cursor: pointer;
+}
+
+main section article div img {
+    width: 100%;
+}
+
+main section article div h2 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    color: #d4a373;
+
+    font-size: 15px;
+  
+    font-family: "Poppins", serif;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+main section article div p {
+    margin-bottom: 15px;
+    
+    color: #d4a373;
+
+    font-size: 16px;
+    font-family: "Poppins", serif;
+    line-height: 1.2;
+}
+
+/* 왜 아래와 같은 효과를 넣는건지? (변경이 언제 반영되는지?) */
+@media screen and (max-width: 1599px) {
+    header {
+        width: 350px;
+    }
+    main {
+        width: 350px;
+    }
+    main section article {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    header {
+        width: 100%;
+        height: 80px;
+
+        background: linear-gradient(0deg, #faedcd, #faf9f4);
+
+        position: relative;
+    }
+
+    header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: "Merriweather", serif;
+        line-height: 1;
+
+        color: #d4a373;
+
+        /* 얘는 왜 퍼센트로 표기되나요 */
+        transform: translateY(-50%);
+    }
+
+    
+    header h1 {
+        display: none;
+    } 
+
+    header h3 {
+        display: none;
+    } 
+
+    header ul {
+        left: auto;
+
+        right: 20px;
+        bottom: 25px;
+    }
+
+    header ul li {
+        margin-right: 20px;
+    }
+
+    header ul li a {
+        font-size: 20px;
+    }
+
+    header ul li a span {
+        display: none;
+    }
+
+    main {
+        width: 100%;
+    }
+
+    main section article {
+        width: 25%;
+    }
+}
+
+@media screen and (max-width: 899px) {
+    header ul {
+        left: auto;
+        right: 20px;
+    }
+
+    main section article {
+        width: 33.333%;
+    }
+}
+
+@media screen and (max-width: 679px) {
+    header ul {
+        left: auto;
+        right: 20px;
+    }
+
+    main section article {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 539px) {
+    header ul {
+        display: none;
+    }
+    main section article {
+        width: 100%;
+    }
+}
+
+main ul {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+
+main ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+
+main ul li {
+    float: right;
+    list-style-type: none;
+
+    /* width: 100%; */
+    height: 26px;
+    margin-right: 20px;
+}
+
+main ul li a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: bold;
+    font-family: "Poppins", serif;
+    letter-spacing: 1px;
+    line-height: 26px;
+
+    text-align: center;
+    text-decoration-line: none;
+    color: #d4a373;
+    background-color: #faedcd;
+
+    box-shadow: 0px 0px 10px #d4a373;
+}
+
+main ul li.on a {
+    color: #d4a373;
+    background: radial-gradient( #faedcd, #faf9f4);
+
+    box-shadow: 0px 5px 20px #d4a373;
+}
+
+@media screen and (max-width: 539px){
+    main ul {
+        box-sizing: border-box;
+
+        margin-right: 0px;
+        padding: 0px, 13px;
+    }
+
+    main ul li {
+        width: 32%;
+        margin-right: 2%;
+    }
+
+    /* nth-of-type 이게 뭐여 */
+    main ul li:nth-of-type(1) {
+        margin-right: 0%;
+    }
+}

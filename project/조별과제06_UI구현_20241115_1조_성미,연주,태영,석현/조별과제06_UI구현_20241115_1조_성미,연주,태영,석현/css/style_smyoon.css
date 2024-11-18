@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Itim&family=Noto+Sans+KR:wght@100..900&family=Orbitron:wght@400..900&display=swap');
+
+/* == 공통 =========================== */
+body {
+    width: 100%;
+    margin: 0px;
+    background-color: #efefef;
+    font-family: "Itim", "Dongle", cursive;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 160%;
+    color: #333333;
+}
+ul, ol {
+    padding-inline-start: 0px;
+    list-style-type: none;
+    margin: 0px;
+
+}
+a {
+    text-decoration: none;
+    color: #333333;
+}
+
+
+/* == header =========================== */
+header {
+    width: 400px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    /* background: radial-gradient(red, yellow) */
+    background: linear-gradient(55deg, rgb(177, 255, 177), rgb(15, 193, 15));
+    z-index: 999;
+    
+}
+header h1 {
+    color:white;
+    font-size: 62px;
+    letter-spacing:10px;
+    line-height:100%;
+    text-shadow: 2px 2px 5px #666666;
+    font-family: "Orbitron", sans-serif;
+
+    /* transform - translate : 수직 및 수평으로 이동시키는 변형 */
+    transform: translateY(100px) translateX(35px);
+}
+header h1::before {
+    content: 'Movie Information';    /* 가상태그에는 필수! 없으면 안나오네~ */
+    display: block;
+    letter-spacing:normal;
+    font-size: 24px;
+    color: rgb(199, 255, 199);
+
+    transform: translateY(200px);
+
+}
+header h1::after {
+    /* 하단 밑줄 */
+    margin-top: 10px;
+    content: '';    /* 가상태그에는 필수! 없으면 안나오네~ */
+    display: block;
+    width: 170px;
+    height: 5px;
+    background-color: rgb(199, 255, 199);
+
+}
+header ul {
+    /* position 
+        absolute : 부모 태그 기준
+        fixed : 전체 화면 기준
+     */
+    position: absolute;
+    bottom: 30px;
+    left: 140px;
+}
+header ul li {
+    display: inline-flex;
+    margin: 5px 5px;
+} 
+header ul li a {
+    color:white;
+    text-shadow: 1px 1px 1px #333333;
+    transition: transform 0.3s ease-in-out;
+} 
+header ul li a:hover {
+    transform: scale(1.2);
+    color: rgb(9, 114, 25);
+    text-shadow: 1px 1px 1px white;
+} 
+header ul li a i {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+}
+header ul li a span {
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+
+/* == main =========================== */  
+main {
+/* 
+    main 사이즈가 잡히지 않는다,........1시간째.......ㅜㅜ
+    해결 :  calc(100% - 400px); Ok(****), 
+            calc(100%-400px); No
+*/
+    width: calc(100% - 400px);
+    margin-left: 400px;
+}
+
+
+/* == main > .btnGroup =========================== */  
+main .filterBtnGroup {
+    margin: 0px 10px 0px 0px;
+    padding: 25px 25px;
+    text-align: end;
+}
+main .filterBtnGroup::after {
+    content: '';
+    display: block;
+    /* none solid dotted  dashed double groove ridge inset outset */
+    border-bottom: 5px ridge rgb(111, 255, 111);
+    transform: translateY(25px);
+}
+main .filterBtnGroup button {
+    width: 120px;
+    margin: 5px 10px;
+    padding: 5px 10px;
+    font-family: "Itim", "Dongle", cursive;
+    font-size: 16px;
+    transition: transform 0.3s linear;
+
+    
+    background: linear-gradient(180deg, rgb(177, 255, 177), white);
+    /* background-color: white; */
+    cursor: pointer;
+    border:none;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px #bbbbbb;
+
+}
+main .filterBtnGroup button.active {
+    background: linear-gradient(180deg, rgb(71, 214, 71), rgb(177, 255, 177));
+}
+main .filterBtnGroup button:hover {
+    background: linear-gradient(180deg, rgb(71, 214, 71), rgb(177, 255, 177));
+    color: white;
+    transform: scale(1.2);
+}
+
+
+/* == main > section > .m_list =========================== */  
+section.m_list {
+    padding: 20px 10px 10px
+}
+section.m_list article {
+    margin: 20px;
+    padding: 30px;
+    width: 17%;
+    
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px #cccccc;
+}
+section.m_list article .no {
+    display: inline-block;
+    padding: 0px 5px;
+}
+section.m_list article .home {
+    display: inline-block;
+    padding: 0px 5px;
+    text-shadow: 1px 1px 1px white;
+
+}
+section.m_list article .year {
+    display: inline-block;
+    padding: 0px 5px;
+    float: right;
+}
+section.m_list article .poster img {
+    width: 100%;
+    border: 1px solid #dddddd;
+    border-radius: 10px 50px;
+}
+section.m_list article .title {
+    margin: 10px 0px 10px 0px;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 130%;
+}
+section.m_list article .genre {
+    margin: 5px 0px 0px 0px;
+    word-break: break-all;
+    line-height: 130%;
+}
+section.m_list article .summary {
+    margin: 5px 0px 0px 0px;
+    font-size: 24px;
+    line-height: 130%;
+}
+
+
+
+/* ============================================ */
+
+@media screen and (max-width: 1549px) {/* 1200 ~ 1499 */
+    header {
+        width: 350px;
+    }
+    header h1 {
+        letter-spacing: 2px;
+    }
+    header ul {
+        left: 90px;
+    }
+    main {
+        width: calc(100%-350px);
+        margin-left: 350px;
+    }
+    main section.m_list article {
+        width: 23%;
+    }
+    main .filterBtnGroup button {
+        width: 90px;
+        margin: 5px 5px;
+        padding: 5px 5px;
+    }
+}
+@media screen and (max-width: 1199px) {/* 900 ~ 1199 */
+    header {
+        width: 100%;
+        height: 80px;
+        position: none;
+        background: linear-gradient(180deg, rgb(197, 255, 197), rgb(15, 193, 15));
+    }
+    header h1 {
+        font-size: 36px;
+        transform: translateY(5px) translateX(20px);
+    }
+    header h1::before, header h1::after {
+        display: none;
+    }
+    header ul {
+        left: auto;
+        right: 20px;
+        top: 5px;
+    }
+    main {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 80px;
+    }
+}
+@media screen and (max-width: 999px) {/* 680 ~ 999 */
+    header ul li {
+        margin: 5px 0px;
+    }
+    header ul li span {
+        display: none;
+    }
+    main section.m_list article {
+        margin: 15px;
+        padding: 20px;
+        width: 40%;
+    }
+}
+@media screen and (max-width: 799px) {/* 700 ~ 799 */
+    main .filterBtnGroup {
+        display: none;
+    }
+    main section.m_list article {
+        margin: 20px;
+        padding: 30px;
+        width: 83%;
+    }
+}
+@media screen and (max-width: 699px) {/*  ~ 699 */
+    main section.m_list article {
+        margin: 20px;
+        padding: 30px;
+        width: 78%;
+    }
+
+}
+
+
+

@@ -1,0 +1,351 @@
+ 
+
+body {
+    background-color: #9434c0;
+    /* background : radial-gradient(35deg, rgb(230, 14, 14), rgba(39, 20, 206, 0.562)); */
+}
+
+/* ============================================ */
+
+header {
+    width: 400px;
+    height: 100%;
+    /* height: 100vh; */
+    border: 5px solid rgb(240, 245, 220);
+
+    background: linear-gradient(35deg, rgba(76, 66, 165, 0.795), rgba(224, 5, 5, 0.562));
+    /* radial-gradient */
+    position: fixed;
+    top: 0px;
+    left: 0px;
+}
+
+/* ============================================ */
+
+main {
+    box-sizing: border-box;
+
+    margin-left: 400px;
+    padding: 20px;
+
+    /* border: 5px double red; */
+}
+
+/* ============================================ */
+
+header h1 {
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 1px;
+    line-height: 1;
+
+    color: white;
+
+    position: absolute;
+    top: 50%;
+    left: 50px;
+
+    transform: translateY(-150px) translateX(25px);
+}
+header h1::before {
+    content: 'Information';
+    display: block;
+
+    font-size: 14px;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    line-height: 1;
+
+    position: absolute;
+    top: 85px;
+    left: 0px;
+
+    opacity: .9;
+}
+header h1::after {
+    content: '';
+    display: block;
+
+    width: 210px;
+    height: 3px;
+    margin-top: 20px;
+
+    background-color: white;
+}
+
+/* ============================================ */
+
+header ul {
+    position: absolute;
+    left: 70px;
+    bottom: 100px;
+    list-style: '';
+    padding-inline-start: 0;
+}
+header ul li {
+    margin-right: 10px;
+
+    float: left;
+}
+header ul li a {
+    font-size: 18px;
+    color: white;
+}
+header ul li a span {
+    display: inline-block;
+    
+    font-weight: bold;
+    opacity: .8;
+
+    /*
+        1. font-size 속성으로 맞추려고 하면, 왼쪽의 font awesome icon과의 세로정렬이 흩트러짐. (***)
+        2. 이를 방지하고, 아이콘보다 글자를 작게 하기 위해, transform 변환효과 사용.
+    */
+    /* font-size: 15px; */
+    transform: scale(.7) translateX(-3px);
+}
+
+/* ============================================ */
+
+main section {
+    width: 100%;
+}
+main section::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+/* ============================================ */
+
+main section article {
+    box-sizing: border-box;
+
+    width: 20%;
+    padding: 12px;
+
+
+    /* <main> 영역에 float:left; 속성을 통해 이미지들이 생성되었지만, 아래와 같은 부작용 발생:
+        1. 그 크기가 각각 달라서, 박스의 높이가 일정하지 않음.
+        2. floated 요소들이, 빈 여백에 배치되지 못함. (***)
+        3. 만약 세로로 긴 박스가 왼쪽방향으로 float: left; 되고, 해당 방향으로 여백이 생기면,
+           다음에 나오는 박스는 float 의 방향이 바뀌지 않는 한, 해당 여백에 들어갈 수 가 없음. (***)
+        4. 위와 같은 float 속성의 부작용을 해결하기 위해, `isotope` 란 JS plugin 사용가능. (***)
+    */
+
+    float: left;
+}
+main section article div {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    padding: 14px;
+    border-radius: 4px;
+
+    background-color: rgba(77, 68, 68, 0.986);
+    box-shadow: 5px 5px 20px rgb(24, 22, 22);
+
+    cursor: pointer;
+}
+main section article div img {
+    width: 100%;
+}
+main section article div h2 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    color: #f1f1f1;
+
+    font-size: 15px;
+    font-weight: '';
+    font-family: "Black Han Sans", sans-serif;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+main section article div p {
+    margin-bottom: 15px;
+
+    color: #fffdfdb4;
+
+    font-size: 16px;
+    font-family: Arial;
+    line-height: 1.2;
+}
+
+/* ============================================ */
+
+@media screen and (max-width: 1599px) {
+    /* 아래의 속성변경이 반영되려면, 브라우저를 refresh 해야 함(수동으로) (***) */
+
+    header {
+        /* 400px -> 350px */
+        width: 350px;
+    }
+    main {
+        /* 400px -> 350px */
+        margin-left: 350px;
+    }
+    main section article {
+        /* 20% -> 25% */
+        width: 25%;
+    }
+}
+@media screen and (max-width: 1199px) { 
+    /* 아래의 속성변경이 반영되려면, 브라우저를 refresh 해야 함(수동으로) (***) */
+
+    header {
+        /* width: 400px -> 100% */
+        /* height: 100% -> 80px */
+        width: 100%;
+        height: 80px;
+        
+        background: linear-gradient(20deg, rgb(36, 14, 230), rgba(224, 5, 5, 0.562));
+
+        position: relative;
+    }
+    header h1 {
+        font-size: 24px;
+        font-weight: bold;
+        font-family: 'Orbitron', sans-serif;
+        line-height: 1;
+
+        color: #ddd;
+
+        transform: translateY(-50%);
+    }
+    header h1::before, header h1::after {
+        display: none;
+    }
+    header ul {
+        /* disable left: 70px; by left: auto; */
+        left: auto;
+
+        right: 20px;
+        bottom: 25px;
+    }
+    header ul li {
+        /* 10px -> 20px */
+        margin-right: 20px;
+    }
+    header ul li a {
+        /* 18px -> 20px */
+        font-size: 20px;
+    }
+    header ul li a span {
+        display: none;
+    }
+
+    main {
+        /* auto -> 100% */
+        width: 100%;
+        /* 400px -> auto to disable */
+        margin-left: 0px;
+    }
+    main section article {
+        /* 20% -> 25% */
+        width: 25%;
+    }
+}
+@media screen and (max-width: 899px) {
+    /* 아래의 속성변경이 반영되려면, 브라우저를 refresh 해야 함(수동으로) (***) */
+
+    header ul {
+        /* disable left: 70px; by left: auto; */
+        left: auto;
+
+        right: 20px;
+    }
+    main section article {
+        /* 20% -> 33.333% */
+        width: 33.333%;
+    }
+    
+}
+@media screen and (max-width: 679px) {
+    /* 아래의 속성변경이 반영되려면, 브라우저를 refresh 해야 함(수동으로) (***) */
+
+    header ul {
+        /* disable left: 70px; by left: auto; */
+        left: auto;
+
+        right: 20px;
+    }
+    main section article {
+        width: 50%;
+    }
+}
+@media screen and (max-width: 539px) {
+    header ul {
+        display: none;
+    }
+    main section article {
+        width: 100%;
+    }
+}
+
+/* ============================================ */
+
+main ul {
+    width: 100%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+}
+main ul::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+main ul li {
+    float: right;
+
+    width: 100px;
+    height: 26px;
+    margin-right: 20px;
+}
+main ul li a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+
+    font-size: 10px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 1px;
+    line-height: 26px;
+
+    text-align: center;
+
+    color: #444;
+    background-color: #fff;
+
+    box-shadow: 0px 0px 10px rgb(6, 247, 255);
+}
+main ul li.on a {
+    color: white;
+    background: radial-gradient(#0e0f35, #58abf8);
+    
+    box-shadow: 0px 5px 20px rgba(255, 0, 0, 0.863);
+}
+
+/* ============================================ */
+
+@media screen and (max-width: 539px) {
+    main ul {
+        box-sizing: border-box;
+
+        margin-right: 0px;
+        padding: 0px 13px;
+    }
+    main ul li {
+        width: 32%;
+        margin-right: 2%;
+    }
+    main ul li:nth-of-type(1) {
+        margin-right: 0%;
+    }
+}
+

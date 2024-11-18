@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card List UI 구현</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style_smyoon.css">
+
+
+    <!-- 1. jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js"></script>
+
+    <!-- 2. popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+    <!-- 3. Font Awesome Kit -->
+    <script src="https://kit.fontawesome.com/e5e92ab1fd.js" crossorigin="anonymous"></script>
+
+    <!-- 4. `isotope` js plugin -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+
+    <!-- <script src="./js/sort.js"></script> -->
+
+    <script>
+        $(document).ready(function() {
+            console.groupCollapsed('ready() invoked.');
+            console.groupEnd();
+        });
+
+    </script>
+
+    <!-- 
+        study
+        1. bootstrap 적용 시 h1에 font-size가 적용되지 않아서 제거함......ㅜㅜ
+        2. google icon 은 기본 item들이 너무 없음, 활용도 떨어짐......instagram 없어.....
+        3. font는 예시에 사용된 폰트 사용
+        4. a tag rel="noopener noreferrer" : 
+                target="_blank" 일 때 사용되며, 해당 속성 설정 시 페이지 간의 상호작용을 제한하는 역할을한다. (보안관련 기능)
+
+        Q. 
+        1. js - json 파일을 다운로드하여 js 폴더에 넣을 경우 하기 방법으로는 읽어오지 못함
+        2. json 로드 전에 isotope 가 실행되어 tag 로만 다시 진행
+    -->
+</head>
+<body>
+    <header>
+        <h1>YOON's Studo</h1>
+
+        <ul>
+            <li><a href="#" target="_blank"><i class="fab fa-instagram"></i><span>Instagram</span></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-twitter-square"></i><span>Twitter</span></a></li>
+            <li><a href="#" target="_blank"><i class="fab fa-facebook"></i><span>Facebook</span></a></li>
+            <li><a href="#" target="_blank"><i class="fa-regular fa-envelope"></i><span>E-mail</span></a></li>
+        </ul>
+    </header>
+    
+    <main>
+        
+        <div class="filterBtnGroup">
+            <button data-filter="" class="active">Show All</button>
+            <button data-filter=".Drama">Drama</button>
+            <button data-filter=":not(.Drama)">Not Drama</button>
+            <button data-filter=".Comedy">Comedy</button>
+            <button data-filter=".Romance">Romance</button>
+            <button data-filter=".Action">Action</button>
+            <button data-filter=".Musical">Musical</button>
+        </div>
+
+        <section class="grid m_list">
+            <article class="Action Adventure">
+                    <div class="no">01</div>
+                    <div class="home"><a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="./img/p1_smyoon.jpg" alt="p1"></div>
+                    <div class="title">글레디에이터2</div>
+                    <div class="genre">Action, Adventure</div>
+                    <div class="summary">폭군 황제들이 로마를 통치하면서 그의 고향이 정복당한 후, 루시우스는 콜로세움에 들어가야 했고, 과거를 돌아보며 로마의 영광을 국민에게 돌려줄 힘을 찾아야 했습니다.</div>
+            </article>
+            <article class="Drama">
+                    <div class="no">02</div>
+                    <div class="home"><a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="./img/p2_smyoon.jpg" alt="p2"></div>
+                    <div class="title">창설</div>
+                    <div class="genre">Drama</div>
+                    <div class="summary">손으로 설렘을 말하고..<br>가슴으로 사랑을 느끼는, <br>청량한 설렘의 순간</div>
+            </article>
+            <article class="Musical Fantasy">
+                    <div class="no">03</div>
+                    <div class="home"><a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="./img/p3_smyoon.jpg" alt="p3"></div>
+                    <div class="title">위키드</div>
+                    <div class="genre">Musical, Fantasy</div>
+                    <div class="summary">
+                        자신의 진정한 본성을 아직 발견하지 못한 ‘글린다'(아리아나 그란데)<br><br>
+                        전혀 다른 두 사람은 마법 같은 우정을 쌓아간다.
+                        그러던 어느 날, '마법사'의 초대를 받아 에메랄드 시티로 가게 되고 
+                        운명은 예상치 못한 위기와 모험으로 두 사람을 이끄는데…<br><br>
+                        마법 같은 운명의 시작, 누구나 세상을 날아오를 수 있어<br>
+                    </div>
+            </article>
+
+            <article class="Romance">
+                    <div class="no">04</div>
+                    <div class="home"><a href="https://yts.mx/movies/a-reason-for-the-season-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/a_reason_for_the_season_2024/medium-cover.jpg" alt=""></div>
+                    <div class="title">A Reason for the Season</div>
+                    <div class="genre">Romance</div>
+                    <div class="summary">
+                        신탁 기금을 벌기 위해 에비(콜)는 태어난 날 밤 그녀의 생명을 구한 사람들에게 크리스마스 소원을 들어주는 임무를 맡는다. 그녀는 자신의 사명을 돕기 위해 잘생긴 지역 변호사인 카일(맥개리)을 고용해 도움을 준 사람들을 추적하고, 익명을 유지하면서 그들이 무엇을 원하는지 비밀리에 알아내려고 한다. 크리스마스가 다가오면서 상속녀와 변호사는 선물을 주기 위해 노력하면서 서로의 매력에 빠지지 않을 수 없다. 하지만 시간이 지날수록 그녀는 임무를 완수하고 크리스마스 이브까지 모든 소원을 들어줄 수 있을까?
+                    </div>
+            </article>
+
+            <article class="Drama Romance">
+                    <div class="no">05</div>
+                    <div class="home"><a href="https://yts.mx/movies/woman-wanted-1999" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">1999</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/woman_wanted_1999/medium-cover.jpg" alt=""></div>
+                    <div class="title">Woman Wanted</div>
+                    <div class="genre">Drama, Romance</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Horror">
+                    <div class="no">06</div>
+                    <div class="home"><a href="https://yts.mx/movies/silent-bite-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/silent_bite_2024/medium-cover.jpg" alt=""></div>
+                    <div class="title">Silent Bite</div>
+                    <div class="genre">Horror</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Drama">
+                    <div class="no">07</div>
+                    <div class="home"><a href="https://yts.mx/movies/six-weeks-1982" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">1982</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/six_weeks_1982/medium-cover.jpg" alt=""></div>
+                    <div class="title">Six Weeks</div>
+                    <div class="genre">Drama</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Comedy Horror Thriller">
+                    <div class="no">08</div>
+                    <div class="home"><a href="https://yts.mx/movies/deer-camp-86-2022" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2022</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/deer_camp_86_2022/medium-cover.jpg" alt=""></div>
+                    <div class="title">Deer Camp '86</div>
+                    <div class="genre">Comedy, Horror, Thriller</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Family Comedy">
+                    <div class="no">09</div>
+                    <div class="home"><a href="https://yts.mx/movies/christmas-with-the-singhs-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/christmas_with_the_singhs_2024/medium-cover.jpg" alt=""></div>
+                    <div class="title">Christmas with the Singhs</div>
+                    <div class="genre">Family, Comedy</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Action Game-Show Reality-TV Sport">
+                    <div class="no">10</div>
+                    <div class="home"><a href="https://yts.mx/movies/jake-paul-vs-mike-tyson-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2024</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/jake_paul_vs_mike_tyson_2024/medium-cover.jpg" alt=""></div>
+                    <div class="title">Jake Paul vs. Mike Tyson</div>
+                    <div class="genre">Action,Game-Show,Reality-TV,Sport</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Action Drama">
+                    <div class="no">11</div>
+                    <div class="home"><a href="https://yts.mx/movies/soul-of-the-sword-1978" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">1978</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/soul_of_the_sword_1978/medium-cover.jpg" alt=""></div>
+                    <div class="title">Soul of the Sword</div>
+                    <div class="genre">Action,Drama</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Drama Romance War">
+                    <div class="no">12</div>
+                    <div class="home"><a href="https://yts.mx/movies/the-proud-and-profane-1956" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">1956</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/the_proud_and_profane_1956/medium-cover.jpg" alt=""></div>
+                    <div class="title">The Proud and Profane</div>
+                    <div class="genre">Drama,Romance,War</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Comedy Drama Musical Romance">
+                    <div class="no">13</div>
+                    <div class="home"><a href="https://yts.mx/movies/har-dil-jo-pyar-karega-2000" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                    <div class="year">2000</div>
+                    <div class="poster"><img src="https://yts.mx/assets/images/movies/har_dil_jo_pyar_karega_2000/medium-cover.jpg" alt=""></div>
+                    <div class="title">Har Dil Jo Pyar Karega...</div>
+                    <div class="genre">Comedy,Drama,Musical,Romance</div>
+                    <div class="summary"></div>
+            </article>
+
+            <article class="Romance">
+                <div class="no">14</div>
+                <div class="home"><a href="https://yts.mx/movies/unwrapping-christmas-mias-prince-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2024</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/unwrapping_christmas_mias_prince_2024/medium-cover.jpg" alt=""></div>
+                <div class="title">Unwrapping Christmas: Mia's Prince</div>
+                <div class="genre">Romance</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Comedy">
+                <div class="no">15</div>
+                <div class="home"><a href="https://yts.mx/movies/katt-williams-great-america-2018" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2018</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/katt_williams_great_america_2018/medium-cover.jpg" alt=""></div>
+                <div class="title">Katt Williams: Great America</div>
+                <div class="genre">Comedy</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Adventure Animation Comedy Family">
+                <div class="no">16</div>
+                <div class="home"><a href="https://yts.mx/movies/steal-the-naughty-list-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2024</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/steal_the_naughty_list_2024/medium-cover.jpg" alt=""></div>
+                <div class="title">Steal the Naughty List</div>
+                <div class="genre">Adventure,Animation,Comedy,Family</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Comedy Romance">
+                <div class="no">17</div>
+                <div class="home"><a href="https://yts.mx/movies/two-chefs-and-a-wedding-cake-2023" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2023</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/two_chefs_and_a_wedding_cake_2023/medium-cover.jpg" alt=""></div>
+                <div class="title">Two Chefs and a Wedding Cake</div>
+                <div class="genre">Comedy,Romance</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Crime">
+                <div class="no">18</div>
+                <div class="home"><a href="https://yts.mx/movies/flesh-and-bullets-1985" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">1985</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/flesh_and_bullets_1985/medium-cover.jpg" alt=""></div>
+                <div class="title">Flesh and Bullets</div>
+                <div class="genre">Crime</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Action Drama Thriller">
+                <div class="no">19</div>
+                <div class="home"><a href="https://yts.mx/movies/black-thunder-1998" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">1998</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/black_thunder_1998/medium-cover.jpg" alt=""></div>
+                <div class="title">Black Thunder</div>
+                <div class="genre">Action,Drama,Thriller</div>
+                <div class="summary"></div>
+            </article>
+
+            <article class="Action Drama">
+                <div class="no">20</div>
+                <div class="home"><a href="https://yts.mx/movies/get-fast-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2024</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/get_fast_2024/medium-cover.jpg" alt=""></div>
+                <div class="title">Get Fast</div>
+                <div class="genre">Action,Drama</div>
+                <div class="summary"></div>
+            </article>
+            <article class="Drama Romance">
+                <div class="no">21</div>
+                <div class="home"><a href="https://yts.mx/movies/a-bird-of-the-air-2011" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2011</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/a_bird_of_the_air_2011/medium-cover.jpg" alt=""></div>
+                <div class="title">A Bird of the Air</div>
+                <div class="genre">Drama,Romance</div>
+                <div class="summary"></div>
+            </article>
+            <article class="Animation Family Fantasy Musical">
+                <div class="no">22</div>
+                <div class="home"><a href="https://yts.mx/movies/the-night-before-christmas-in-wonderland-2024" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2024</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/the_night_before_christmas_in_wonderland_2024/medium-cover.jpg" alt=""></div>
+                <div class="title">The Night Before Christmas in Wonderland</div>
+                <div class="genre">Animation,Family,Fantasy,Musical</div>
+                <div class="summary"></div>
+            </article>
+            <article class="History Musical">
+                <div class="no">23</div>
+                <div class="home"><a href="https://yts.mx/movies/titanic-the-musical-2023" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2023</div>
+                <div class="poster"><img src="https://yts.mx/assets/images/movies/titanic_the_musical_2023/medium-cover.jpg" alt=""></div>
+                <div class="title">Titanic: The Musical</div>
+                <div class="genre">History,Musical</div>
+                <div class="summary"></div>
+            </article>
+            <article class="Musical">
+                <div class="no">24</div>
+                <div class="home"><a href="#" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-house-chimney" aria-hidden="true"></i></a></div>
+                <div class="year">2024</div>
+                <div class="poster"><img src="./img/p4_smyoon.jpg" alt="p4" width="230"></div>
+                <div class="title">title4</div>
+                <div class="genre">genres</div>
+                <div class="summary">summary &amp; description</div>
+            </article>
+        </section>
+
+        <script>
+            window.addEventListener('load', e => {
+                console.log('window load event')
+                var $grid = $('.grid').isotope({
+                    itemSelector: 'article',
+                    layoutMode: 'masonry',
+                    masonry: {
+                        columnWidth: 'article',
+                        horizontalOrder: false, //기본값, 정렬시 높이 순서에 따라 정렬,   true: 높이 상관없이 순서대로 정렬
+                    }
+                });
+                
+                $grid.on( 'arrangeComplete', function( event, filteredItems ) {
+                    console.log( 'arrangeComplete with ' + filteredItems.length + ' items' );
+                });
+
+                $('.filterBtnGroup').on( 'click', 'button', function() {
+                    console.log('filterBtnGroup this : ' , this);
+                    //console.log('data-filter : ' , $(this).attr('data-filter'));
+
+                    $('.filterBtnGroup').find('.active').removeClass('active'); 
+
+                    var filterValue = $(this).attr('data-filter');
+                    $grid.isotope({ filter: filterValue });
+
+                    $(this).addClass('active');
+                });
+            });
+
+        </script>
+
+    </main>
+    
+    <script>
+    </script>
+
+</body>
+</html>
