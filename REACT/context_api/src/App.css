@@ -1,0 +1,13 @@
+.root,
+
+.root div{
+    margin : 10px;
+    padding: 10px;
+    border : 10px solid purple;
+}
+
+#sub1 {
+    color: green;
+
+    text-align: center;
+}
