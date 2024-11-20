@@ -1,0 +1,31 @@
+.container {
+    margin: 20px auto;
+    padding: 20px;
+    width: 100%;
+    max-width: 960px;
+    border-radius: 5px;
+    box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25), 0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+
+    background-color: white;
+    font-weight: 300;
+}
+.h2 {
+    margin: 0;
+    padding: 5px;
+
+    color: green;
+
+    font-size: 32px;
+    font-family: economica;
+    font-weight: bold;
+}
+.paragraph {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+    font-family: economica;
+    font-weight: 500;
+
+    color: rgb(141, 26, 26);
+}

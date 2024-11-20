@@ -1,0 +1,15 @@
+.paragraph {
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    font-size: 26px;
+    font-family: economica;
+    font-weight: bold;
+    
+    text-align: center;
+    color: black;
+}
+
+a{
+    text-decoration: none;
+}
