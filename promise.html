@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //계좌이체 (transfer) 알고리즘은 아래와 같습니다.
+      //Step1. 본인 확인 수행
+      //Step2. 계좌의 유효성 검증 수행
+      //Step3. 소스 계좌의 잔고 확인
+      //Step4. 이체 실행
+
+      console.clear();
+      console.group("Transfer Started");
+      console.time("Transfer Elapsed Time");
+
+      const promise = new Promise(function (resolve, rejected) {
+        const maxSeconds = 10;
+
+        function step1() {
+          console.debug("Step1. 본인 확인 수행중...");
+
+          let x = Math.random();
+                if( 0.0 <= x < 0.3 ) {   // 로직 실패
+                    reject('Step1');
+                } else if( 0.3 <= x < 0.7) {    // 로직 성공
+                    ;;
+                } else {    // 오류발생
+                    throw new Error('Step1');
+                }
+        }
+
+        function step2() {
+          console.debug("Step2. 계좌의 유효성 검증 수행중...");
+
+          let x = Math.random();
+                if( 0.0 <= x < 0.3 ) {   // 로직 실패
+                    reject('Step2');
+                } else if( 0.3 <= x < 0.7) {    // 로직 성공
+                    ;;
+                } else {    // 오류발생
+                    throw new Error('Step2');
+                }
+        }
+
+        function step3() {
+          console.debug("Step3. 소스 계좌의 잔고 확인중...");
+
+          let x = Math.random();
+                if( 0.0 <= x < 0.3 ) {   // 로직 실패
+                    reject('Step3');
+                } else if( 0.3 <= x < 0.7) {    // 로직 성공
+                    ;;
+                } else {    // 오류발생
+                    throw new Error('Step3');
+                }
+        }
+
+        function step4() {
+          console.debug("Step4. 이체 실행...");
+
+          let x = Math.random();
+                if( 0.0 <= x < 0.3 ) {   // 로직 실패
+                    reject('Step4');
+                } else if( 0.3 <= x < 0.7) {    // 로직 성공
+                    ;;
+                } else {    // 오류발생
+                    throw new Error('Step4');
+                }
+        }
+
+        let durationTime1 = Math.floor(Math.random() * maxSeconds + 1);
+        console.log(`Step1 Started(timeout: ${durationTime1}).`);
+        setTimeout(step1, 1000 * durationTime1);
+
+        let durationTime2 = Math.floor(Math.random() * maxSeconds + 1);
+        console.log(`Step2 Started(timeout: ${durationTime2}).`);
+        setTimeout(step2, 1000 * durationTime2);
+
+        let durationTime3 = Math.floor(Math.random() * maxSeconds + 1);
+        console.log(`Step3 Started(timeout: ${durationTime3}).`);
+        setTimeout(step3, 1000 * durationTime3);
+
+        let durationTime4 = Math.floor(Math.random() * maxSeconds + 1);
+        console.log(`Step4 Started(timeout: ${durationTime4}).`);
+        setTimeout(step4, 1000 * durationTime4);
+
+        
+      });
+
+      promise.
+        then(result => console.log(result)).
+        catch(error => console.log(error)).
+        finally(()=> console.log("Done")).
+
+      console.timeEnd("Transfer Elapsed Time");
+      console.groupEnd();
+    </script>
+  </body>
+</html>
