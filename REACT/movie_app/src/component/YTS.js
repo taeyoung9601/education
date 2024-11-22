@@ -23,9 +23,9 @@ class YTS extends Component {
                 </nav>
                 <hr/>
                 <Routes>
-                    <Route path={'/'} element={<Home/>} caseSensitive={true}/>
-                    <Route path={'/about'} element={<About/>} caseSensitive={true}/>
-                    <Route path={'/movie/:id'} element={<Detail/>} caseSensitive={true}/>
+                    <Route path='/' element={<Home/>} caseSensitive={true}/>
+                    <Route path='/about' Component={About} caseSensitive={true}/>
+                    <Route path='/movie/:id' element={<Detail/>} caseSensitive={true}/>
                 </Routes>
             </div>
         );

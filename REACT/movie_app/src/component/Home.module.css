@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+.movies {
+    width: 80%;
+    padding: 50px;
+    padding-top: 70px;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(450px, 1fr));
+    grid-gap: 50px;
+}
+/* @media screen and (max-width: 1090px) { */
+@media screen {
+    .movies {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+}
+

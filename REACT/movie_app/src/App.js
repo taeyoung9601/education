@@ -1,3 +1,5 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 import styles from"./App.module.css";
 import {YTSMovies} from './component';
 
