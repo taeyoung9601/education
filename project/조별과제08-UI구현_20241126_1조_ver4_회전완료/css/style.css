@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/*
+      <article class="on">
+        <div class="article_inner">
+
+          <div class="front_content">
+            <img src="./img/006.png" />
+          </div>
+
+          <div class="back_content">
+            <div class="pic"></div>
+            <div class="txt">
+              <h2>물병자리</h2>
+              <p>01.20. ~ 02.18</p>
+              <ul>
+                <li class="pause"><i class="fas fa-pause"></i></li>
+                <li class="play"><i class="fas fa-play"></i></li>
+              </ul>
+              <audio src="audio/1.mp3"></audio>
+            </div>
+          </div>
+
+        </div>
+      </article>
+*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Ubuntu", "Sunflower", sans-serif;
+  color: #333;
+}
+ul, ol {
+    list-style-type: none;
+}
+
+figure {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/back3.jpg");
+  background-size: cover;
+}
+
+section {
+  width: 20VW;
+  height: 65vh;
+  margin-top: 65vh;
+  margin-left: -10vw;
+  border: 5px double hotpink;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+}
+article {
+  width: 100%;
+  height: 100%;
+  perspective: 1000px;
+  cursor: pointer;
+  opacity: 0.8;
+  
+  /* 8 개의 모든 article 요소의 영역을 겹치게 함 */
+    position: absolute;
+  top: 0px;
+  left: 0px;
+
+}
+.article_inner {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  transform-style: preserve-3d; /* preserve-3d: 자식 요소가 3D 공간에서의 배치를 유지하도록 설정 */
+  transition: opacity 1s, transform 1s;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, .1);
+    /* opacity: .6; */
+}
+.article_inner {
+    transform: scale(.8);
+
+}
+article:hover .article_inner {
+  transform: scale(1.0) rotateY(180deg);
+}
+article.on:hover .article_inner {
+  transform: rotateY(180deg);
+}
+article.on:hover .back_content {
+  box-shadow: 5px 5px 10px rgb(255 0 0 / 0.5);
+  backface-visibility:visible;
+  transform: rotateY(180deg);
+}
+article.on .article_inner{
+  opacity: .9;
+  transform: scale(1.0);
+}
+
+/* == front_content ========================================== */
+.front_content {
+  box-shadow: 3px 3px 10px rgb(75 53 125 / 80%);
+  backface-visibility: hidden; /* 해당 요소의 뒷면을 없앤다. y축 180도 회전시 내용이 안보임 */
+}
+.front_content img {
+  width: 100%;
+  border-radius: 15px;
+}
+
+/* == back_content ========================================== */
+
+.back_content {
+  width: 100%;
+  height: 65vh;
+  padding: 5vh 2.5vw 8vh;
+  backface-visibility: hidden;
+  background-color: #f0f7ff;
+  box-shadow: 5px 5px 10px rgb(255 0 0 / 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  transform: rotateY(180deg);
+}
+.back_content {
+
+}
+
+/* == back_content / pic ========================================== */
+
+.back_content .pic {
+  width: 15vw;
+  height: 15vw;
+  margin: 0px auto;
+  border-radius: 50%;
+  background-repeat: no-repeat;
+  background-position: 200% 200%;
+  
+  position: relative;
+}
+.back_content .pic::before,
+.back_content .pic::after  {
+/* 본 요소에 설정값 들을 상속받아온다...백이미지까지... */
+
+  content: '';
+  display: block;
+
+  width: inherit;
+  height: inherit;
+  border-radius: inherit;
+  
+  position: absolute;
+  top: 0px;
+  left: 0px; 
+
+  background-image: inherit;
+  background-position: center;
+  background-repeat: inherit;
+  background-size: 230%;
+
+  transform-origin: center center;
+}
+.back_content .pic::before{
+  transform: translateY(10%); 
+  filter: blur(20px) brightness(1.6) hue-rotate(10deg);
+}
+
+
+/* == back_content / txt ========================================== */
+
+.back_content .txt {
+  margin-top:5vh;
+}
+.back_content .txt h2 {
+    margin-bottom: 2vh;
+    font-size: 24px;
+}
+.back_content .txt p {
+    margin-bottom: 3vh;
+
+    font-size: 14px;
+    color: #777;
+}
+.back_content .txt ul {
+    display: flex;
+    justify-content: space-around;
+}
+.back_content .txt ul li {
+    cursor: pointer;
+    opacity: .6;
+
+    transition: .5s;
+}
+.back_content .txt ul li.play,
+.back_content .txt ul li.pause {
+  transform: scale(1.5);
+  opacity: 0.9;
+}
+.back_content .txt ul li:hover {
+  transform: scale(1.5);
+  opacity: 0.8;
+}
+.back_content .txt ul li.play:hover {
+  transform: scale(2);
+  opacity: 1;
+}
+
+.display_none {
+  display: none;
+}
+
+/* ============================================ */
+
+@keyframes album_cover {
+    0%      { transform: rotate(0deg); }
+    100%    { transform: rotate(360deg); }
+}
+
+@keyframes album_shadow {
+    0%      { transform: translateY(10%) rotate(0deg); }
+    100%    { transform: translateY(10%) rotate(360deg); }
+}
+
+.back_content .pic.on::after {
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: album_cover 3s linear 0s infinite;
+}
+.back_content .pic.on::before {
+    /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+    animation: album_shadow 3s linear 0s infinite;
+}
+
+
+/* === btnPrev ========================================= */
+figure .btnPrev {
+  width: 60px;
+  height: 60px;
+
+  position: absolute;
+  top: 30%;
+  left: 53%;
+
+  transform: translate(-20vw, -50%);
+
+  display: flex;
+  align-items: center;
+
+  text-align: center;
+  cursor: pointer;
+}
+figure .btnPrev span {
+  font-size: 30px;
+  font-family: Ubuntu;
+  line-height: 1;
+  font-weight: bold;
+
+  color: white;
+  opacity: 1;
+  text-shadow: 3px 3px 10px #222;
+
+  transform: translateX(30%);
+  transition: .5s;
+}
+figure .btnPrev::before {
+  content: '';
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: white;
+
+  position: absolute;
+  top: 50%;
+  left: 0px;
+
+  transform-origin: left center;
+  transform: rotate(-180deg);
+
+  transition: .5s;
+}
+figure .btnPrev::after {
+  content: '';
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: white;
+
+  position: absolute;
+  bottom: 50%;
+  left: 0px;
+
+  transform-origin: left center;
+  transform: rotate(180deg);
+
+  transition: .5s;
+}
+figure .btnPrev:hover span {
+  opacity: 0;
+
+  transform: translateX(100%);
+}
+figure .btnPrev:hover::before {
+  transform: rotate(-30deg);
+  height: 3px;
+}
+figure .btnPrev:hover::after {
+  transform: rotate(30deg);
+  height: 3px;
+}
+
+/* ===  ========================================= */
+figure .btnNext {
+  width: 60px;
+  height: 60px;
+
+  position: absolute;
+  top: 30%;
+  right: 53%;
+
+  transform: translate(20vw, -50%);
+
+  display: flex;
+  align-items: center;
+
+  text-align: center;
+  cursor: pointer;
+}
+figure .btnNext span {
+  font-size: 30px;
+  font-family: Ubuntu;
+  line-height: 1;
+  font-weight: bold;
+  text-shadow: 3px 3px 10px #222;
+  color: white;
+
+  opacity: 1;
+  transform: translateX(-30%);
+
+  transition: .5s;
+}
+figure .btnNext::before {
+  content: '';
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: white;
+
+  position: absolute;
+  top: 50%;
+  left: 0px;
+
+  transform-origin: right center;
+  transform: rotate(180deg);
+
+  transition: .5s;
+}
+figure .btnNext::after {
+  content: '';
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background-color: white;
+
+  position: absolute;
+  bottom: 50%;
+  left: 0px;
+
+  transform-origin: right center;
+  transform: rotate(-180deg);
+
+  transition: .5s;
+}
+figure .btnNext:hover span {
+  opacity: 0;
+
+  transform: translateX(-100%);
+}
+figure .btnNext:hover::before {
+  transform: rotate(30deg);
+  height: 3px;
+}
+figure .btnNext:hover::after {
+  transform: rotate(-30deg);
+  height: 3px;
+}
