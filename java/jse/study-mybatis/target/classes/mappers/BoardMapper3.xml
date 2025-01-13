@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: package, id : class == FQCN -->
+<!-- 여러 개의 Mapper XML 마다, namespace 이름이 있기 댸문에,
+이 namespace 값도 고유해야 하고, 유의미하게 명명해야합니다 -->
+<mapper namespace="org.zerock.myapp.mapper.BoardMapper3">
+
+	<resultMap id="findAllBoardsAsUserResultMap" type="org.zerock.myapp.domain.BoardDTO">
+		<id property="bno" column="bno"/>
+		
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<result property="insertTs" column="insert_ts"/> 	<!--컬럼의 복합단어는 카멜기법말고 _사용하는 것이 관례-->
+		<result property="updateTs" column="update_ts"/>
+
+
+	</resultMap>
+	
+    <select id="findAllBoardsAsUserResultMap" resultMap="findAllBoardsAsUserResultMap">
+    	SELECT *  <!-- + index_desc(tbl_board) -->
+		FROM TBL_BOARD
+		WHERE bno > 0
+    </select>
+
+	<!---->
+
+	<resultMap id="findBoardByBnoAsUserResultMap" type="org.zerock.myapp.domain.BoardDTO">
+		<id property= "bno" column="bno" />
+		
+		<result property="title" column="title" />
+	</resultMap>
+	
+	<select id="findBoardByBnoAsUserResultMap" resultMap="findBoardByBnoAsUserResultMap">
+        <!--SELECT *-->
+        SELECT bno,title
+        FROM tbl_board
+        <!-- WHERE bno = #{바인드변수명} -->
+        WHERE bno = #{bno}
+	</select>
+	
+	<!---->
+	
+	<resultMap id="findBoardsByTitleAsUserResultMap" type="org.zerock.myapp.domain.CustomBoard">
+		<id property="myId" column="bno"/>
+		<result property="myContent" column="content"/>
+		<result property="myTitle" column="title"/>
+		<result property="myCreatedDate" column="insert_ts"/>
+	</resultMap>
+	
+	<select id="findBoardsByTitleAsUserResultMap" resultMap="findBoardsByTitleAsUserResultMap">
+        SELECT bno,content,title,insert_ts
+        FROM tbl_board
+        WHERE title LIKE '%'|| #{title} ||'%'
+	</select>
+	
+	<!---->
+	
+    <select id="findBoardsBnoOrTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE 
+            bno = #{bno}
+            OR title LIKE '%'|| #{title} ||'%'
+    </select>
+
+    
+</mapper>

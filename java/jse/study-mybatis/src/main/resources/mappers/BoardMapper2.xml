@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: package, id : class == FQCN -->
+<!-- 여러 개의 Mapper XML 마다, namespace 이름이 있기 댸문에,
+이 namespace 값도 고유해야 하고, 유의미하게 명명해야합니다 -->
+<mapper namespace="org.zerock.myapp.mapper.TaeMapper">
+
+    <select id="selectAllBoards" resultType="org.zerock.myapp.domain.BoardDTO">
+    	SELECT *  <!-- + index_desc(tbl_board) -->
+		FROM TBL_BOARD
+		WHERE bno > 0
+    </select>
+
+	<select id="findBoardByBno" resultType="org.zerock.myapp.domain.BoardDTO">
+        <!--SELECT *-->
+        SELECT bno,title
+        FROM tbl_board
+        <!-- WHERE bno = #{바인드변수명} -->
+        WHERE bno = #{bno}
+	</select>
+	
+	<select id="findBoardsByTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE title LIKE '%'|| #{title} ||'%'
+	</select>
+	
+    <select id="findBoardsBnoOrTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE 
+            bno = #{bno}
+            OR title LIKE '%'|| #{title} ||'%'
+    </select>
+
+    
+</mapper>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace: package, id : class == FQCN -->
+<!-- 여러 개의 Mapper XML 마다, namespace 이름이 있기 댸문에,
+이 namespace 값도 고유해야 하고, 유의미하게 명명해야합니다 -->
+<mapper namespace="TaeMapper">
+
+    <select id="selectAllBoards" resultType="org.zerock.myapp.domain.BoardVO">
+    	SELECT *  <!-- + index_desc(tbl_board) -->
+		FROM TBL_BOARD
+		WHERE bno > 0
+    </select>
+
+	<!--<select id="findBoardByBno" resultType="org.zerock.myapp.domain.BoardVO">-->
+	<select id="findBoardByBno" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT bno,title
+        FROM tbl_board
+        <!-- WHERE bno = #{바인드변수명} -->
+        <!--WHERE bno = #{bno}-->
+        WHERE
+        	<if test="bno != null">
+        		bno = #{bno}
+        	</if>
+	</select>
+	
+	<select id="findBoardsByTitle" resultType="org.zerock.myapp.domain.BoardVO">
+        SELECT *
+        FROM tbl_board
+        <!--WHERE title LIKE '%'|| #{title} ||'%'-->
+       	<where>
+       		<if test="title != null">
+       			title LIKE '%'|| #{title} ||'%'
+       		</if>
+       	</where>
+	</select>
+	
+	
+    <select id="findBoardsBnoOrTitle" resultType="org.zerock.myapp.domain.BoardVO">
+        SELECT *
+        FROM tbl_board
+        <!--WHERE 
+            bno = #{bno}
+            OR title LIKE '%'|| #{title} ||'%'-->
+            
+        <!--<where>
+        	<if test="bno != null">
+        		bno = #{bno}
+        	</if>
+        	
+        	<if test="title != null">
+        		title LIKE '%'|| #{title} ||'%'
+        	</if>
+        </where>-->
+        
+        <!--Case2. <choose>, <when>, <otherwise> tags-->
+        <where>
+        	<choose>
+        		<when test="bno != null">
+        			bno = #{bno}
+        		</when>
+        		
+        		<when test="title != null">
+        			OR title LIKE '%'|| #{title} ||'%'
+        		</when>
+        		
+        		<otherwise>
+        			bno > 0
+        		</otherwise>
+        	</choose>
+        </where>
+    </select>
+
+    <!-- 모든 DML 문장에 대한 resultType 속성은 이미 int로 고정되어 있기 때문에 오히려 지정하시면 오류가 발생합니다 -->
+
+    <insert id="insertBoard" >
+        INSERT INTO tbl_board(title,content,writer)
+        VALUES(#{title},#{content},#{writer})
+    </insert>
+    
+    
+</mapper>
