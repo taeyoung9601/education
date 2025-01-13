@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.myapp.mapper.YosephMapper">
+
+    <select id="selectAllBoards" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT /*+ index_desc(tbl_board) */ *
+        FROM tbl_board
+        WHERE bno > 0
+    </select>
+
+    <select id="findBoardByBno" resultType="org.zerock.myapp.domain.BoardDTO">
+    <!-- <select id="findBoardByBno" resultType="org.zerock.myapp.domain.BoardVO"> -->   <!-- XX -->
+        <!-- SELECT * -->
+        SELECT bno, title
+        FROM tbl_board
+        WHERE bno = #{bno}
+    </select>
+
+    <select id="findBoardsByTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE title LIKE '%' || #{title} || '%'
+    </select>
+
+    <select id="findBoardsByBnoOrTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE
+            bno = #{bno}
+            OR title LIKE '%' || #{title} || '%'
+    </select>
+
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.myapp.mapper.BoardMapper3">
+
+    <resultMap id="findAllBoardsAsUserResultMap" type="org.zerock.myapp.domain.BoardDTO">
+        <id property="bno" column="bno" />
+        
+        <result property="title" column="title" />
+        <result property="content" column="content" />
+        <result property="writer" column="writer" />
+        <result property="insertTs" column="insert_ts" />
+        <result property="updateTs" column="update_ts" />
+    </resultMap>
+
+    <select id="findAllBoardsAsUserResultMap" resultMap="findAllBoardsAsUserResultMap">
+        SELECT /*+ index_desc(tbl_board) */ *
+        FROM tbl_board
+        WHERE bno > 0
+    </select>
+
+    <resultMap id="findBoardByBnoAsUserResultMap" type="org.zerock.myapp.domain.BoardDTO">
+        <id property="bno" column="bno" />
+        <result property="title" column="title" />
+    </resultMap>
+
+    <select id="findBoardByBnoAsUserResultMap" 
+                resultMap="findBoardByBnoAsUserResultMap">
+        SELECT bno, title
+        FROM tbl_board
+        WHERE bno = #{bno}
+    </select>
+
+    <resultMap id="findBoardsByTitleAsUserResultMap" type="org.zerock.myapp.domain.CustomBoard">
+        <id column="bno" property="myId" />
+
+        <result column="content" property="myContent" />
+        <result column="title" property="myTitle" />
+        <result column="insert_ts" property="myCreatedDate" />
+    </resultMap>
+
+    <select id="findBoardsByTitleAsUserResultMap" resultMap="findBoardsByTitleAsUserResultMap">
+        SELECT bno, content, title, insert_ts
+        FROM tbl_board
+        WHERE title LIKE '%' || #{title} || '%'
+    </select>
+
+    <select id="findBoardsByBnoOrTitle" resultType="org.zerock.myapp.domain.BoardDTO">
+        SELECT *
+        FROM tbl_board
+        WHERE
+            bno = #{bno}
+            OR title LIKE '%' || #{title} || '%'
+    </select>
+
+</mapper>
