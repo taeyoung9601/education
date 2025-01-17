@@ -1,0 +1,697 @@
+************************************************
+* 4. How to use `mysql` ?
+************************************************
+
+
+1. Goals
+
+	The client for MySQL server
+
+2. Usages
+
+	> mysql.exe [OPTIONS] [database]
+
+3. Important options
+
+	(01) -u, --user=name     	User for login if not current user. (*** 1.)
+	(02) -p, --password[=name] 	Password to use when connecting to server.  (*** 2.)
+								If password is not given, it's asked from the tty.
+	(03) -P, --port=#        	Port number to use for connection or 0 for default to,  (*** 3.)
+								in order of preference, my.cnf, $MYSQL_TCP_PORT, /etc/services, built-in default (3306).
+	(04) -h, --host=name     	Connect to host. (*** 4.)
+	(05) --reconnect         	Reconnect if the connection is lost. (***)
+								Disable with `--disable-reconnect`.
+
+								This option is enabled by default.
+                      			Defaults to on; use `--skip-reconnect` to disable.
+    (06) -w, --wait          	Wait and retry if connection is down. (***)
+    (07) --connect-timeout=# 	Number of seconds before connection timeout.
+    (08) -v, --verbose       	Write more. (-v -v -v gives the table output format). (***)
+    (09) -V, --version       	Output version information and exit.
+    (10) -D, --database=name 	Database to use. (*** 5.)
+    (11) -t, --table         	Output in table format. (*** 6.)
+    (12) -G 					Display result set in row form instead of column form.
+
+
+4. Examples
+
+	
+	-------------------------
+	01. Check cli-based MySQL client version.
+	-------------------------
+	> mysql -V
+	> mysql --version
+	-------------------------
+	mysql.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+
+	-------------------------
+	02. Sign in local MySQL server with 
+		(1) Default IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listen to 				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Default password 										(*NOT* set, No password)
+	-------------------------
+
+	> mysql <enter> 				// Default `root@localhost`
+
+	mysql> SELECT user();			// <--- ***
+	+----------------+
+	| user()         |
+	+----------------+
+	| root@localhost |
+	+----------------+
+	1 row in set (0.00 sec)
+
+	mysql> SELECT schema();			// <--- ***
+	+----------+
+	| schema() |
+	+----------+
+	| NULL     |
+	+----------+
+	1 row in set (0.00 sec)
+
+
+	> mysql -u root					// Default root password is *NOT* set.
+
+
+	-------------------------
+	03. Sign in local MySQL server with 
+		(1) Default IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listen to				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Password Prompt
+	-------------------------
+	> mysql -u root -p
+	-------------------------
+	Enter password:	<Just Enter>	// Default root password is *NOT* set.
+
+
+	-------------------------
+	04. Sign in MySQL server with
+		(1) Specific IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listen to				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Default password										(*NOT* set, No password)
+	-------------------------
+	> mysql -h localhost -u root	// Default root password is *NOT* set.
+	> mysql -h 127.0.0.1 -u root	// Default root password is *NOT* set.
+	-------------------------
+
+
+	-------------------------
+	05. Sign in MySQL server with
+		(1) Specific IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listen to 				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Password Prompt
+	-------------------------
+	> mysql -h localhost -u root -p
+	> mysql -h 127.0.0.1 -u root -p
+	-------------------------
+	Enter password:	<Just Enter>	// Default root password is *NOT* set.
+
+
+	-------------------------
+	06. Sign in MySQL server with 
+		(1) Default IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Specific Port which MySQL server listen to 				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Default password										(*NOT* set, No password)
+	-------------------------
+	> mysql -u root -P 0 			// 0 for default to 3306 port.
+	> mysql -u root -P 3306 		// set 3306 port to connect.
+	-------------------------
+
+
+	-------------------------
+	07. Sign in MySQL server with 
+		(1) Default IP address in which MySQL server is installed (localhost == 127.0.0.1)
+		(2) Specific Port which MySQL server listens (default Listen Port = 3306)
+		(3) root Account
+		(4) Password Prompt
+	-------------------------
+	> mysql -u root -P 0 -p 		// 0 for default to 3306 port.
+	> mysql -u root -P 3306 -p 		// set 3306 port to connect.
+	-------------------------
+	Enter password:	<Just Enter>	// Default root password is *NOT* set.
+
+
+	-------------------------
+	08. Sign in MySQL server with 
+		(1) Specific hostname in which MySQL server is installed 	(vfx-asus => hostname)
+		(2) Default Port which MySQL server listens 				(default Listen Port = 3306)
+		(3) root Account											(root: super-user account)
+		(4) Default password										(*NOT* set, No password)
+	-------------------------
+	> mysql -u root -h vfx-asus 	// hostname `vfx-asus` *NOT* registered to the authentication
+	-------------------------
+	ERROR 1130 (HY000): Host 'vfx-asus' is not allowed to connect to this MySQL server
+
+
+	-------------------------
+	09. Sign in MySQL server with 
+		(1) Specific hostname in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listens 				(default Listen Port = 3306)
+		(3) root Account											(root: super-user account)
+		(4) Password Prompt
+		(5) Reconnect if the connection is lost 					(--reconnect option)
+	-------------------------
+	> mysql -u root -h localhost -p --reconnect
+	-------------------------
+	Enter password:	<Just Enter>	// Default root password is *NOT* set.
+
+
+	-------------------------
+	10. Sign in MySQL server with 
+		(1) Specific hostname in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listens 				(default Listen Port = 3306)
+		(3) root Account 											(root: super-user account)
+		(4) Password Prompt
+		(5) Wait and retry if connection is down 					(--wait option. *****)
+	-------------------------
+	> mysql -u root -h localhost -p --wait
+	-------------------------
+	Enter password:	<Just Enter>	// Default root password is *NOT* set.
+
+
+	-------------------------
+	11. Sign in MySQL server with 
+		(1) Default IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listens 				(default Listen Port = 3306)
+		(3) root Account											(root: super-user account)
+		(4) Default password										(*NOT* set, No password)
+		(5) Number of seconds before connection timeout 			(--connect-timeout=10 option, 10 secs)
+	-------------------------
+	> mysql -u root --connect-timeout=10
+	-------------------------
+
+
+	-------------------------
+	12. Sign in MySQL server with 
+		(1) Default IP address in which MySQL server is installed 	(localhost == 127.0.0.1)
+		(2) Default Port which MySQL server listens 				(default Listen Port = 3306)
+		(3) root Account											(root: super-user account)
+		(4) Default password										(*NOT* set, No password)
+		(5) Use `mysql` database(=schema) 							(`mysql` database/schema)
+	-------------------------
+	> mysql -u root mysql
+	-------------------------
+
+
+4. The usage of mysql prompt
+
+	-------------------------
+	> mysql -u root
+	-------------------------
+
+	Welcome to the MySQL monitor.  Commands end with ; or \g.
+	Your MySQL connection id is 8
+	Server version: 8.0.36 MySQL Community Server - GPL
+
+	Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+	Oracle is a registered trademark of Oracle Corporation and/or its
+	affiliates. Other names may be trademarks of their respective
+	owners.
+
+	Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+	mysql>
+
+
+	-------------------------
+	mysql> \h 					// for help
+	mysql> help 				// Ditto.
+	mysql> ? 					// Ditto.
+	mysql> \?					// Ditto.
+	-------------------------
+
+	List of all MySQL commands:
+
+	Note that all text commands must be first on line and end with ';'				<--- ***
+
+	?         (\?) Synonym for `help'.
+	clear     (\c) Clear the current input statement.
+	connect   (\r) Reconnect to the server. Optional arguments are db and host.
+	delimiter (\d) Set statement delimiter.
+	ego       (\G) Send command to mysql server, display result vertically.
+	exit      (\q) Exit mysql. Same as quit.
+	go        (\g) Send command to mysql server.
+	help      (\h) Display this help.
+	notee     (\t) Don't write into outfile.
+	print     (\p) Print current command.
+	prompt    (\R) Change your mysql prompt.
+	quit      (\q) Quit mysql.
+	rehash    (\#) Rebuild completion hash.
+	source    (\.) Execute an SQL script file. Takes a file name as an argument.
+	status    (\s) Get status information from the server.
+	system    (\!) Execute a system shell command.
+	tee       (\T) Set outfile [to_outfile]. Append everything into given outfile.
+	use       (\u) Use another database. Takes database name as argument.
+	charset   (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
+	warnings  (\W) Show warnings after every statement.
+	nowarning (\w) Don't show warnings after every statement.
+	resetconnection(\x) Clean session context.
+	query_attributes Sets string parameters (name1 value1 name2 value2 ...) for the next query to pick up.
+	ssl_session_data_print Serializes the current SSL session data to stdout or file
+
+	For server side help, type 'help contents'
+
+
+	-------------------------
+	mysql> \q 					// Exit mysql. Same as quit.
+	mysql> exit 				// Ditto.
+	mysql> quit 				// Ditto.
+	-------------------------
+	Bye
+
+
+	-------------------------
+	mysql> status				// Get status information from the server.
+	mysql> \s 					// Ditto.
+	-------------------------
+	C:\app\scoop\apps\mysql-workbench\current\mysql.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+	Connection id:          12 											<--- ***
+	Current database: 													<--- ***
+	Current user:           root@localhost 								<--- ***
+	SSL:                    Cipher in use is TLS_AES_256_GCM_SHA384
+	Using delimiter:        ; 											<--- ***
+	Server version:         8.0.36 MySQL Community Server - GPL
+	Protocol version:       10
+	Connection:             localhost via TCP/IP
+	Server characterset:    utf8mb4 									<--- ***
+	Db     characterset:    utf8mb4 									<--- ***
+	Client characterset:    euckr 										<--- ***
+	Conn.  characterset:    euckr 										<--- ***
+	TCP port:               3306 										<--- ***
+	Binary data as:         Hexadecimal
+	Uptime:                 12 min 8 sec
+
+	Threads: 2  Questions: 19  Slow queries: 0  Opens: 138  Flush tables: 3  Open tables: 57  Queries per second avg: 0.026
+
+
+	-------------------------
+	mysql> system dir 				// Execute a system shell command.
+	mysql> \! dir 					// Ditto.
+	mysql> system cmd 				// Exit to the command prompt temporarily from mysql prompt.
+	mysql> \! cmd 					// Ditto.
+	mysql> system pwsh				// Exit to the powershell temporarily from mysql prompt.
+	mysql> \! pwsh 					// Ditto.
+	-------------------------
+
+	PowerShell 7.4.1
+	PS > exit 						// Go back to the mysql prompt permanently.
+
+
+	-------------------------
+	mysql> prompt other> 			// Change your mysql prompt.
+	mysql> \R other> 				// Ditto.
+
+	// Note: Append one space to the end of customized string. (***)
+	-------------------------
+
+	other> _
+
+
+	-------------------------
+	mysql> connect [ [db] [host] ]			
+	-------------------------
+	mysql> connect 					// Reconnect to the server. Optional arguments are db and host.
+	mysql> \r 						// Ditto.
+	-------------------------
+
+	Connection id:    13
+	Current database: *** NONE ***
+
+	Connection id:    14
+	Current database: *** NONE ***
+
+
+	-------------------------
+	mysql> connect mysql 			// Reconnect to the `mysql` named database.
+	mysql> connect mysql localhost	// Reconnect to the `mysql` named database with specific IP address in which MySQL server is installed.
+	-------------------------
+
+	Connection id:    20
+	Current database: mysql
+
+
+	-------------------------
+	mysql> charset 					// Switch to another charset.
+	mysql> \C 						// Ditto.
+	-------------------------
+	Usage: \C charset_name | charset charset_name
+	Note: Might be needed for processing binlog with multi-byte charsets.
+
+
+	-------------------------
+	mysql> charset <charsetName>	// Switch to the specified <charsetName> charset.
+	mysql> charset koi8r 			// Switch to the `koi8r` charset. (****)
+	mysql> \C koi8r					// Ditto.
+	mysql> \C utf8					
+	mysql> \C utf8mb4	
+
+	mysql> status					// Check (***)
+
+	// Note: Please refer to {root}/share/charsets/index.html file. (***)
+	-------------------------
+	Charset changed
+	
+
+	-------------------------
+	mysql> \s 						// Get status information from the server.
+	mysql> status 					// Ditto.
+	-------------------------
+
+	C:\app\scoop\apps\mysql-workbench\current\mysql.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+	Connection id:          16
+	...
+	Client characterset:    koi8r 		<--- *** : Switched charset
+	Conn.  characterset:    koi8r 		<--- *** : Switched charset
+	...
+
+
+	-------------------------
+	{root}/share/charsets> grep 'charset name' .\Index.xml
+	-------------------------
+
+	The following list are charsets that we can switch to:
+
+		<charset name="big5">
+		<charset name="latin2">
+		<charset name="dec8">
+		<charset name="cp850">
+		<charset name="latin1">
+		<charset name="hp8">
+		<charset name="koi8r">
+		<charset name="swe7">
+		<charset name="ascii">
+		<charset name="ujis">
+		<charset name="sjis">
+		<charset name="cp1251">
+		<charset name="hebrew">
+		<charset name="tis620">
+		<charset name="euckr">
+		<charset name="latin7">
+		<charset name="koi8u">
+		<charset name="gb2312">
+		<charset name="greek">
+		<charset name="cp1250">
+		<charset name="gbk">
+		<charset name="gb18030">
+		<charset name="cp1257">
+		<charset name="latin5">
+		<charset name="armscii8">
+		<charset name="utf8">
+		<charset name="ucs2">
+		<charset name="cp866">
+		<charset name="keybcs2">
+		<charset name="macce">
+		<charset name="macroman">
+		<charset name="cp852">
+		<charset name="cp1256">
+		<charset name="geostd8">
+		<charset name="binary">
+		<charset name="cp932">
+		<charset name="eucjpms">
+
+
+	-------------------------
+	mysql> help contents 			// For server side help, type 'help contents'
+	-------------------------
+
+	You asked for help about help category: "Contents"
+
+	For more information,
+	type 'help <item>', where <item> is one of the following `categories`:
+
+	   Account Management 			// 01 category.
+	   Administration				// 02 category.
+	   Components					// 03 category.
+	   Compound Statements			// 04 category.
+	   Contents						// 05 category.
+	   Data Definition				// 06 category.
+	   Data Manipulation			// 07 category.
+	   Data Types 					// 08 category.
+	   Functions 					// 09 category.
+	   Geographic Features 			// 10 category.
+	   Help Metadata 				// 11 category.
+	   Language Structure 			// 12 category.
+	   Loadable Functions 			// 13 category.
+	   Plugins 						// 14 category.
+	   Prepared Statements 			// 15 category.
+	   Replication Statements 		// 16 category.
+	   Storage Engines 				// 17 category.
+	   Table Maintenance			// 18 category.
+	   Transactions 				// 19 category.
+	   Utility 						// 20 category.
+
+
+	-------------------------
+	mysql> help Utility 			// 20 category.
+	-------------------------
+
+	You asked for help about help category: "Utility"
+
+	For more information, 
+	type 'help <item>', where <item> is one of the following `topics`:
+
+	   DESC
+	   DESCRIBE
+	   EXPLAIN
+	   HELP STATEMENT
+	   USE
+
+	mysql> help use 				// USE topic.
+	Name: 'USE'
+	Description:
+
+	Syntax:
+	USE db_name
+
+	The `USE` statement tells MySQL to use the named database as the `default (current) database` for subsequent statements. 
+	This statement requires some privilege for the database or some object within it.
+
+	The named database remains the default
+	until the end of the session or another USE statement is issued:
+
+	USE db1;
+	SELECT COUNT(*) FROM mytable;   # selects from db1.mytable
+	USE db2;
+	SELECT COUNT(*) FROM mytable;   # selects from db2.mytable
+
+	The database name must be specified on a single line.
+	Newlines in database names are not supported.
+
+	URL: https://dev.mysql.com/doc/refman/8.0/en/use.html
+
+
+	-------------------------
+	mysql> show databases;			// Show all usable databases managed by the MySQL server.
+	-------------------------
+
+	+--------------------+
+	| Database           |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sys                |
+	+--------------------+
+	4 rows in set (0.01 sec)
+
+
+	-------------------------
+	mysql> use mysql;				// Set current database to the `mysql` named database.
+	-------------------------
+	Database changed
+	
+	mysql> use mysql
+	Database changed
+	mysql> select user(), schema(), database();
+	+----------------+----------+------------+
+	| user()         | schema() | database() |
+	+----------------+----------+------------+
+	| root@localhost | mysql    | mysql      |
+	+----------------+----------+------------+
+	1 row in set (0.00 sec)
+
+
+	-------------------------
+	mysql> show tables;				// Show all usable tables created in the `current` database.
+	-------------------------
+
+	+------------------------------------------------------+
+	| Tables_in_mysql                                      |
+	+------------------------------------------------------+
+	| columns_priv                                         |
+	| component                                            |
+	| db                                                   |
+	| default_roles                                        |
+	| engine_cost                                          |
+	| func                                                 |
+	| general_log                                          |
+	| global_grants                                        |
+	| gtid_executed                                        |
+	| help_category                                        |
+	| help_keyword                                         |
+	| help_relation                                        |
+	| help_topic                                           |
+	| innodb_index_stats                                   |
+	| innodb_table_stats                                   |
+	| ndb_binlog_index                                     |
+	| password_history                                     |
+	| plugin                                               |
+	| procs_priv                                           |
+	| proxies_priv                                         |
+	| replication_asynchronous_connection_failover         |
+	| replication_asynchronous_connection_failover_managed |
+	| replication_group_configuration_version              |
+	| replication_group_member_actions                     |
+	| role_edges                                           |
+	| server_cost                                          |
+	| servers                                              |
+	| slave_master_info                                    |
+	| slave_relay_log_info                                 |
+	| slave_worker_info                                    |
+	| slow_log                                             |
+	| tables_priv                                          |
+	| time_zone                                            |
+	| time_zone_leap_second                                |
+	| time_zone_name                                       |
+	| time_zone_transition                                 |
+	| time_zone_transition_type                            |
+	| user                                                 |
+	+------------------------------------------------------+
+	38 rows in set (0.01 sec)
+
+
+	-------------------------
+	mysql> desc db;					// Show `db` named table schema (schema == structure)
+	-------------------------
+
+	+-----------------------+---------------+------+-----+---------+-------+
+	| Field                 | Type          | Null | Key | Default | Extra |
+	+-----------------------+---------------+------+-----+---------+-------+
+	| Host                  | char(255)     | NO   | PRI |         |       |
+	| Db                    | char(64)      | NO   | PRI |         |       |
+	| User                  | char(32)      | NO   | PRI |         |       |
+	| Select_priv           | enum('N','Y') | NO   |     | N       |       |
+	| Insert_priv           | enum('N','Y') | NO   |     | N       |       |
+	| Update_priv           | enum('N','Y') | NO   |     | N       |       |
+	| Delete_priv           | enum('N','Y') | NO   |     | N       |       |
+	| Create_priv           | enum('N','Y') | NO   |     | N       |       |
+	| Drop_priv             | enum('N','Y') | NO   |     | N       |       |
+	| Grant_priv            | enum('N','Y') | NO   |     | N       |       |
+	| References_priv       | enum('N','Y') | NO   |     | N       |       |
+	| Index_priv            | enum('N','Y') | NO   |     | N       |       |
+	| Alter_priv            | enum('N','Y') | NO   |     | N       |       |
+	| Create_tmp_table_priv | enum('N','Y') | NO   |     | N       |       |
+	| Lock_tables_priv      | enum('N','Y') | NO   |     | N       |       |
+	| Create_view_priv      | enum('N','Y') | NO   |     | N       |       |
+	| Show_view_priv        | enum('N','Y') | NO   |     | N       |       |
+	| Create_routine_priv   | enum('N','Y') | NO   |     | N       |       |
+	| Alter_routine_priv    | enum('N','Y') | NO   |     | N       |       |
+	| Execute_priv          | enum('N','Y') | NO   |     | N       |       |
+	| Event_priv            | enum('N','Y') | NO   |     | N       |       |
+	| Trigger_priv          | enum('N','Y') | NO   |     | N       |       |
+	+-----------------------+---------------+------+-----+---------+-------+
+	22 rows in set (0.00 sec)
+
+
+	-------------------------
+	mysql> select host, db, user from db;
+	-------------------------
+
+	+-----------+--------------------+---------------+
+	| host      | db                 | user          |
+	+-----------+--------------------+---------------+
+	| localhost | performance_schema | mysql.session |
+	| localhost | sys                | mysql.sys     |
+	+-----------+--------------------+---------------+
+	2 rows in set (0.00 sec)
+
+
+	-------------------------
+	mysql> system clear 			// Clear MySQL client console.
+	mysql> system cls 				// Ditto.
+	-------------------------
+
+
+	-------------------------
+	mysql> SELECT now();
+
+	mysql> source C:\temp\temp.sql 	// Execute an SQL script file. 	(as an absolute path like windows)
+	mysql> \. /temp/temp.sql		// Ditto. 						(as an absolute path like linux)
+	mysql> \. ./temp.sql 			// Ditto.						(as an relative path with wildcards)		
+	-------------------------
+
+	+---------------------+
+	| now()               |
+	+---------------------+
+	| 2024-03-13 12:36:10 |
+	+---------------------+
+	1 row in set (0.00 sec)
+
+
+	mysql> select * from db \G
+	*************************** 1. row ***************************
+	                 Host: localhost
+	                   Db: performance_schema
+	                 User: mysql.session
+	          Select_priv: Y
+	          Insert_priv: N
+	          Update_priv: N
+	          Delete_priv: N
+	          Create_priv: N
+	            Drop_priv: N
+	           Grant_priv: N
+	      References_priv: N
+	           Index_priv: N
+	           Alter_priv: N
+	Create_tmp_table_priv: N
+	     Lock_tables_priv: N
+	     Create_view_priv: N
+	       Show_view_priv: N
+	  Create_routine_priv: N
+	   Alter_routine_priv: N
+	         Execute_priv: N
+	           Event_priv: N
+	         Trigger_priv: N
+	*************************** 2. row ***************************
+	                 Host: localhost
+	                   Db: sys
+	                 User: mysql.sys
+	          Select_priv: N
+	          Insert_priv: N
+	          Update_priv: N
+	          Delete_priv: N
+	          Create_priv: N
+	            Drop_priv: N
+	           Grant_priv: N
+	      References_priv: N
+	           Index_priv: N
+	           Alter_priv: N
+	Create_tmp_table_priv: N
+	     Lock_tables_priv: N
+	     Create_view_priv: N
+	       Show_view_priv: N
+	  Create_routine_priv: N
+	   Alter_routine_priv: N
+	         Execute_priv: N
+	           Event_priv: N
+	         Trigger_priv: Y
+	         
+	2 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+

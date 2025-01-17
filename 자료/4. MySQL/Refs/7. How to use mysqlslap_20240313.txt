@@ -1,0 +1,257 @@
+************************************************
+* 7. How to use `mysqlslap` ? // 벤치마킹 툴 
+************************************************
+
+
+1. Goals
+
+	Benchmark Tool for MySQL server.
+	Run a query multiple times against the server.
+	(사업엔 안쓴다, 처음엔 성능 좋던게 나중에 안좋아졌을때 사용)
+
+2. Usage
+
+	> mysqlslap.exe [OPTIONS]
+
+3. Important options
+
+	Default options are read from the following files in the given order:
+
+		C:\Windows\my.ini
+		C:\Windows\my.cnf
+		C:\my.ini
+		C:\my.cnf
+		C:\app\scoop\apps\mysql-lts\current\my.ini
+		C:\app\scoop\apps\mysql-lts\current\my.cnf
+
+	The following groups are read: mysqlslap dbName
+
+	The following options may be given as the first argument:
+
+		-------------------------
+		-V, --version       		Output version information and exit. (***)
+		-v, --verbose       		More verbose output; you can use this multiple times to get even more verbose output.
+
+		-------------------------
+		-a, --auto-generate-sql 	Generate SQL where not supplied by file or command line. (***)
+		-q, --query=name    		Query to run or file containing query to run.
+
+		--only-print        		Do not connect to the databases, but instead print out what would have been done. (***)
+									If password is not given it's asked from the tty.
+		-T, --debug-info    		This is a non-debug version. Catch this and exit. (XX)
+
+		-------------------------
+		-i, --iterations=#  		Number of times to run the tests. (***)
+		-c, --concurrency=name 		Number of clients to simulate for query to run. (***)
+		--number-of-queries=# 		Limit each client to this number of queries (this is not exact). (***)
+		--detach=#          		Detach (close and reopen) connections after X number of requests. (***)
+
+		-------------------------
+		-h, --host=name     		Connect to host.
+		-P, --port=#        		Port number to use for connection.
+	 	-u, --user=name     		User for login if not current user.
+		-p, --password[=name] 		Password to use when connecting to server.
+
+
+4. Examples
+
+	-------------------------
+	> mysqlslap --version
+	> mysqlslap -V
+	-------------------------
+	mysqlslap.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a
+	-------------------------
+	Enter password: <Just Enter>
+	Benchmark
+	        Average number of seconds to run all queries: 0.034 seconds
+	        Minimum number of seconds to run all queries: 0.031 seconds
+	        Maximum number of seconds to run all queries: 0.047 seconds
+	        Number of clients running queries: 1 							<--- ***
+	        Average number of queries per client: 0 						<--- ***
+
+	* Notice: Without -a option, mysqlslap client *CANNOT* connect to the mysql server. (***)
+
+
+	-------------------------
+	> mysqlslap  -h localhost -u root -P 0 -p -i 1 -c 1 -a
+	-------------------------
+	Enter password:
+	Benchmark
+	        Average number of seconds to run all queries: 0.031 seconds
+	        Minimum number of seconds to run all queries: 0.031 seconds
+	        Maximum number of seconds to run all queries: 0.031 seconds
+	        Number of clients running queries: 1
+	        Average number of queries per client: 0
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a --number-of-queries=10
+	-------------------------
+	Enter password: <Just Enter>
+	Benchmark
+	        Average number of seconds to run all queries: 0.020 seconds
+	        Minimum number of seconds to run all queries: 0.015 seconds
+	        Maximum number of seconds to run all queries: 0.031 seconds
+	        Number of clients running queries: 1 							<--- ***
+	        Average number of queries per client: 10 						<--- ***: number-of-queries / number of clients
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a --number-of-queries=10 -c 5
+	-------------------------
+	Enter password: <Just Enter>
+	Benchmark
+	        Average number of seconds to run all queries: 0.364 seconds
+	        Minimum number of seconds to run all queries: 0.031 seconds
+	        Maximum number of seconds to run all queries: 1.031 seconds
+	        Number of clients running queries: 5 							<--- ***
+	        Average number of queries per client: 2 						<--- ***: number-of-queries / number of clients
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a --number-of-queries=10 -c 5 -v -v
+	-------------------------
+	Building Create Statements for Auto
+	Building Query Statements for Auto
+	Parsing engines to use.
+	Enter password: <Just Enter>
+	Starting Concurrency Test
+	Loading Pre-data
+	Generating primary key list
+	Loading Pre-data
+	Generating primary key list
+	Loading Pre-data
+	Generating primary key list
+	Generating stats
+	Benchmark
+	        Average number of seconds to run all queries: 0.031 seconds
+	        Minimum number of seconds to run all queries: 0.031 seconds
+	        Maximum number of seconds to run all queries: 0.032 seconds
+	        Number of clients running queries: 5
+	        Average number of queries per client: 2
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a --number-of-queries=5 -c 5 -v -v -v
+	-------------------------
+	Building Create Statements for Auto
+	Building Query Statements for Auto
+	Parsing engines to use.
+	Enter password: <Just Enter>
+
+	Starting Concurrency Test
+
+	---------------
+	* 1st. iteration *
+	---------------
+	DROP SCHEMA IF EXISTS `mysqlslap`;
+	Loading Pre-data
+	CREATE SCHEMA `mysqlslap`;										<--- ***: CREATE temporary schema.
+	CREATE SCHEMA `mysqlslap`;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128)); 	<--- ***
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	Generating primary key list
+	connected! 														<--- ***: Connection #1
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #2
+	connected! 														<--- ***: Connection #3
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #4
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #5
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	DROP SCHEMA IF EXISTS `mysqlslap`; 								<--- ***: DROP temporary schema.
+	---------------
+	* 2nd. iteration *
+	---------------
+	Loading Pre-data
+	CREATE SCHEMA `mysqlslap`; 										<--- ***: CREATE temporary schema.
+	CREATE SCHEMA `mysqlslap`;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128));		<--- ***
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	Generating primary key list
+	connected! 														<--- ***: Connection #1
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #2
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #3
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected!														<--- ***: Connection #4
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected!														<--- ***: Connection #5
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	DROP SCHEMA IF EXISTS `mysqlslap`;								<--- ***: DROP temporary schema.
+	---------------
+	* 3rd. iteration *
+	---------------
+	Loading Pre-data
+	CREATE SCHEMA `mysqlslap`; 										<--- ***: CREATE temporary schema.
+	CREATE SCHEMA `mysqlslap`;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128)); 	<--- ***: Connection #1
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	Generating primary key list
+	connected! 														<--- ***: Connection #1
+	connected!														<--- ***: Connection #2
+	connected!														<--- ***: Connection #3
+	connected!														<--- ***: Connection #4
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	connected! 														<--- ***: Connection #5
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	INSERT INTO t1 VALUES (18283,'2rcN83iyGgXMcql46x93aHooXcjSnQXHYjn8PSlyxjD1WoBA9YETLlnDtaYYW12HHWiO1W3HjJb9niqiI67q8BeDKjmiWYoELINnPILHAuyILNwnypv5bQ6ZKA8oYD');
+	---------------
+	Generating stats
+	Benchmark
+	        Average number of seconds to run all queries: 0.016 seconds
+	        Minimum number of seconds to run all queries: 0.016 seconds
+	        Maximum number of seconds to run all queries: 0.016 seconds
+	        Number of clients running queries: 5
+	        Average number of queries per client: 1 				<--- ***: number-of-queries / number of clients
+
+	DROP SCHEMA IF EXISTS `mysqlslap`;								<--- ***: DROP temporary schema.
+
+
+	-------------------------
+	> mysqlslap -h localhost -u root -P 0 -p -i 3 -a --number-of-queries=100 -c 1 --only-print
+	-------------------------
+	Enter password: <Just Enter>
+
+	DROP SCHEMA IF EXISTS `mysqlslap`;
+	CREATE SCHEMA `mysqlslap`;
+	use mysqlslap;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128));
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	DROP SCHEMA IF EXISTS `mysqlslap`;
+	CREATE SCHEMA `mysqlslap`;
+	use mysqlslap;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128));
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	DROP SCHEMA IF EXISTS `mysqlslap`;
+	CREATE SCHEMA `mysqlslap`;
+	use mysqlslap;
+	CREATE TABLE `t1` (intcol1 INT(32) ,charcol1 VARCHAR(128));
+	INSERT INTO t1 VALUES (41,'nagT4IIMk551R1Bv2RcrO2ZsMLwebn6BI9snJvuNr2ZZkLXtSnkMxxJNLpyGbqiomg24SQlq9Aq6LZ89NOacKmwBSOfQjHyei9hZbJIOWxQt6h5ksW9HZxCmWhcbnF');
+	...
+	DROP SCHEMA IF EXISTS `mysqlslap`;
+
+
+	-------------------------
+	> mysqlslap  -h localhost -u root -P 0 -p -i 1 -c 1 -a --debug-info
+	-------------------------
+	mysqlslap: [ERROR] C:\app\scoop\apps\mysql-lts\current\bin\mysqlslap.exe: Option 'debug-info' was used, but is disabled.
+
+
+
+
+

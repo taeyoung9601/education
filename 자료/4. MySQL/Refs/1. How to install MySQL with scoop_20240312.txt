@@ -1,0 +1,235 @@
+************************************************
+* 1. How to install MySQL with scoop ?
+************************************************
+
+
+1. Install mysql community edition v8. lts (long-term support)
+
+	-------------------------
+	> scoop search mysql
+	-------------------------
+	Results from local buckets...
+
+	Name            Version  Source   	Binaries
+	----            -------  ------   	--------
+	...
+
+    mysql-lts       8.0.36   main 		<--- *** : MySQL stable LTS community edition v8.x
+
+    									Suggest to additionally install `extras/vcredist2022`
+
+    									Microsoft Visual C++ Redistributable for Visual Studio 2015-2022
+
+										----------------
+
+										bin\ibd2sdi.exe
+										bin\innochecksum.exe
+										bin\lz4_decompress.exe
+
+										bin\myisamchk.exe
+										bin\myisamlog.exe
+										bin\myisampack.exe
+										bin\myisam_ftdump.exe
+
+										bin\mysql.exe
+										bin\mysqladmin.exe
+										bin\mysqlbinlog.exe
+										bin\mysqlcheck.exe
+										bin\mysqld.exe
+										bin\mysqldump.exe
+										bin\mysqlimport.exe
+										bin\mysqlpump.exe
+										bin\mysqlshow.exe
+										bin\mysqlslap.exe
+										bin\mysql_config_editor.exe
+										bin\mysql_secure_installation.exe
+										bin\mysql_ssl_rsa_setup.exe
+										bin\mysql_tzinfo_to_sql.exe
+										bin\mysql_upgrade.exe
+
+										bin\my_print_defaults.exe
+										bin\perror.exe
+										bin\zlib_decompress.exe
+
+										----------------
+
+										1. Run 'mysqld --standalone' or 'mysqld --console' to start the Database,
+
+						              		> mysqld --standalone
+						              		> mysqld --console
+
+						              	2. Run following command as administrator to register MySQL as a service.
+
+						              	   ( See: https://dev.mysql.com/doc/refman/en/windows-start-service.html )
+
+						              		> mysqld --install MySQL --defaults-file="<root>\my.ini"
+
+						              	3. To stop and/or delete the Service run 'sc stop MySQL' and 'sc delete MySQL'.
+
+						              		> sc stop MySQL 			// To stop MySQL windows service
+						              		> sc delete MySQL 			// To delete MySQL windows service
+
+
+	mysql           8.3.0    main 		<--- *** : MySQL unstable latest community edition v8.x
+
+    									Suggest to additionally install `extras/vcredist2022`
+
+    									Microsoft Visual C++ Redistributable for Visual Studio 2015-2022
+
+										----------------
+
+										bin\ibd2sdi.exe
+										bin\innochecksum.exe
+										bin\lz4_decompress.exe
+
+										bin\myisamchk.exe
+										bin\myisamlog.exe
+										bin\myisampack.exe
+										bin\myisam_ftdump.exe
+
+										bin\mysql.exe
+										bin\mysqladmin.exe
+										bin\mysqlbinlog.exe
+										bin\mysqlcheck.exe
+										bin\mysqld.exe
+										bin\mysqldump.exe
+										bin\mysqlimport.exe
+										bin\mysqlpump.exe
+										bin\mysqlshow.exe
+										bin\mysqlslap.exe
+										bin\mysql_config_editor.exe
+										bin\mysql_secure_installation.exe
+										bin\mysql_ssl_rsa_setup.exe
+										bin\mysql_tzinfo_to_sql.exe
+										bin\mysql_upgrade.exe
+
+										bin\my_print_defaults.exe
+										bin\perror.exe
+										bin\zlib_decompress.exe
+
+										----------------
+
+										1. Run 'mysqld --standalone' or 'mysqld --console' to start the Database,
+
+						              		> mysqld --standalone
+						              		> mysqld --console
+
+						              	2. Run following command as administrator to register MySQL as a service.
+						              	
+						              	   ( See: https://dev.mysql.com/doc/refman/en/windows-start-service.html )
+
+						              		> mysqld --install MySQL --defaults-file="<root>\my.ini"
+
+						              	3. To stop and/or delete the Service run 'sc stop MySQL' and 'sc delete MySQL'.
+
+						              		> sc stop MySQL 			// To stop MySQL windows service
+						              		> sc delete MySQL 			// To delete MySQL windows service
+
+
+	mysql56         5.6.51   versions	<--- *** : MySQL stable LTS community edition v5.6.x
+
+										bin\innochecksum.exe
+
+										bin\myisamchk.exe
+										bin\myisamlog.exe
+										bin\myisampack.exe
+										bin\myisam_ftdump.exe
+
+										bin\mysql.exe
+										bin\mysqladmin.exe
+										bin\mysqlbinlog.exe
+										bin\mysqlcheck.exe
+										bin\mysqld.exe
+										bin\mysqldump.exe
+										bin\mysqlimport.exe
+										bin\mysqlshow.exe
+										bin\mysqlslap.exe
+										bin\mysql_config_editor.exe
+										bin\mysql_tzinfo_to_sql.exe
+										bin\mysql_upgrade.exe
+
+										bin\my_print_defaults.exe
+
+										----------------
+
+										1. Run 'mysqld --standalone' or 'mysqld --console' to start the Database,
+
+											> mysqld --standalone
+											> mysqld --console
+
+						              	2. Run following command as administrator to register MySQL as a service.
+
+						              	   ( See: https://dev.mysql.com/doc/refman/5.6/en/windows-start-service.html )
+
+						              		> mysqld --install MySQL --defaults-file="<root>\my.ini"
+
+						              	3. To stop and/or delete the Service run 'sc stop MySQL' and 'sc delete MySQL'.
+
+						              		> sc stop MySQL 			// To stop MySQL windows service
+						              		> sc delete MySQL 			// To delete MySQL windows service
+
+
+	mysql57         5.7.44   versions 	<--- *** : MySQL stable LTS community edition v5.7.x
+
+										bin\innochecksum.exe
+
+										bin\myisamchk.exe
+										bin\myisamlog.exe
+										bin\myisampack.exe
+										bin\myisam_ftdump.exe
+
+										bin\mysql.exe
+										bin\mysqladmin.exe
+										bin\mysqlbinlog.exe
+										bin\mysqlcheck.exe
+										bin\mysqld.exe
+										bin\mysqldump.exe
+										bin\mysqlimport.exe
+										bin\mysqlshow.exe
+										bin\mysqlslap.exe
+										bin\mysql_config_editor.exe
+										bin\mysql_secure_installation.exe
+										bin\mysql_ssl_rsa_setup.exe
+										bin\mysql_tzinfo_to_sql.exe | 
+										bin\mysql_upgrade.exe
+
+										bin\my_print_defaults.exe
+
+										----------------
+
+										1. Run 'mysqld --standalone' or 'mysqld --console' to start the Database,
+
+											> mysqld --standalone
+											> mysqld --console
+
+						              	2. Run following command as administrator to register MySQL as a service.
+
+						              	   ( See: https://dev.mysql.com/doc/refman/5.7/en/windows-start-service.html )
+
+						              		> mysqld --install MySQL --defaults-file="<root>\my.ini"
+
+						              	3. To stop and/or delete the Service run 'sc stop MySQL' and 'sc delete MySQL'.
+
+						              		> sc stop MySQL 			// To stop MySQL windows service
+						              		> sc delete MySQL 			// To delete MySQL windows service
+
+
+	mysql-workbench 8.0.36   main 		<--- *** : Integrated tools environment for 
+												   MySQL database design, modeling, development, administration, and migration.
+
+										MySQLWorkbench.exe | mysql.exe | mysqldump.exe
+
+
+
+	-------------------------
+	> scoop install mysql-lts
+	-------------------------
+
+
+2. See mysql-lts package details with scoop info command
+
+	> scoop info --verbose mysql-lts	
+
+
+
+

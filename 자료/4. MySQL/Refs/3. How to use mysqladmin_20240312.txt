@@ -1,0 +1,130 @@
+************************************************
+* 3. How to use `mysqladmin` ?
+************************************************
+
+
+1. Goals
+
+	Administration program for the mysqld daemon.
+
+
+2. Usage
+
+	> mysqladmin.exe [OPTIONS] command command....
+
+
+3. Example
+
+	-------------------------
+	> mysqladmin --help
+	-------------------------
+
+	-------------------------
+	> mysqladmin -V 									// -V option(--verbose): Output version information and exit.
+	-------------------------
+	C:\app\scoop\apps\mysql-lts\current\bin\mysqladmin.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+	-------------------------
+	> mysqladmin version
+	-------------------------
+	C:\app\scoop\apps\mysql-lts\current\bin\mysqladmin.exe  Ver 8.0.36 for Win64 on x86_64 (MySQL Community Server - GPL)
+	Copyright (c) 2000, 2024, Oracle and/or its affiliates.
+
+	Oracle is a registered trademark of Oracle Corporation and/or its
+	affiliates. Other names may be trademarks of their respective
+	owners.
+
+	Server version          8.0.36
+	Protocol version        10
+	Connection              localhost via TCP/IP
+	TCP port                3306
+	Uptime:                 13 min 4 sec
+
+	Threads: 2  Questions: 28  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.035
+
+	-------------------------
+	> mysqladmin status
+	-------------------------
+	Uptime: 412  Threads: 2  Questions: 18  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.043
+
+	-------------------------
+	> mysqladmin -u root status
+	-------------------------
+	Uptime: 412  Threads: 2  Questions: 18  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.043
+
+	-------------------------
+	> mysqladmin -u root -p status 						// *NO* password by default.
+	-------------------------
+	Enter password: <Just Enter>
+	Uptime: 456  Threads: 2  Questions: 24  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.052
+
+	-------------------------
+	> mysqladmin -u root -h localhost -p status 		// -h option: set Host Address to connect
+	> mysqladmin -u root -h localhost status			// Without password
+	-------------------------
+	Uptime: 412  Threads: 2  Questions: 18  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.043
+
+	-------------------------
+	> mysqladmin -u root -h localhost -P 0 -p status	// -P option: set Port number to connect
+	> mysqladmin -u root -h localhost -P 0 status 		// Without password
+	-------------------------
+	Enter password: <Just Enter>
+	Uptime: 456  Threads: 2  Questions: 24  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.052
+
+	-------------------------
+	> mysqladmin -u root -h localhost -P 3306 -p status	// MySQL default listen port: 3306
+	> mysqladmin -u root -h localhost -P 3306 status	// Without password
+	-------------------------
+	Enter password: <Just Enter>
+	Uptime: 456  Threads: 2  Questions: 24  Slow queries: 0  Opens: 130  Flush tables: 3  Open tables: 49  Queries per second avg: 0.052
+
+	-------------------------
+	> mysqladmin -v -u root -h localhost -P 0 -p status // -v option(--verbose)
+	> mysqladmin -v -u root -h localhost -P 0 status
+	-------------------------
+
+	-------------------------
+	> mysqladmin ping
+	-------------------------
+	> mysqladmin -v -u root -h localhost -P 0 -p ping 	// ping command: Check if mysqld is alive
+	-------------------------
+	Enter password: <Just Enter>
+	mysqld is alive
+
+	-------------------------
+	> mysqladmin processlist
+	> mysqladmin -v -u root -h localhost -P 0 -p processlist	// processlist command: Show list of active threads in server
+	-------------------------
+	Enter password: <Just Enter>
+	+----+-----------------+-----------------+----+---------+------+------------------------+-----------------------+
+	| Id | User            | Host            | db | Command | Time | State                  | Info                  |
+	+----+-----------------+-----------------+----+---------+------+------------------------+-----------------------+
+	| 5  | event_scheduler | localhost       |    | Daemon  | 1011 | Waiting on empty queue |                       |
+	| 27 | root            | localhost:54885 |    | Query   | 0    | init                   | show full processlist |
+	+----+-----------------+-----------------+----+---------+------+------------------------+-----------------------+
+
+	-------------------------
+	> mysqladmin shutdown
+	-------------------------
+	> mysqladmin -v -u root -h localhost -P 0 -p shutdown		// shutdown command: Take server down
+	-------------------------
+	Enter password: <Just Enter>
+
+	-------------------------
+	> mysqladmin -v -u root -h vfx-asus -P 3306 shutdown
+	-------------------------
+	mysqladmin: connect to server at 'vfx-asus' failed 			// <--- *** : Access denied with `vfx-asus` hostname
+	error: 'Host 'vfx-asus' is not allowed to connect to this MySQL server'
+
+	-------------------------
+	> mysqladmin -v -u root -h 192.168.1.117 -P 3306 shutdown
+	-------------------------
+	mysqladmin: connect to server at '192.168.1.117' failed 	// <--- *** : Access denied with `192.168.1.117` hostname
+	error: 'Host 'vfx-asus' is not allowed to connect to this MySQL server'
+
+
+	-------------------------
+	> mysqladmin variables 										// <--- *** : print all settings.
+	-------------------------
+
+	

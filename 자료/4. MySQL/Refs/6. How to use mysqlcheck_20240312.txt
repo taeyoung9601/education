@@ -1,0 +1,83 @@
+************************************************
+* 6. How to use `mysqlcheck` ?
+************************************************
+
+
+1. Goals
+
+	This program can be used to CHECK (-c, -m, -C), REPAIR (-r), ANALYZE (-a), or OPTIMIZE (-o) tables.
+	Some of the options (like -e or -q) can be used at the same time. 
+	Not all options are supported by all storage engines.
+
+	Please consult the MySQL manual for latest information about the above.
+
+	The options -c, -r, -a, and -o are exclusive to each other, which means that the last option will be used,
+	if several was specified.
+
+	The option -c will be used by default, if none was specified. 
+	You can change the default behavior by making a symbolic link, or copying this file somewhere with another name, 
+
+	the alternatives are:
+
+	mysqlrepair:   The default option will be -r
+	mysqlanalyze:  The default option will be -a
+	mysqloptimize: The default option will be -o
+
+
+2. Usage
+
+	(1) > mysqlcheck.exe [OPTIONS] database [tables]
+	(2) > mysqlcheck.exe [OPTIONS] --databases DB1 [DB2 DB3...]
+	(3) > mysqlcheck.exe [OPTIONS] --all-databases
+
+
+3. Examples
+
+	/**
+		(1) > mysqlcheck.exe [OPTIONS] database [tables]
+	*/
+	-------------------------
+	> mysqlcheck mysql
+	-------------------------
+	mysql.columns_priv                                 OK
+	mysql.component                                    OK
+	mysql.db                                           OK
+	...
+	mysql.user                                         OK
+
+	-------------------------
+	> mysqlcheck mysql user
+	-------------------------
+	mysql.user                                         OK
+
+
+	/**
+		(2) > mysqlcheck.exe [OPTIONS] --databases DB1 [DB2 DB3...]
+	*/
+	-------------------------
+	> mysqlcheck --databases mysql
+	> mysqlcheck --databases mysql sys
+	> mysqlcheck --databases mysql sys information_schema
+	-------------------------
+	mysql.columns_priv                                 OK
+	mysql.component                                    OK
+	mysql.db                                           OK
+	...
+	mysql.user                                         OK
+	sys.sys_config                                     OK
+
+
+	/**
+		(3) > mysqlcheck.exe [OPTIONS] --all-databases
+	*/
+	-------------------------
+	> mysqlcheck --all-databases
+	-------------------------
+	mysql.columns_priv                                 OK
+	mysql.component                                    OK
+	mysql.db                                           OK
+	...
+	mysql.user                                         OK
+	sys.sys_config                                     OK
+
+

@@ -1,0 +1,77 @@
+************************************************
+* 2. How to use `mysqld` ?
+************************************************
+
+
+1. Goals
+
+	Starts the MySQL database server.
+
+
+2. Usage
+
+	> mysqld.exe [OPTIONS]
+
+
+3. Examples
+
+	/**
+		--verbose : is only for use with --help
+	*/
+	-------------------------
+	> mysqld --help
+	> mysqld --verbose --help
+	-------------------------
+
+
+	/**
+		--standalone : Dummy option to start as a standalone program (NT).
+	*/
+	-------------------------
+	> mysqld --standalone
+	-------------------------
+	*NO Results*
+
+
+	/**
+		--console : Write error output on screen; don't remove the console.
+	*/
+	-------------------------
+	> mysqld --console
+	-------------------------
+
+
+	/**
+		--port=# : Port number to use for connection or 
+				   0 to default to, my.cnf (my.ini on windows), $MYSQL_TCP_PORT, /etc/services, built-in default
+	*/
+	-------------------------
+	> mysqld --console -P 0 							
+	-------------------------
+	2024-03-12T06:50:48.197268Z 0 [System] [MY-010116] [Server] C:\app\scoop\apps\mysql-lts\current\bin\mysqld.exe (mysqld 8.0.36) starting as process 2500
+	2024-03-12T06:50:48.210414Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+	2024-03-12T06:50:48.506406Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+	2024-03-12T06:50:48.812529Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+	2024-03-12T06:50:48.812790Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+	2024-03-12T06:50:48.847556Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+	2024-03-12T06:50:48.847669Z 0 [System] [MY-010931] [Server] C:\app\scoop\apps\mysql-lts\current\bin\mysqld.exe: ready for connections. Version: '8.0.36'  socket: ''  port: 3306  MySQL Community Server - GPL.
+
+
+	/**
+		--bind-address : IP address(es) to bind to. Syntax: address[,address]...,
+						 where address can be an IPv4 address, IPv6 address, host case more than one address is specified
+						 in a Every address can have optional network namespace separated by the delimiter / from the address value.
+						 three IP addresses to listen for incoming TCP connections namespaces: 
+						 	the address 192.168.1.1 must be placed into the namespace red and the address 172.16.1.1 must be
+	*/
+	-------------------------
+	> mysqld --console -P 0 --bind-address=0.0.0.0			// Listen from IP any
+	> mysqld --console -P 0 --bind-address=* 				// Listen from IP any (equals to `0.0.0.0`)
+	> mysqld --console --bind-address=127.0.0.1 			// Listen from loopback address
+	> mysqld --console --bind-address=vfx-asus 				// Listen from IPv4 address, *NOT* loopback address
+	-------------------------
+
+
+
+
+

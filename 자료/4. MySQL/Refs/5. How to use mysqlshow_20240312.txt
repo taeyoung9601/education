@@ -1,0 +1,163 @@
+************************************************
+* 5. How to use `mysqlshow` ?
+************************************************
+
+
+1. Goals
+
+	Shows the structure of a MySQL database (databases, tables, and columns).
+
+
+2. Usage
+
+	> mysqlshow.exe [OPTIONS] [database [table [column]]]
+
+
+3. Examples
+	
+	--------------------------------------------------
+	(1) To show all databases(= schemas)
+	--------------------------------------------------
+
+	> mysqlshow
+	+--------------------+
+	|     Databases      |
+	+--------------------+
+	| information_schema |
+	| menagerie          |
+	| mysql              |
+	| performance_schema |
+	| sakila             |
+	| sys                |
+	| world              |
+	+--------------------+
+
+	> mysqlshow --count
+	+--------------------+--------+--------------+
+	|     Databases      | Tables |  Total Rows  |
+	+--------------------+--------+--------------+
+	| information_schema |     79 |        27977 |
+	| menagerie          |      2 |           27 |
+	| mysql              |     38 |         4068 |
+	| performance_schema |    111 |       228909 |
+	| sakila             |     23 |        50088 |
+	| sys                |    101 |         5651 |
+	| world              |      3 |         5302 |
+	+--------------------+--------+--------------+
+	7 rows in set.
+
+	
+	--------------------------------------------------
+	(2) To show all tables in the specific database(= schema)
+	--------------------------------------------------
+	> mysqlshow <database-name or schema-name>
+	--------------------------------------------------
+
+	> mysqlshow mysql
+
+	Database: mysql
+	+------------------------------------------------------+
+	|                        Tables                        |
+	+------------------------------------------------------+
+	| columns_priv                                         |
+	| component                                            |
+	| db                                                   |
+		...
+	| user                                                 |
+	+------------------------------------------------------+
+
+	> mysqlshow --count mysql
+	Database: mysql
+	+------------------------------------------------------+----------+------------+
+	|                        Tables                        | Columns  | Total Rows |
+	+------------------------------------------------------+----------+------------+
+	| columns_priv                                         |        7 |          0 |
+	| component                                            |        3 |          0 |
+	| db                                                   |       22 |          2 |
+		...
+	| user                                                 |       51 |          4 |
+	+------------------------------------------------------+----------+------------+
+	38 rows in set.
+
+
+	--------------------------------------------------
+	* To show the specific table schema in the specific database(= schema)
+	--------------------------------------------------
+	> mysqlshow <database-name or schema-name> <table-name>
+	--------------------------------------------------
+
+	> mysqlshow mysql db
+
+	Database: mysql  Table: db
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| Field                 | Type          | Collation          | Null | Key | Default | Extra | Privileges                      | Comment |
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| Host                  | char(255)     | ascii_general_ci   | NO   | PRI |         |       | select,insert,update,references |         |
+	| Db                    | char(64)      | utf8mb3_bin        | NO   | PRI |         |       | select,insert,update,references |         |
+	| User                  | char(32)      | utf8mb3_bin        | NO   | PRI |         |       | select,insert,update,references |         |
+	| Select_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Insert_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Update_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Delete_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Drop_priv             | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Grant_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| References_priv       | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Index_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Alter_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_tmp_table_priv | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Lock_tables_priv      | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_view_priv      | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Show_view_priv        | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_routine_priv   | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Alter_routine_priv    | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Execute_priv          | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Event_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Trigger_priv          | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+
+
+	--------------------------------------------------
+	* To show the specific column schema of the specific table in the specific database(= schema)
+	--------------------------------------------------
+	> mysqlshow <database-name or schema-name> <table-name> <column-name>
+	--------------------------------------------------
+
+	> mysqlshow mysql db user
+
+	Database: mysql  Table: db  Wildcard: user
+	+-------+----------+-------------+------+-----+---------+-------+---------------------------------+---------+
+	| Field | Type     | Collation   | Null | Key | Default | Extra | Privileges                      | Comment |
+	+-------+----------+-------------+------+-----+---------+-------+---------------------------------+---------+
+	| User  | char(32) | utf8mb3_bin | NO   | PRI |         |       | select,insert,update,references |         |
+	+-------+----------+-------------+------+-----+---------+-------+---------------------------------+---------+
+
+	> mysqlshow --count mysql db
+	Database: mysql  Table: db  Rows: 2
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| Field                 | Type          | Collation          | Null | Key | Default | Extra | Privileges                      | Comment |
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| Host                  | char(255)     | ascii_general_ci   | NO   | PRI |         |       | select,insert,update,references |         |
+	| Db                    | char(64)      | utf8mb3_bin        | NO   | PRI |         |       | select,insert,update,references |         |
+	| User                  | char(32)      | utf8mb3_bin        | NO   | PRI |         |       | select,insert,update,references |         |
+	| Select_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Insert_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Update_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Delete_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_priv           | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Drop_priv             | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Grant_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| References_priv       | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Index_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Alter_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_tmp_table_priv | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Lock_tables_priv      | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_view_priv      | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Show_view_priv        | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Create_routine_priv   | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Alter_routine_priv    | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Execute_priv          | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Event_priv            | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	| Trigger_priv          | enum('N','Y') | utf8mb3_general_ci | NO   |     | N       |       | select,insert,update,references |         |
+	+-----------------------+---------------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+

@@ -1,0 +1,556 @@
+************************************************
+* 8. How to create sample databases ?
+************************************************
+
+
+1. Download MySQL Sample Databases.
+
+	(1) Go to "https://dev.mysql.com/doc/index-other.html" 		// Download sample databases page.
+
+		  "https://dev.mysql.com/doc/sakila/en/" 				// 1. Download `Sakila` 	sample database file.
+		  "https://dev.mysql.com/doc/world-setup/en/"			// 2. Download `world` 		sample database file.
+		  "https://dev.mysql.com/doc/airportdb/en/"				// 3. Do *NOT* download `airportdb` sample database file. 
+		  														//	  (*Note*: Only for *OCI* mysql server)
+		  "https://downloads.mysql.com/docs/menagerie-db.zip"	// 4. Download `menagerie`	sample database file.
+
+
+	(2) Extract compressed zip file to the C:\opt\mysql\sampledb\<sampledbName>\.
+
+		Example:	
+
+			Extract `sakila` 	zip files to the	C:\opt\mysql\sampledb\sakila\
+			Extract `world` 	zip files to the	C:\opt\mysql\sampledb\world\
+			Extract `menagerie` zip files to the 	C:\opt\mysql\sampledb\menagerie\
+
+
+2. Install `sakila` sample database with mysql client.
+
+	> cd C:\opt\sample\mysql\sampledb\sakila\
+
+	> dir
+
+    	Directory: C:\opt\mysql\sampledb\sakila
+
+	Mode                 LastWriteTime         Length Name
+	----                 -------------         ------ ----
+	-----        2024-03-01  오전 8:06        3351749 sakila-data.sql
+	-----        2024-03-01  오전 8:06          24269 sakila-schema.sql
+	-----        2024-03-12  오후 9:37          40093 sakila.mwb
+
+	------------------------------
+	* 1st. method: in the prompt
+	------------------------------
+
+	> mysql -u root -p
+
+	mysql> SOURCE ./sakila-schema.sql; 			<--- ***
+	mysql> \. ./sakila-data.sql; 				<--- ***
+	mysql> \q
+
+	> mysqlshow
+	+--------------------+
+	|     Databases      | 						
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sakila             | 						<--- ***
+	| sys                |
+	+--------------------+
+
+	> mysqlshow sakila 							<--- ***
+	Database: sakila
+	+----------------------------+
+	|           Tables           |
+	+----------------------------+
+	| actor                      |
+	| actor_info                 |
+	| address                    |
+	| category                   |
+	| city                       |
+	| country                    |
+	| customer                   |
+	| customer_list              |
+	| film                       |
+	| film_actor                 |
+	| film_category              |
+	| film_list                  |
+	| film_text                  |
+	| inventory                  |
+	| language                   |
+	| nicer_but_slower_film_list |
+	| payment                    |
+	| rental                     |
+	| sales_by_film_category     |
+	| sales_by_store             |
+	| staff                      |
+	| staff_list                 |
+	| store                      |
+	+----------------------------+
+
+	> mysql -u root
+
+	mysql> USE sakila; 							<--- ***
+	mysql> SHOW FULL TABLES;
+
+	mysql> SELECT count(*) FROM film;
+	mysql> SELECT count(*) FROM film_text;
+
+	mysql> \q
+
+	------------------------------
+	* 2nd. method: cli in the command prompt
+	  ( Note: Do *NOT* in the power shell prompt )
+	------------------------------
+
+	> mysql -u root < sakila-schema.sql 		<--- ***
+
+	> mysqlshow
+	+--------------------+
+	|     Databases      |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sakila             | 						<--- ***
+	| sys                |
+	+--------------------+
+
+	> mysql -u root < sakila-data.sql
+
+	> mysqlshow sakila 							<--- ***
+	Database: sakila 					
+	+----------------------------+
+	|           Tables           |
+	+----------------------------+
+	| actor                      |
+	| actor_info                 |
+	| address                    |
+	| category                   |
+	| city                       |
+	| country                    |
+	| customer                   |
+	| customer_list              |
+	| film                       |
+	| film_actor                 |
+	| film_category              |
+	| film_list                  |
+	| film_text                  |
+	| inventory                  |
+	| language                   |
+	| nicer_but_slower_film_list |
+	| payment                    |
+	| rental                     |
+	| sales_by_film_category     |
+	| sales_by_store             |
+	| staff                      |
+	| staff_list                 |
+	| store                      |
+	+----------------------------+
+
+	> mysqlshow sakila film 					<--- ***
+
+	> mysqlshow sakila film film_id 			<--- ***
+	Database: sakila  Table: film  Wildcard: film_id
+	+---------+-------------------+-----------+------+-----+---------+----------------+---------------------------------+---------+
+	| Field   | Type              | Collation | Null | Key | Default | Extra          | Privileges                      | Comment |
+	+---------+-------------------+-----------+------+-----+---------+----------------+---------------------------------+---------+
+	| film_id | smallint unsigned |           | NO   | PRI |         | auto_increment | select,insert,update,references |         |
+	+---------+-------------------+-----------+------+-----+---------+----------------+---------------------------------+---------+
+
+	> mysql -u root
+
+	mysql> USE sakila;
+	mysql> SHOW FULL TABLES;
+
+	mysql> SELECT count(*) FROM film;
+	mysql> SELECT count(*) FROM film_text;
+
+	mysql> \q
+
+	------------------------------
+
+	Usage Examples:
+
+		(0) Preparation (Default Autocommit ON)
+
+			mysql> SET autocommit = 1;			// AUTOCOMMIT ON
+			mysql> SET autocommit = TRUE;		// AUTOCOMMIT ON
+			
+			mysql> SET autocommit=0;			// AUTOCOMMIT OFF
+			mysql> SET autocommit=false;		// AUTOCOMMIT OFF
+
+			mysql> SHOW VARIABLES 
+				   WHERE VARIABLE_NAME='autocommit';
+
+			+---------------+-------+
+			| Variable_name | Value |
+			+---------------+-------+
+			| autocommit    | ON    |
+			+---------------+-------+
+			1 row in set (0.00 sec)
+
+
+		(1) Rent a DVD
+
+			mysql> SELECT inventory_in_stock(10);
+
+			+------------------------+
+			| inventory_in_stock(10) |
+			+------------------------+
+			|                      1 |
+			+------------------------+
+			1 row in set (0.01 sec)
+
+			mysql> SELECT * FROM rental LIMIT 0, 3;		// LIMIT offset, length
+
+			+-----------+---------------------+--------------+-------------+---------------------+----------+---------------------+
+			| rental_id | rental_date         | inventory_id | customer_id | return_date         | staff_id | last_update         |
+			+-----------+---------------------+--------------+-------------+---------------------+----------+---------------------+
+			|         1 | 2005-05-24 22:53:30 |          367 |         130 | 2005-05-26 22:04:30 |        1 | 2006-02-15 21:30:53 |
+			|         2 | 2005-05-24 22:54:33 |         1525 |         459 | 2005-05-28 19:40:33 |        1 | 2006-02-15 21:30:53 |
+			|         3 | 2005-05-24 23:03:39 |         1711 |         408 | 2005-06-01 22:12:39 |        1 | 2006-02-15 21:30:53 |
+			+-----------+---------------------+--------------+-------------+---------------------+----------+---------------------+
+
+			mysql> DESC rental;
+
+			mysql> INSERT INTO rental(rental_date, inventory_id, customer_id, staff_id) 
+				   VALUES(now(), 10, 3, 1);
+
+			Query OK, 1 row affected (0.00 sec)
+
+			mysql> SET 	@rendid = last_insert_id(), 
+						@balance = get_customer_balance(3, now());	// Set User-defined Variables.
+
+			Query OK, 0 rows affected (0.14 sec)
+
+			mysql> SELECT @rendid, @balance;						// Select User-defined Variables.
+			+---------+----------+
+			| @rendid | @balance |
+			+---------+----------+
+			|   16050 |     4.99 |
+			+---------+----------+
+			1 row in set (0.00 sec)
+
+			mysql> INSERT INTO payment (customer_id, staff_id, rental_id, amount,  payment_date)
+				   VALUES(3, 1, @rendid, @balance, now());
+
+			Query OK, 1 row affected (0.00 sec)
+
+
+		(2) Return a DVD
+
+			mysql> SELECT rental_id
+		           FROM rental
+		           WHERE inventory_id = 10
+		           AND customer_id = 3
+		           AND return_date IS NULL
+		           INTO @rendid;
+
+			Query OK, 1 row affected (0.01 sec)
+
+			mysql> SELECT @rendid;
+
+			+---------+
+			| @rendid |
+			+---------+
+			|   16050 |
+			+---------+
+			1 row in set (0.00 sec)
+
+			mysql> UPDATE rental
+		           SET return_date = now()
+		           WHERE rental_id = @rendid;
+
+			Query OK, 1 row affected (0.00 sec)
+			Rows matched: 1  Changed: 1  Warnings: 0
+
+			mysql> SELECT get_customer_balance(3, now());
+
+			+--------------------------------+
+			| get_customer_balance(3, now()) |
+			+--------------------------------+
+			|                           0.00 |
+			+--------------------------------+
+			1 row in set (0.13 sec)
+
+
+		(3) Find Overdue DVDs
+
+			mysql> SELECT concat(customer.last_name, ', ', customer.first_name) AS customer,
+		           address.phone, film.title
+		           FROM rental INNER JOIN customer ON rental.customer_id = customer.customer_id
+		           INNER JOIN address ON customer.address_id = address.address_id
+		           INNER JOIN inventory ON rental.inventory_id = inventory.inventory_id
+		           INNER JOIN film ON inventory.film_id = film.film_id
+		           WHERE rental.return_date IS NULL
+		           AND rental_date + INTERVAL film.rental_duration DAY < CURRENT_DATE()
+		           ORDER BY title
+		           LIMIT 5;
+
+			+----------------+--------------+------------------+
+			| customer       | phone        | title            |
+			+----------------+--------------+------------------+
+			| OLVERA, DWAYNE | 62127829280  | ACADEMY DINOSAUR |
+			| HUEY, BRANDON  | 99883471275  | ACE GOLDFINGER   |
+			| OWENS, CARMEN  | 272234298332 | AFFAIR PREJUDICE |
+			| HANNON, SETH   | 864392582257 | AFRICAN EGG      |
+			| COLE, TRACY    | 371490777743 | ALI FOREVER      |
+			+----------------+--------------+------------------+
+			5 rows in set (0.10 sec)
+
+
+
+3. Install `world` sample database with mysql client.
+
+	> cd C:\opt\sample\mysql\sampledb\world\
+
+	> dir
+
+	    Directory: C:\opt\mysql\sampledb\world
+
+	Mode                 LastWriteTime         Length Name
+	----                 -------------         ------ ----
+	-----        2024-03-01  오전 8:06         398629 world.sql
+
+	------------------------------
+	* 1st. method: in the prompt
+	------------------------------
+
+	> mysql -u root
+
+	mysql> SOURCE ./world.sql; 					<--- ***
+	mysql> \. ./world.sql; 						<--- ***
+
+	mysql> \q
+
+	> mysqlshow
+	+--------------------+
+	|     Databases      |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sakila             |
+	| sys                |
+	| world              |						<--- ***
+	+--------------------+
+
+	> mysqlshow world 							<--- ***
+	Database: world
+	+-----------------+
+	|     Tables      |
+	+-----------------+
+	| city            |
+	| country         |
+	| countrylanguage |
+	+-----------------+
+
+	> mysql -u root world; 						<--- ***
+				
+	mysql> SHOW FULL TABLES;
+
+	mysql> SELECT count(*) FROM city;
+	mysql> SELECT count(*) FROM country;
+	
+	mysql> \q
+
+	------------------------------
+	* 2nd. method: cli in the command prompt
+	  ( Note: Do *NOT* in the power shell prompt )
+	------------------------------
+
+	> mysql -u root < ./world.sql 				<--- ***
+
+	> mysqlshow
+	+--------------------+
+	|     Databases      |
+	+--------------------+
+	| information_schema |
+	| mysql              |
+	| performance_schema |
+	| sakila             |
+	| sys                |
+	| world              | 						<--- ***
+	+--------------------+
+
+	> mysqlshow world
+	Database: world
+	+-----------------+
+	|     Tables      |
+	+-----------------+
+	| city            |
+	| country         |
+	| countrylanguage |
+	+-----------------+
+
+	> mysqlshow world city 						<--- ***
+
+	> mysqlshow world city CountryCode 			<--- ***
+	Database: world  Table: city  Wildcard: CountryCode
+	+-------------+---------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| Field       | Type    | Collation          | Null | Key | Default | Extra | Privileges                      | Comment |
+	+-------------+---------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+	| CountryCode | char(3) | utf8mb4_0900_ai_ci | NO   | MUL |         |       | select,insert,update,references |         |
+	+-------------+---------+--------------------+------+-----+---------+-------+---------------------------------+---------+
+
+	> mysql -u root country 					<--- ***
+
+	mysql> SHOW VARIABLES LIKE '%commit%';
+	+-----------------------------------------+-------------------+
+	| Variable_name                           | Value             |
+	+-----------------------------------------+-------------------+
+	| autocommit                              | ON                |
+	...
+	+-----------------------------------------+-------------------+
+
+	> mysql -u root world
+
+	mysql> SHOW FULL TABLES;
+
+	mysql> SELECT count(*) FROM city;
+	mysql> SELECT count(*) FROM country;
+	
+	mysql> \q
+
+
+4. Install `menagerie` sample database with mysql client.
+
+	> cd C:/opt/mysql/sampledb/menagerie
+
+	> dir
+
+	    Directory: C:\opt\mysql\sampledb\menagerie
+
+	Mode                 LastWriteTime         Length Name
+	----                 -------------         ------ ----
+	-----        2024-03-01  오전 8:06            189 cr_event_tbl.sql
+	-----        2024-03-01  오전 8:06            221 cr_pet_tbl.sql
+	-----        2024-03-01  오전 8:06            421 event.txt
+	-----        2024-03-01  오전 8:06             77 ins_puff_rec.sql
+	-----        2024-03-01  오전 8:06            112 load_pet_tbl.sql
+	-----        2024-03-01  오전 8:06            272 pet.txt
+	-----        2024-03-01  오전 8:06           2598 README.txt
+
+	----------------------------
+	* 1st. method: in `mysql` prompt
+	----------------------------
+
+		> mysql -u root
+
+		mysql> SET GLOBAL local_infile=1;	// set the global variable `local_infile` ON 		(***)
+		Query OK, 0 rows affected (0.00 sec)
+
+		mysql> \q
+
+		> mysql -u root --local-infile=1 	// connect with `local-infile` system variable 		(***)
+
+		mysql> show global variables where variable_name = 'local_infile' 						(***)
+		+---------------+-------+
+		| Variable_name | Value |
+		+---------------+-------+
+		| local_infile  | ON    |
+		+---------------+-------+
+		1 row in set (0.00 sec)
+
+
+		> grep "mysql>" .\README.txt
+
+		(1) mysql> DROP DATABASE IF EXISTS menagerie;
+
+		(2) mysql> CREATE DATABASE menagerie;
+			mysql> SHOW SCHEMAS;
+			+--------------------+
+			| Database           |
+			+--------------------+
+			| information_schema |
+			| menagerie          | 				<--- ***
+			| mysql              |
+			| performance_schema |
+			| sakila             |
+			| sys                |
+			| world              |
+			+--------------------+
+			7 rows in set (0.00 sec)
+
+		(3) mysql> USE menagerie;
+			Database changed
+
+		(4) mysql> SOURCE ./cr_pet_tbl.sql
+
+			mysql> SHOW TABLES;;
+			+---------------------+
+			| Tables_in_menagerie |
+			+---------------------+
+			| pet                 |
+			+---------------------+
+			1 row in set (0.00 sec)
+
+			mysql> DESC pet;
+			+---------+-------------+------+-----+---------+-------+
+			| Field   | Type        | Null | Key | Default | Extra |
+			+---------+-------------+------+-----+---------+-------+
+			| name    | varchar(20) | YES  |     | NULL    |       |
+			| owner   | varchar(20) | YES  |     | NULL    |       |
+			| species | varchar(20) | YES  |     | NULL    |       |
+			| sex     | char(1)     | YES  |     | NULL    |       |
+			| birth   | date        | YES  |     | NULL    |       |
+			| death   | date        | YES  |     | NULL    |       |
+			+---------+-------------+------+-----+---------+-------+
+			6 rows in set (0.00 sec)
+
+		(5) mysql> LOAD DATA LOCAL INFILE 'pet.txt' INTO TABLE pet;;
+			Query OK, 8 rows affected (0.01 sec)
+			Records: 8  Deleted: 0  Skipped: 0  Warnings: 0
+
+			mysql> SELECT * FROM pet;
+			+----------+--------+---------+------+------------+------------+
+			| name     | owner  | species | sex  | birth      | death      |
+			+----------+--------+---------+------+------------+------------+
+			| Fluffy   | Harold | cat     | f    | 1993-02-04 | NULL       |
+			| Claws    | Gwen   | cat     | m    | 1994-03-17 | NULL       |
+			| Buffy    | Harold | dog     | f    | 1989-05-13 | NULL       |
+			| Fang     | Benny  | dog     | m    | 1990-08-27 | NULL       |
+			| Bowser   | Diane  | dog     | m    | 1979-08-31 | 1995-07-29 |
+			| Chirpy   | Gwen   | bird    | f    | 1998-09-11 | NULL       |
+			| Whistler | Gwen   | bird    | NULL | 1997-12-09 | NULL       |
+			| Slim     | Benny  | snake   | m    | 1996-04-29 | NULL       |
+			+----------+--------+---------+------+------------+------------+
+			8 rows in set (0.00 sec)
+
+		(6) mysql> SOURCE ./ins_puff_rec.sql
+		(7) mysql> SOURCE ./cr_event_tbl.sql
+		(8) mysql> LOAD DATA LOCAL INFILE 'event.txt' INTO TABLE event;
+
+		mysql> \q
+
+
+	----------------------------
+	* 2nd. method: cli in the command prompt
+	  			   ( Note: Do *NOT* in the power shell prompt )
+	----------------------------
+
+		> grep "shell>" .\README.txt
+
+		> mysql -u root
+
+		(1) mysql> DROP DATABASE IF EXISTS menagerie;
+		(2) mysql> CREATE DATABASE menagerie;
+
+		mysql> \q
+
+		-------------
+	    (3) shell> mysql -u root menagerie < cr_pet_tbl.sql
+	    (4) shell> mysql -u root --local-infile menagerie < load_pet_tbl.sql
+
+	    (5) shell> mysqlimport -u root --local menagerie pet.txt
+			menagerie.pet: Records: 8  Deleted: 0  Skipped: 0  Warnings: 0
+
+	    (6) shell> mysql -u root --local-infile menagerie < ins_puff_rec.sql
+	    (7) shell> mysql -u root menagerie < cr_event_tbl.sql
+
+	    (8) shell> mysqlimport -u root --local menagerie event.txt
+			menagerie.event: Records: 10  Deleted: 0  Skipped: 0  Warnings: 2
+
+
+
