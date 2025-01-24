@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence
+	version="2.2"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+
+	<!-- ============= Information of Configuration ============= -->
+	<!-- transaction-type="RESOURCE_LOCAL" : Without using JTA transaction, the application directly manage a transaction -->
+	<!-- transaction-type="JTA" : With using JTA transaction -->
+
+	<!-- Standard JNDI name managed in the WAS -->
+	<!-- <jta-data-source>java:/MyDataSource</jta-data-source> -->
+
+	<!-- The name of a DataSource. This means the data source name registered in the WAS -->
+	<!-- <non-jta-data-source>jdbc/MyDataSource</non-jta-data-source> -->
+	<!-- ============= Information of Configuration ============= -->
+
+	<persistence-unit name="H-2.2.224" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>org.zerock.myapp.entity.Member2</class>
+		<class>org.zerock.myapp.entity.Member3</class>
+
+		<properties>
+			<!-- ========== 1. Essential: JDBC connection properties ========== -->	
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://0.0.0.0:9092/C:/app/h2/data/seoul;schema=jpa_schema" />
+
+			<!-- <property name="javax.persistence.jdbc.driver" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:log4jdbc:h2:tcp://0.0.0.0:9092/C:/app/h2/data/seoul" /> -->
+			
+			<property name="javax.persistence.jdbc.user" value="jpa" />
+			<property name="javax.persistence.jdbc.password" value="jpa" />
+			
+			<!-- JPA standard DDL auto-generation -->
+			<!-- Possible values: (1) none  (2) create  (3) drop-and-create  (4) drop  (5) update  (6) validate -->
+			<!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" /> -->
+
+			<!-- ========== 2. DataSource Connection Pooling Properties ========== -->
+<!-- 			
+			<property name="javax.persistence.jdbc.min-pool-size" value="1" />
+			<property name="javax.persistence.jdbc.max-pool-size" value="7" />
+			<property name="javax.persistence.jdbc.transaction-type" value="JTA" />
+			<property name="javax.persistence.jdbc.jta-data-source" value="jdbc/jtaH2DataSource" />
+			<property name="javax.persistence.transaction-type" value="JTA" />
+			<property name="javax.persistence.query.timeout" value="1000" />
+			<property name="javax.persistence.lock.timeout" value="500" />
+			<property name="javax.persistence.shared-cache.mode" value="ALL" />
+			<property name="javax.persistence.validation.mode" value="AUTO" /> 
+ -->
+			
+			<!-- ========== 3. Optional: JPA implementation (here, hibernate) properties ========== -->			
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="false" />
+			<property name="hibernate.id.new_generator_mappings" value="true" />
+
+			<!--  When using JPA standard property : javax.persistence.schema-generation.database.action -->
+			<!-- Possible values: (1) none  (2) create  (3) drop-and-create  (4) drop  (5) update  (6) validate -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<!-- <property name="hibernate.hbm2ddl.auto" value="create" />  매 테스트마다 테이블 드랍후 테이블 새로 생성--> 
+			<!-- All dialect classes are under `org.hibernate.dialect` package in the `hibernate-core-<version>.jar` file -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />			
+		</properties>
+	</persistence-unit>
+
+	
+	<persistence-unit name="ORACLE-EE-19C-R4" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>org.zerock.myapp.entity.Member2</class>
+		<class>org.zerock.myapp.entity.Member3</class>
+
+		<properties>		
+			<!-- ========== 1. Essential: JDBC connection properties ========== -->			
+			<property name="javax.persistence.jdbc.driver" value="oracle.jdbc.OracleDriver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:oracle:thin:@SEOUL?TNS_ADMIN=C:/u01/oracle" />
+
+			<!-- <property name="javax.persistence.jdbc.driver" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:log4jdbc:oracle:thin:@OSEOUL?TNS_ADMIN=C:/u01" /> -->
+			
+			<property name="javax.persistence.jdbc.user" value="jpa" />
+			<property name="javax.persistence.jdbc.password" value="jpa" />
+			
+			<!-- JPA standard DDL auto-generation -->
+			<!-- Possible values: (1) none  (2) create  (3) drop-and-create  (4) drop  (5) update  (6) validate -->
+			<!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" /> -->
+
+			<!-- 2. DataSource Connection Pooling Properties -->
+<!-- 			
+			<property name="javax.persistence.jdbc.min-pool-size" value="1" />
+			<property name="javax.persistence.jdbc.max-pool-size" value="7" />
+
+			<property name="javax.persistence.jdbc.transaction-type" value="JTA" />
+			<property name="javax.persistence.jdbc.jta-data-source" value="jdbc/jtaOracleDataSource" />
+
+			<property name="javax.persistence.transaction-type" value="JTA" />
+			<property name="javax.persistence.query.timeout" value="1000" />
+			<property name="javax.persistence.lock.timeout" value="500" />
+			<property name="javax.persistence.shared-cache.mode" value="ALL" />
+			<property name="javax.persistence.validation.mode" value="AUTO" /> 
+-->
+			
+			<!-- ========== 3. Optional: JPA implementation (here, hibernate) properties ========== -->			
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="false" />
+			<property name="hibernate.id.new_generator_mappings" value="true" />
+			
+			<!--  When using JPA standard property : javax.persistence.schema-generation.database.action -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- All dialect classes are under `org.hibernate.dialect` package in the `hibernate-core-<version>.jar` file -->
+			<!-- Note: org.hibernate.dialect.OracleDialect is deprecated. Use `Oracle12cDialect` instead. -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.Oracle12cDialect" />			
+		</properties>
+	</persistence-unit>
+	
+
+	<persistence-unit name="MYSQL-8.4.2" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+		<class>org.zerock.myapp.entity.Member2</class>
+		<class>org.zerock.myapp.entity.Member3</class>
+		
+		<properties>		
+			<!-- ========== 1. Essential: JDBC connection properties ========== -->			
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://0.0.0.0:3306/jpa?useSSL=true&amp;serverTimezone=Asia/Seoul" />
+
+			<!-- <property name="javax.persistence.jdbc.driver" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy" /> -->
+			<!-- <property name="javax.persistence.jdbc.url" value="jdbc:log4jdbc:mysql://0.0.0.0:3306/jpa?useSSL=true&amp;serverTimezone=Asia/Seoul" /> -->
+			
+			<property name="javax.persistence.jdbc.user" value="jpa" />
+			<property name="javax.persistence.jdbc.password" value="jpa" />
+			
+			<!-- JPA standard DDL auto-generation -->
+			<!-- Possible values: (1) none  (2) create  (3) drop-and-create  (4) drop  (5) update  (6) validate -->
+			<!-- <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" /> -->
+
+			<!-- ========== 2. DataSource Connection Pooling Properties ========== -->
+<!-- 			
+			<property name="javax.persistence.jdbc.min-pool-size" value="1" />
+			<property name="javax.persistence.jdbc.max-pool-size" value="7" />
+
+			<property name="javax.persistence.jdbc.transaction-type" value="JTA" />
+			<property name="javax.persistence.jdbc.jta-data-source" value="jdbc/jtaMySQLDataSource" />
+
+			<property name="javax.persistence.transaction-type" value="JTA" />
+			<property name="javax.persistence.query.timeout" value="1000" />
+			<property name="javax.persistence.lock.timeout" value="500" />
+			<property name="javax.persistence.shared-cache.mode" value="ALL" />
+			<property name="javax.persistence.validation.mode" value="AUTO" /> 
+-->
+			
+			<!-- ========== 3. Optional: JPA implementation (here, hibernate) properties ========== -->
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.use_sql_comments" value="false" />
+			<property name="hibernate.id.new_generator_mappings" value="true" />
+			
+			<!--  When using JPA standard property : javax.persistence.schema-generation.database.action -->
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+
+			<!-- All dialect classes are under `org.hibernate.dialect` package in the `hibernate-core-<version>.jar` file -->
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect" />			
+		</properties>
+	</persistence-unit>
+
+</persistence>
