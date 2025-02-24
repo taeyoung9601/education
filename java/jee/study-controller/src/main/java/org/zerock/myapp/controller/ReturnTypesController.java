@@ -3,14 +3,17 @@ package org.zerock.myapp.controller;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -169,6 +172,57 @@ public class ReturnTypesController {
 		return new ResponseEntity<>(json,headers,statusCode);
 
 	}// responseEntity
+	
+	
+	// 8. Model 타입의 객체
+	// 요청파라미터를 받아서, view 에 전달하는 방법으로 Model 상자를 사용하는 방법을 배우자 ! 
+	   
+	@GetMapping(path = "/model", params = {"name", "age"})
+	String usingModel(String name, Integer age, Model model) { 
+		log.debug("usingModel({} , {}) invoked.");
+	  
+		Objects.requireNonNull(name);
+		Objects.requireNonNull(age);
+	  	
+		// 모델 데이터 를 받아서 
+		model.addAttribute("_NAME_", name);
+		model.addAttribute("_AGE_", age);
+	  
+		log.info("model: {}" , model);
+	  
+	  
+	  
+		return "model";
+	} // usingModel
+	   
+	   
+	// 9. 리다이렉션 수행시 Target 으로 새로운 요청파라미터를 만들어 보내는 방법 
+	//    : RedirectAttributes 상자에 Key, Value 쌍으로 넣어주면 된다. 
+	   
+	@GetMapping(path = "/rttrs", params = {"name", "age"})
+	String usingRttrs(String name, Integer age, RedirectAttributes rttrs) {
+		log.debug("usingRttrs() invoked.", name, age, rttrs);
+	    
+		assert name != null;
+		assert age != null;
+		
+		// 첫번째 방법: 302 상태코드를 가진 HTTP response 메시지의 헤더중, Location 헤더에
+		// 			  재요청을 보낼 URL 주소 + Query String 형태로 요청 파라미터를 함께 전송
+		// 리다이렉션 되는 Target 으로 요청파라미터를 생성하여 함께 전송	-> 보통 첫번째 방법사용
+//		rttrs.addAttribute("name", name);
+//		rttrs.addAttribute("age", age);
+		
+		// 두번째 방법: (1) 1회성 요청 파라미터를 만들어 낼 수 없음
+		//			  (2) 그럼 도대체 아래 데이터는 어디로 갔습니까? -> Session Scope 공유속성으로 만들어짐
+		// 그런데 왜 콘솔로그에 안보입니까? -> 아직 우리가 세션 트랙킹 구현이 없으니까.. 
+		// 용도: 리다이렉션 Target 에서 사용할 데이터를, Session Scope 공유 속성으로
+		//		전달할 때 사용
+		rttrs.addFlashAttribute("name",name);
+		rttrs.addFlashAttribute("age",age);
+		
+//		return "redirect:handlerReturnTypes/model";		// (1) OK
+		return "redirect:model";						// (2) 
+   	} // Rttrs
 	
 	
 	
