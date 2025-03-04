@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+
+    <typeAliases>
+        <!-- Register a single class as an alias. This alias could be used as a resultType in the mapper xml file. -->
+        <typeAlias type="org.zerock.myapp.domain.EmpVO" alias="EmpVO"/>
+
+        <!-- Register all classes as aliases in the specified package. 
+              This aliases could be used as a resultType in the mapper xml file. -->
+        <package name="org.zerock.myapp.domain"/>
+    </typeAliases>
+
+
+    <!-- Mapper Registry is in effect -->
+    <mappers>
+        <!-- <mapper resource="mappers/CityMapper.xml"/> -->
+        <!-- <mapper class="org.zerock.myapp.mapper.Mapper" /> -->
+        <!-- <package name="org.zerock.myapp.mapper" /> -->
+    </mappers>
+
+</configuration>
