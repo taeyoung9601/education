@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 : 로그인</title>
+    <link rel="shortcut icon" href="https://nid.naver.com/login/image/favicon.ico">
+
+
+    <!-- bootstrap css ver 4 적용 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
+    <!-- 연주 -->
+    <link rel="stylesheet" href="./css/조별과제4_footer_20241108.css">
+    <!-- 통합 -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"> -->
+
+
+    <!-- jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- jquery 마이그레이션 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/3.5.2/jquery-migrate.min.js"></script>
+    <!-- bootstrap js ver 4 적용 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.8/umd/popper.min.js"></script>
+
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/e5e92ab1fd.js" crossorigin="anonymous"></script>
+
+
+    <script>
+            
+        document.getElementById('switch').addEventListener('change', function() {
+            var switchOn = document.querySelector('.switch_on');
+            var switchOff = document.querySelector('.switch_off');
+            
+            if (this.checked) {
+                
+                switchOn.setAttribute('aria-checked', 'true');
+                switchOff.setAttribute('aria-checked', 'false');
+                switchOn.style.left = '50%';
+                switchOff.style.left = '0';
+            } else {
+                
+                switchOn.setAttribute('aria-checked', 'false');
+                switchOff.setAttribute('aria-checked', 'true');
+                switchOn.style.left = '0';
+                switchOff.style.left = '50%';
+            }
+        });
+    </script>
+</head>
+<body>
+    
+    <header>
+
+        <div class="logo">
+            <img src="./img/naver_logo_top.png" alt="naver">
+        </div>
+
+        <select class="lan">
+            <option value="한국어">한국어</option>
+            <option value="English">English</option>
+            <option value="中文(简体)">中文(简体)</option>
+            <option value="中文繁体">中文(繁体)</option>
+        </select>
+
+    </header>
+
+    <div class="container">
+        <!-- container : 탭, id, pw, 체크, 버튼, 비번찾기, 배너 -->
+
+        <div class="login_wrap">
+
+            <!-- 2.탭 -->
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li class="nav-item" ><a href="#idAndNumber" data-toggle="tab" class="nav-link active"><i class="fa-solid fa-arrow-right-to-bracket"></i> ID/전화번호</a></li>
+                <li class="nav-item" ><a href="#oneTimeNumber" data-toggle="tab" class="nav-link"><i class="fa-solid fa-shield-halved"></i> 일회용 번호</a></li>
+                <li class="nav-item"><a href="#qrCode" data-toggle="tab" class="nav-link"><i class="fa-solid fa-qrcode"></i> QR코드</a></li>
+                <!-- <div class="nudge_banner" id="nudge_tooltip">
+                    <span class="nudge_text">PC방 등 공용PC라면 QR코드 로그인이 더 안전해요.</span>
+                    <button type="button" id="nudge_close" class="nudge_close"><span class="icon_nudge_close"></span></button>
+                </div> -->
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content mb-4">
+                <div id="idAndNumber" class="container tab-pane active">
+
+                    <!-- 3.id, pw -->
+                    <div class="panel_wrap">
+                        <div class="panel_item p-4">
+                            <div class="login_box">
+                                <div class="input_item id on active">
+                                    <input type="text" name="uid" id="uid" class="input_id" title="아이디" value="smyoon" aria-label="아이디 또는 전화번호">
+                                    <label for="uid" class="text_label" aria-hidden="true">아이디 또는 전화번호</label>
+                                    <i class="fas fa-times-circle id_del"></i>
+                                </div>
+                                <div class="input_item pw on">
+                                    <input type="password" name="upw" id="upw" class="input_pw" title="비밀번호" value="smyoon" aria-label="비밀번호">
+                                    <label for="uid" class="text_label" aria-hidden="true">비밀번호</label>
+                                    <i class="fas fa-times-circle pw_del"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <!-- 4. 체크, 버튼 -->                                
+                                <div class="login_keep_wrap" id="login_keep_wrap">
+                                    <div class="keep_check">
+                                        <div class="check_login">
+                                            <input type="checkbox">로그인
+                                        </div>
+                                        <div class="ip_check">
+                                            <a href="" target="_blank" id="ipguide" title="IP보안">
+                                                <div class="ip_text">IP보안</div>
+                                            </a>
+                                            <div class="switch">
+                                                <input type="checkbox" id="switch" class="switch_checkbox" value="off">
+                                                <label for="switch" class="switch_btn">
+                                                    <span class="switch_on" role="checkbox" aria-checked="false"></span>
+                                                    <span class="switch_off" role="checkbox" aria-checked="true"></span>
+                                                </label>
+                                            </div>      
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block btn-login">로그인</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="oneTimeNumber" class="container tab-pane">
+                    <div class="panel_wrap">
+                        <div class="panel_item p-4">
+                            <br>
+
+                            <h3>일회용 번호</h3>
+
+                            <p>일회용 번호 넣기</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="qrCode" class="container tab-pane">
+                    <div class="panel_wrap">
+                        <div class="panel_item p-4">
+                            <br>
+
+                            <h3>QR코드</h3>
+
+                            <p>qr코드 넣기</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel_wrap">
+                
+            </div>
+        </div>
+
+        <div>
+            <!-- 5. 가입, 찾기 -->
+            <ul class="find_wrap" id="find_wrap">
+                <li><a target="_blank" href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR"
+                        class="find_text">비밀번호 찾기</a>
+                </li>
+                <li><a target="_blank" href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&lang=ko_KR"
+                        class="find_text">아이디 찾기</a>
+                </li>        
+                <li><a target="_blank" href="https://nid.naver.com/user2/V2Join?m=agree&lang=ko_KR&realname=N"
+                        class="find_text">회원가입</a>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <div class="banner">
+                <a href="https://blog.naver.com/nv_account/223518208067" target="_blank">
+                    <img src="./img/배너.png" alt="[광고]아이디를 몰라도 전화번호로 로그인" >
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        
+        <div class="footer">
+            <div class="footer_inner">
+                <ul class="footer_menu_bar">
+                    <li class="footer_menu"><a href="https://policy.naver.com/rules/service.html">이용약관</a></li>
+                    <Li class="footer_bar"> | </Li>
+                    <li class="footer_menu"><a href="https://policy.naver.com/rules/privacy.html"><strong> 개인정보처리방침</strong></a></li>
+                    <Li class="footer_bar"> | </Li>
+                    <li class="footer_menu"><a href="http://www.naver.com/rules/disclaimer.html"> 책임의 한계와 법적고지</a></li>
+                    <Li class="footer_bar"> | </Li>
+                    <li class="footer_menu"><a href="https://help.naver.com/alias/membership/p.membership/main.naver">회원정보 고객센터</a></li>
+                </ul>
+                <ul class="footer_copyright">
+                    <li id="naver_logo"><img src="./img/naver_logo.png"><a href="https://www.navercorp.com/"></a></li>
+                    <li id="copy">Copyright</li>
+                    <li id="corp">© NAVER Corp.</li>
+                    <li id="all">All Rights Reserved.</li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+
+
+
+
+</body>
+</html>
