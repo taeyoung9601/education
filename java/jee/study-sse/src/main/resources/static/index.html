@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home</title>
+	
+	<script defer> // Body가 완성된후 실행한다라는 코드
+
+	// SSE Event Source Object defined in the HTML5 specification.
+    
+    var source = new EventSource("/sse/time");                           // 1 without query string.
+    // var source = new EventSource("/sse/time?name=Yoseph&age=23");   // 2 with query string if you want.
+    console.log('source:', source);
+
+	
+	source.onopen = e => {
+		console.log("Event source opened.");
+		console.log(e);
+	};
+	
+	source.onmessage = e =>{
+		console.log("onmessage(",e,") invoked.");
+		console.log(e.data);
+	};
+	
+	source.onerror = e => {
+		console.log("onerror(",e,") invoked.");
+		source.close(); // ****: Close Event Source When error occured.
+	}
+	</script>
+	
+</head>
+
+<body>
+    <h3>/static/index.html</h3>
+    <hr>
+    
+
+</body>
+
+</html>
+
+
