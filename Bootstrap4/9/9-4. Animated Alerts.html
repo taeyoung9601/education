@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Animated Alerts</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Animated Alerts</h2>
+
+        <p>The <code>.fade</code> and <code>.show</code> classes adds a fading effect when closing the alert message.</p>
+
+        <div class="alert alert-success alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-success</code> : This alert box could indicate a <strong>successful or positive</strong> action.
+        </div>
+
+        <div class="alert alert-info alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-info</code> : This alert box could indicate a <strong>neutral informative</strong> change or action.
+        </div>
+
+        <div class="alert alert-warning alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-warning</code> : This alert box could indicate a warning that might <strong>need attention</strong>.
+        </div>
+
+        <div class="alert alert-danger alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-danger</code> : This alert box could indicate a <strong>dangerous or potentially negative</strong> action.
+        </div>
+
+        <div class="alert alert-primary alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-primary</code> : Indicates an <strong>important</strong> action.
+        </div>
+
+        <div class="alert alert-secondary alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-secondary</code> : Indicates a <strong>slightly less important</strong> action.
+        </div>
+
+        <div class="alert alert-dark alert-dismissible fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-dark</code> : <strong>Dark grey</strong> alert.
+        </div>
+
+        <div class="alert alert-light alert-dismissible border fade show">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+          <code>.alert-light</code> : <strong>Light grey</strong> alert.
+        </div>
+    </div>
+    
+</body>
+</html>

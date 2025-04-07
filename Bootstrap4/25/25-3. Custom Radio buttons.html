@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom Radio buttons</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Custom Radio Buttons</h2>
+
+        <p>To create a custom radio button, wrap a <strong>container</strong> element, like &lt;div&gt;,<br>
+            1. with a class of <code>.custom-control</code> and <code>.custom-radio</code> around the radio button.<br>
+            2. Then add the <code>.custom-control-input</code> to the <strong>radio</strong> button.</p>
+
+        <p><strong>Tip:</strong> If you use labels for accompanying text, add the <code>.custom-control-label</code> class to it.<br>
+            Note that the value of the for attribute should match the id of the radio:</p>
+
+        
+        <form action="">
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio" name="example1">
+                <label for="customRadio" class="custom-control-label">Custom radio</label>
+            </div>
+
+            <input type="radio" id="defaultRadio" name="example2">
+            <label for="defaultRadio">Default radio</label>
+
+            <p></p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

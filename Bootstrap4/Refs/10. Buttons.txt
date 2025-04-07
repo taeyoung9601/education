@@ -1,0 +1,142 @@
+============================================================
+= Bootstrap 4 - Buttons
+============================================================
+
+1. Button Styles
+
+    a. Bootstrap 4 provides different styles of buttons:
+
+        -----------------------------------------------------------------------
+            Style           Class
+        -----------------------------------------------------------------------
+        (1) Basic           .btn
+        (2) Primary         .btn-primary
+        (3) Secondary       .btn-secondary
+        (4) Success         .btn-success
+        (5) Info            .btn-info
+        (6) Warning         .btn-warning
+        (7) Danger          .btn-danger
+        (8) Dark            .btn-dark
+        (9) Light           .btn-light
+       (10) Link            .btn-link
+        -----------------------------------------------------------------------
+
+    b. Example:
+
+        <button type="button" class="btn">Basic</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-link">Link</button>
+
+    c. The button classes can be used on ( <a>, <button>, or <input> ) elements:
+
+        Example:
+
+            <a href="#" class="btn btn-info" role="button">Link Button</a>
+            <button type="button" class="btn btn-info">Button</button>
+            <input type="button" class="btn btn-info" value="Input Button">
+            <input type="submit" class="btn btn-info" value="Submit Button"> 
+
+
+2. Button Outline
+
+    a. Bootstrap 4 provides eight ( outline/bordered ) buttons:
+
+        -----------------------------------------------------------------------
+            Style           Class
+        -----------------------------------------------------------------------
+            Primary         .btn-outline-primary
+            Secondary       .btn-outline-secondary
+            Success         .btn-outline-success
+            Info            .btn-outline-info
+            warning         .btn-outline-warning
+            danger          .btn-outline-danger
+            dark            .btn-outline-dark
+            light           .btn-outline-light
+        -----------------------------------------------------------------------
+
+    b. Example:
+
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+        <button type="button" class="btn btn-outline-light text-dark">Light</button>
+
+
+3. Button Sizes
+
+    a. Use the ( .btn-lg ) class for ( large ) buttons or ( .btn-sm ) class for ( small ) buttons:
+
+        * Note: ( .btn-md ) for ( default ) buttons, and this class can be omitted.
+
+    b. Example:
+
+        <button type="button" class="btn btn-primary btn-lg">Large</button>
+        <button type="button" class="btn btn-primary">Default</button>
+        <button type="button" class="btn btn-primary btn-sm">Small</button>
+
+
+4. Block Level Buttons
+
+    a. Add class ( .btn-block ) to create a block level button that spans the ( entire ) width of the ( parent ) element.
+
+    b. Example:
+
+        <button type="button" class="btn btn-primary btn-block">Full-Width Button</button> 
+
+
+5. Active/Disabled Buttons
+
+    a. A button can be set to an ( active: appear pressed ) or a ( disabled: unclickable ) state.
+
+    b. The class ( .active ) makes a button appear ( pressed )
+    
+    c. The ( disabled attribute ) makes a button ( unclickable ).
+    
+    **Note** 
+        - ( <a> ) elements do *NOT* support the ( disabled attribute ) 
+          and therefore ( must ) use the ( .disabled ) class to make it visually appear ( disabled ).
+
+    d. Example:
+
+        <button type="button" class="btn btn-primary active">Active Primary</button>
+        <button type="button" class="btn btn-primary" disabled>Disabled Primary</button>
+
+        <a href="#" class="btn btn-primary disabled">Disabled Link</a> 
+
+
+6. Spinner Buttons
+
+    a. You can also add ( spinners ) to a button, which you will learn more about in our BS4 Spinners Tutorial.
+
+    b. Example:
+
+        <button class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+        </button>
+
+        <button class="btn btn-primary">
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+        </button>
+
+        <button class="btn btn-primary" disabled>
+            <span class="spinner-border spinner-border-sm"></span>
+            Loading..
+        </button>
+
+        <button class="btn btn-primary" disabled>
+            <span class="spinner-grow spinner-grow-sm"></span>
+            Loading..
+        </button>
+

@@ -1,0 +1,169 @@
+============================================================
+= Bootstrap 4 - Front-end framework
+============================================================
+
+1. What is Bootstrap?
+
+	a. Bootstrap is a free front-end framework for faster and easier web development
+    b. Bootstrap includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels and many other, 
+       as well as optional JavaScript plugins
+    c. Bootstrap also gives you the ability to easily create responsive designs
+
+
+2. What is Responsive Web Design?
+
+	Responsive web design is about creating web sites which automatically adjust themselves to look good on all devices, from small phones to large desktops.
+
+
+3. Bootstrap 3 vs. Bootstrap 4
+
+	a. Bootstrap 4 is the newest version of Bootstrap; with new components, faster stylesheet and more responsiveness.
+	b. Bootstrap 4 supports the latest, stable releases of all major browsers and platforms. However, Internet Explorer 9 and down is not supported.
+	c. If you require IE8-9 support, use Bootstrap 3. It is the most stable version of Bootstrap, and it is still supported by the team for critical bugfixes 
+	   and documentation changes. However, no new features will be added to it.
+
+
+4. Why Use Bootstrap?
+
+	a. Advantages of Bootstrap:
+    	- Easy to use: Anybody with just basic knowledge of HTML and CSS can start using Bootstrap
+    	- Responsive features: Bootstrap's responsive CSS adjusts to phones, tablets, and desktops
+    	- Mobile-first approach: In Bootstrap, mobile-first styles are part of the core framework
+    	- Browser compatibility: Bootstrap 4 is compatible with all modern browsers (Chrome, Firefox, Internet Explorer 10+, Edge, Safari, and Opera)
+
+
+5. Where to Get Bootstrap 4?
+
+	There are two ways to start using Bootstrap 4 on your own web site.
+
+	You can:
+
+    	(1) Include Bootstrap 4 from a CDN
+    	(2) Download Bootstrap 4 from getbootstrap.com
+
+
+6. Bootstrap 4 CDN
+
+	a. If you don't want to download and host Bootstrap 4 yourself, you can include it from a CDN (Content Delivery Network).
+	b. Current latest version : 5.0.1
+	c. We use last 4.6.0
+	d. We must include the below links and orders :
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" />
+
+		<!-- Latest compiled jQuery library -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<!-- Previous compiled Popper JS of v1.16.1 -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+
+5. jQuery and Popper?
+
+	a. Bootstrap 4 use jQuery and Popper.js for JavaScript components (like modals, tooltips, popovers etc). 
+	b. However, if you just use the CSS part of Bootstrap, you don't need them.
+
+
+6. Downloading Bootstrap 4
+
+	a. If you want to download and host Bootstrap 4 yourself, go to https://getbootstrap.com/, 
+	   and follow the instructions there.
+
+
+7. Create First Web Page With Bootstrap 4
+
+	(1) Add the HTML5 doctype
+
+		a. Bootstrap 4 uses HTML elements and CSS properties that require the HTML5 doctype.
+		b. ** Always ** include the ( HTML5 doctype ) at the beginning of the page, along with the ( lang ) attribute and the correct character set:
+
+			<!DOCTYPE html>
+			<html lang="en">
+			  <head>
+			    <meta charset="utf-8">
+			  </head>
+			</html>
+
+	(2) Bootstrap 4 is mobile-first
+
+		a. Bootstrap 4 is designed to be responsive to mobile devices. 
+		b. Mobile-first styles are part of the core framework.
+		c. To ensure proper rendering and touch zooming, add the following <meta> tag inside the <head> element:
+
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			- The ( width=device-width ) part sets the width of the page to follow the screen-width of the device (which will vary depending on the device).
+			- The ( initial-scale=1 ) part sets the initial zoom level when the page is first loaded by the browser.
+
+	(3) Containers
+
+		a. Bootstrap 4 also requires ( a containing element ) to wrap site contents.
+		b. There are ( two container classes ) to choose from:
+
+    		- The ( .container ) 		class provides a responsive fixed width container
+    		- The ( .container-fluid ) 	class provides a full width container, spanning the entire width of the viewport
+
+
+8. Two Basic Bootstrap 4 Pages
+
+	(1) The following example shows the code for a basic Bootstrap 4 page (with a responsive fixed width container):
+
+		* Container Example *
+
+		<!DOCTYPE html>
+
+		<html lang="en">
+		<head>
+			<title>Bootstrap 4 Example</title>
+
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		</head>
+		<body>
+
+			<div class="container">
+				<h1>My First Bootstrap Page</h1>
+				<p>This is some text.</p>
+			</div>
+
+		</body>
+		</html> 
+
+	(2) The following example shows the code for a basic Bootstrap 4 page (with a full width container):
+
+		* Container Fluid Example *
+
+		<!DOCTYPE html>
+		
+		<html lang="en">
+		<head>
+			<title>Bootstrap 4 Example</title>
+
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+			<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		</head>
+		<body>
+
+			<div class="container-fluid">
+				<h1>My First Bootstrap Page</h1>
+				<p>This is some text.</p>
+			</div>
+
+		</body>
+		</html> 

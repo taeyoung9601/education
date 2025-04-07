@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Form Validation #2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Form Validation</h2>
+
+        <p>In this example, we use <code>.needs-validation</code> class, which will add the validation effect 
+            <strong>AFTER</strong> the form has been <strong>submitting</strong> (if there's anything missing).</p>
+
+        
+        <p>Try to submit this form <strong>before</strong> filling out the input fields, to see the effect.</p>
+
+        <form action="" class="needs-validation" novalidate>
+            <div class="form-group">
+                <label for="uname">Username:</label>
+                <input type="text" id="uname" name="uname" class="form-control" placeholder="Enter username" required>
+
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group">
+                <label for="pwd">Password:</label>
+                <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Enter password" required autocomplete>
+
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback">Please fill out this field.</div>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" name="remember" class="form-check-input" required> I agree on ...
+
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please check this checkbox to continue.</div>
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+
+    <script>
+
+        // *Disable* form submissions if there are ( invalid ) fields
+        (function () {
+            console.clear(); console.debug('*Disable* form submissions if there are ( invalid ) fields');
+
+            'use strict';
+
+            window.addEventListener('load', function () {
+                console.debug('onload.');
+
+                // 1. Get the forms we want to add validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
+                console.log('\t+ forms:', forms);
+
+                // 2. Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+
+                    form.addEventListener('submit', function (e) {
+                        console.debug('onsubmit.');
+                        console.log('\t+ form.checkValidity():', form.checkValidity());
+
+                        if(form.checkValidity() === false) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                        } // if
+
+                        form.classList.add('was-validated');
+                        console.log('\t+ form.classList:', form.classList);
+
+                    }, false);    // .addEventListener
+
+                }); // validation
+                
+                console.log('\t+ validation:', validation);
+                
+            }, false);  // .addEventListener
+            
+        })();
+
+    </script>
+
+</body>
+</html>

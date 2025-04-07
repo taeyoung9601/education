@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Input Group with Dropdown Button</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h3>Input Groups with Dropdown Button</h3>
+        <p>Add a <strong>dropdown button</strong> in the input group.<br>
+           Note that you <strong>don't</strong> need the <code>.dropdown</code> wrapper, as you normally would.</p>
+
+        <form action="">
+            <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                    <!-- NOTE 1: if data-toggle="dropdown" not exists, dropdown menu NOT activated. -->
+                    <!-- NOTE 2: if .dropdown-toggle class not exists, caret NOT appeared on dropdown button. -->
+                    <button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
+                        Dropdown button
+                    </button>
+
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item">Link 1</a>
+                        <a href="#" class="dropdown-item">Link 2</a>
+                        <a href="#" class="dropdown-item">Link 3</a>
+                    </div>
+                </div>
+
+                <input type="text" class="form-control" placeholder="Username">
+            </div>
+        </form>
+        
+        <p></p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Input Group Labels</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Input Group Labels</h2>
+        
+        <p></p>
+
+        <p>1. Put <strong>labels</strong> <strong>outside</strong> of the input group.</p>
+        <p>2. Remember that the value of the <strong>for</strong> attribute should 
+            match the <strong>id</strong> of the <strong>input</strong>.</p>
+
+        <p>Click on the label and it will bring focus to the input:</p>
+
+        <form action="">
+            <label for="demo">Write your email here:</label>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="demo" name="email" placeholder="Email">
+
+                <div class="input-group-append">
+                    <span class="input-group-text">@example.com</span>
+                </div>
+            </div>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

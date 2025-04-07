@@ -1,0 +1,116 @@
+============================================================
+= Bootstrap 4 - Grids
+============================================================
+
+1. Grid System
+
+    a. Bootstrap's grid system is built with ( flexbox ) and allows ( up to 12 columns ) across the page.
+    b. The grid system is responsive, and the columns will re-arrange automatically depending on the screen size.
+    c. Make sure that the sum adds up to 12 or fewer (it is not required that you use all 12 available columns).
+    d. If you do not want to use all 12 columns individually, 
+       you can group the columns together to create wider columns:
+
+    -------------------------------------------------------------------------------------------------------------------------------------
+    |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |  span 1  |
+    -------------------------------------------------------------------------------------------------------------------------------------
+    |                   span 4 	                |                   span 4 	                |                   span 4                  |
+    -------------------------------------------------------------------------------------------------------------------------------------
+    |                   span 4 	                |                                         span 8                                        |
+    -------------------------------------------------------------------------------------------------------------------------------------
+    |                              span 6 	                          |                              span 6                             |
+    -------------------------------------------------------------------------------------------------------------------------------------
+    |                                                               span 12                                                             |
+    -------------------------------------------------------------------------------------------------------------------------------------
+
+
+2. Grid Classes
+
+    a. The Bootstrap 4 grid system has ( five ) classes:
+
+        (1) .col-       ( Extra small devices    - screen width <   576px )
+        (2) .col-sm-    ( Small devices          - screen width >=  576px )
+        (3) .col-md-    ( Medium devices         - screen width >=  768px )
+        (4) col-lg-     ( Large devices          - screen width >=  992px )
+        (5) .col-xl-    ( X-Large devices        - screen width >= 1200px )
+
+    b. The classes above can be combined to create more dynamic and flexible layouts.
+
+    ** Tip: Each class scales up, so if you wish to set the same widths for ( sm ) and ( md ), 
+            you only need to specify ( sm ).
+
+
+3. Basic Structure of a Bootstrap 4 Grid
+
+    a. The following is a basic structure of a Bootstrap 4 grid :
+
+        <!-- 1. Control the column width, and how they should appear on different devices -->
+        <div class="row">
+            <div class="col-*-*"></div>
+            <div class="col-*-*"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-*-*"></div>
+            <div class="col-*-*"></div>
+            <div class="col-*-*"></div>
+        </div>
+
+        <!-- 2. Or let Bootstrap automatically handle the layout -->
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+
+    b. First example: 
+        - create a row ( <div class="row"> ). 
+        - Then, add the desired number of columns ( tags with appropriate .col-*-* classes ). 
+        - The ( first )  star (*) represents the ( responsiveness ): ( sm, md, lg or xl ), 
+        - The ( second ) star (*) represents     ( a number ), which should add ( up to 12 ) for each row.
+
+    c. Second example:
+        - Instead of adding a number to each col, let bootstrap handle the layout, to create ( equal width ) columns: 
+
+            (1) two   "col" elements = ( 50% width    ) to ( each col ). 
+            (2) three cols           = ( 33.33% width ) to ( each col ). 
+            (3) four  cols           = ( 25% width    )
+            (4) etc. 
+
+        - You can also use ( .col-sm | md | lg | xl ) to make the columns ( responsive ).
+
+
+4. Three Equal Columns
+
+    a. The following example shows how to create ( 3 equal-width ) columns, on all devices and screen widths:
+    b. Example:
+
+        <div class="row">
+            <div class="col">.col</div>
+            <div class="col">.col</div>
+            <div class="col">.col</div>
+        </div>
+
+
+5. Responsive Columns
+
+    a. The following example shows how to create ( 4 equal-width columns ) starting at tablets and scaling to extra large desktops.
+       On mobile phones or screens that are ( < 576px ) wide, the columns will automatically ** stack on top of each other **:
+
+        <div class="row">
+            <div class="col-sm-3">.col-sm-3</div>
+            <div class="col-sm-3">.col-sm-3</div>
+            <div class="col-sm-3">.col-sm-3</div>
+            <div class="col-sm-3">.col-sm-3</div>
+        </div>
+
+
+6. Two Unequal Responsive Columns
+
+    a. The following example shows how to get ( 2 various-width ) columns starting at tablets and scaling to large extra desktops:
+
+    b. Example:
+
+        <div class="row">
+            <div class="col-sm-4">.col-sm-4</div>
+            <div class="col-sm-8">.col-sm-8</div>
+        </div>

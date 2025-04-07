@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Split Button Dropdowns</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Dropdown Split Buttons</h2>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary">Primary</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-secondary">Secondary</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-success">Success</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-info">Info</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-warning">Warning</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-warning dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="button" class="btn btn-danger">Danger</button>
+
+            <!-- NOTE 1: if ( .dropdown-toggle ) class not exists, caret not appeared. -->
+            <!-- NOTE 2: if ( data-toggle="dropdown" ) attribute not exists, NO dropdown function though button pressed. -->
+            <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
+
+            <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">Link 1</a>
+                <a href="#" class="dropdown-item">Link 2</a>
+            </div>
+        </div>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,89 @@
+============================================================
+= Bootstrap 4 - Filters
+============================================================
+
+1. Filters
+
+    a. Bootstrap does ( not ) have a component that allows filtering.
+    
+    b. However, we can use ( jQuery ) to filter / search for ( elements ).
+
+
+2. Filter Tables
+
+    a. Perform a ( case-insensitive ) search for ( items ) in a table.
+
+    b. Example:
+    
+        - jQuery -
+
+        <script>
+
+            $(document).ready(function() {
+
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+
+                    $("#myTable tr").filter(function() {
+                        $(this).toggle( $(this).text().toLowerCase().indexOf(value) > -1 )
+                    }); // .filter
+                }); // .on
+
+            }); // .jq
+
+        </script>
+
+        Example explained: We use ( jQuery ) to loop through ( each ) table rows to check
+        if there are any text values that matches the value of the input field.
+        
+        The ( toggle ) method hides the row ( display: none; ) that does ( not ) match the search.
+
+        We use the ( toLowerCase() ) method to convert the ( text ) to ( lower ) case,
+        which makes the search case ( insensitive ) (allows "john", "John", and even "JOHN" on search).
+
+
+3. Filter Lists
+
+    a. Perform a ( case-insensitive ) search for ( items ) in a ( list ).
+
+    b. Example:
+
+        - jQuery -
+
+        <script>
+            $(document).ready(function(){
+
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+
+                    $("#myList li").filter(function() {
+                        $(this).toggle( $(this).text().toLowerCase().indexOf(value) > -1 )
+                    });
+                });
+
+            });
+        </script>
+
+
+4. Filter Anything
+
+    a. Perform a ( case-insensitive ) search for text ( inside ) a ( <div> ) element.
+
+    b. Example:
+
+        - jQuery -
+
+        <script>
+            $(document).ready(function(){
+
+                $("#myInput").on("keyup", function() {
+                    var value = $(this).val().toLowerCase();
+
+                    $("#myDIV *").filter(function() {
+                        $(this).toggle( $(this).text().toLowerCase().indexOf(value) > -1 );
+                    });
+                });
+
+            });
+        </script>
+

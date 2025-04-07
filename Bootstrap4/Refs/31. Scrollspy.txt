@@ -1,0 +1,91 @@
+============================================================
+= Bootstrap 4 - Scrollspy
+============================================================
+
+1. Scrollspy
+
+    a. Scrollspy is used to ( automatically ) update ( links ) in a navigation list based on ( scroll ) position.
+
+
+2. How To Create a Scrollspy
+
+    a. Add ( data-spy="scroll" ) to the element that ( should ) be used as the ( scrollable ) area.
+       ( often this is the <body> element ).
+
+    b. Then add the ( data-target ) attribute with a value of the ( id ) or the ( class name ) of the navigation bar ( .navbar ).
+       This is to make sure that the ( .navbar ) is connected with the ( scrollable ) area.
+
+    c. Note that ( scrollable ) elements must match the ( ID ) of the ( links ) inside the navbar's list items
+       ( <div id="section1"> matches <a href="#section1"> ).
+
+    d. The optional ( data-offset ) attribute specifies the ( number of pixels ) to ( offset ) from ( top )
+       when calculating the ( position ) of scroll.
+       
+       This is useful when you feel that the ( links ) inside the ( navbar ) changes the ( active ) state too soon or too early
+       when jumping to the ( scrollable ) elements.
+       
+       * Default * is ( 10 pixels ).
+
+    f. Requires ( relative ) positioning:
+    
+       The element with ( data-spy="scroll" ) requires the CSS ( position ) property,
+       with a value of ( "relative" ) to work properly.
+
+    g. Example:
+
+        <!-- The scrollable area -->
+        <body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+            <!-- The navbar - The <a> elements are used to jump to a section in the scrollable area -->
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                ...
+
+                <ul class="navbar-nav">
+                    <li><a href="#section1">Section 1</a></li>
+                    ...
+            </nav>
+
+            <!-- Section 1 -->
+            <div id="section1">
+                <h1>Section 1</h1>
+
+                <p>Try to scroll this page and look at the navigation bar while scrolling!</p>
+            </div>
+            ...
+
+        </body>
+
+
+
+3. Scrollspy Vertical Menu
+
+    a. In this example, we use Bootstrap's ( vertical ) navigation pills as menu.
+
+    b. Example:
+
+        <body data-spy="scroll" data-target="#myScrollspy" data-offset="1">
+
+            <div class="container-fluid">
+                <div class="row">
+                    <nav class="col-sm-3 col-4" id="myScrollspy">
+                        <ul class="nav nav-pills flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#section1">Section 1</a>
+                            </li>
+                            ...
+                        </ul>
+                    </nav>
+
+                    <div class="col-sm-9 col-8">
+                        <div id="section1">
+                            <h1>Section 1</h1>
+                            <p>Try to scroll this page and look at the menu while scrolling!</p>
+                        </div>
+
+                        ...
+                    </div>
+                </div>
+            </div>
+
+        </body>
+

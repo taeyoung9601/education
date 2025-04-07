@@ -1,0 +1,486 @@
+============================================================
+= Bootstrap 4 - Utilities
+============================================================
+
+1. Utilities
+
+    a. Bootstrap 4 has a lot of ( utility/helper ) classes to quickly style elements ( without ) using any CSS code.
+
+
+2. Borders
+
+    a. Use the ( .border ) classes to add or remove ( borders ) from an element.
+
+    b. Example:
+
+        <span class="border"></span>
+        <span class="border border-0"></span>
+        <span class="border border-top-0"></span>
+        <span class="border border-right-0"></span>
+        <span class="border border-bottom-0"></span>
+        <span class="border border-left-0"></span>
+
+
+3. Border Color
+
+    a. Add a ( color ) to the ( border ) with any of the contextual ( border color ) classes.
+
+    b. Example:
+
+        <span class="border border-primary"></span>
+        <span class="border border-secondary"></span>
+        <span class="border border-success"></span>
+        <span class="border border-danger"></span>
+        <span class="border border-warning"></span>
+        <span class="border border-info"></span>
+        <span class="border border-light"></span>
+        <span class="border border-dark"></span>
+        <span class="border border-white"></span>
+
+
+4. Border Radius
+
+    a. Add ( rounded corners ) to an element with the ( .rounded )classes.
+
+    b. Example:
+
+        <span class="rounded-sm"></span>
+        <span class="rounded"></span>
+        <span class="rounded-lg"></span>
+        <span class="rounded-top"></span>
+        <span class="rounded-right"></span>
+        <span class="rounded-bottom"></span>
+        <span class="rounded-left"></span>
+        <span class="rounded-circle"></span>
+        <span class="rounded-0"></span>
+
+
+5. Float and Clearfix
+
+    a. ( Float ) an element to the ( right ) with the ( .float-right ) class or to the ( left ) with ( .float-left ) class, 
+       and ( clear ) floats with the ( .clearfix ) class.
+
+    b. Example:
+
+        <div class="clearfix">
+            <span class="float-left">Float left</span>
+            <span class="float-right">Float right</span>
+        </div>
+
+
+6. Responsive Floats
+
+    a. ( Float ) an element to the ( left ) or to the ( right ) depending on ( screen width ),
+       with the ( responsive float ) classes.
+       ( .float-*-left | right - where * is sm ( >= 576px ), md ( >= 768px ), lg ( >= 992px ) or xl ( >= 1200px) )
+
+    b. Example:
+
+        <div class="float-sm-right">Float right on small screens or wider</div><br>
+        <div class="float-md-right">Float right on medium screens or wider</div><br>
+        <div class="float-lg-right">Float right on large screens or wider</div><br>
+        <div class="float-xl-right">Float right on extra large screens or wider</div><br>
+        <div class="float-none">Float none</div>
+
+
+7. Center Align
+
+    a. ( Center ) an element with the ( .mx-auto ) class ( adds margin-left and margin-right: auto ).
+
+    b. Example:
+
+        <div class="mx-auto bg-warning" style="width:150px">Centered</div>
+
+
+8. Width
+
+    a. Set the ( width ) of an element with the ( w-* ) classes.
+       ( .w-25, .w-50, .w-75, .w-100, .mw-100 )
+
+    b. Example:
+
+        <div class="w-25 bg-warning">Width 25%</div>
+        <div class="w-50 bg-warning">Width 50%</div>
+        <div class="w-75 bg-warning">Width 75%</div>
+        <div class="w-100 bg-warning">Width 100%</div>
+        <div class="mw-100 bg-warning">Max Width 100%</div>
+
+
+9. Height
+
+    a. Set the ( height ) of an element with the ( .h-* ) classes.
+       ( .h-25, .h-50, .h-75, .h-100, .mh-100 )
+
+    b. Example:
+
+        <div style="height:200px; background-color:#ddd">
+            <div class="h-25 bg-warning">Height 25%</div>
+            <div class="h-50 bg-warning">Height 50%</div>
+            <div class="h-75 bg-warning">Height 75%</div>
+            <div class="h-100 bg-warning">Height 100%</div>
+            <div class="mh-100 bg-warning" style="height:500px">Max Height 100%</div>
+        </div>
+
+
+10. Spacing
+
+    a. Bootstrap 4 has a wide range of ( responsive ) ( margin ) and ( padding ) utility classes.
+       They work for ( all ) breakpoints:
+        - xs ( <=  576px )
+        - sm ( >=  576px )
+        - md ( >=  768px )
+        - lg ( >=  992px )
+        - xl ( >= 1200px )
+
+    b. The ( classes ) are used in the format:
+        - { property }{ sides }-{ size }                for ( xs )
+        - { property }{ sides }-{ breakpoint }-{ size } for ( sm ), ( md ), ( lg ), and ( xl ).
+
+    c. Where ( property ) is one of:
+        - m     : sets ( margin )
+        - p     : sets ( padding )
+
+    d. Where ( sides ) is one of:
+        - t     : sets ( margin-top ) or ( padding-top )
+        - b     : sets ( margin-bottom ) or ( padding-bottom )
+        - l     : sets ( margin-left ) or ( padding-left )
+        - r     : sets ( margin-right ) or ( padding-right )
+        - x     : sets both ( padding-left ) and ( padding-right ) or ( margin-left ) and ( margin-right )
+        - y     : sets both ( padding-top ) and ( padding-bottom ) or ( margin-top ) and ( margin-bottom )
+        - blank : sets a ( margin ) or ( padding ) on all ( 4 sides ) of the element
+
+    e. Where ( size ) is one of:
+        - 0     : sets ( margin ) or ( padding ) to (       0 )
+        - 1     : sets ( margin ) or ( padding ) to (  .25rem ) (  4px if font-size is 16px )
+        - 2     : sets ( margin ) or ( padding ) to (   .5rem ) (  8px if font-size is 16px )
+        - 3     : sets ( margin ) or ( padding ) to (    1rem ) ( 16px if font-size is 16px )
+        - 4     : sets ( margin ) or ( padding ) to (  1.5rem ) ( 24px if font-size is 16px )
+        - 5     : sets ( margin ) or ( padding ) to (    3rem ) ( 48px if font-size is 16px )
+        - auto  : sets ( margin ) to ( auto )
+
+    f. Note: ( margins ) can also be ( negative ), by adding an ( "n" ) in front of ( size ):
+        - n1    : sets ( margin ) to ( -.25rem ) (  -4px if font-size is 16px )
+        - n2    : sets ( margin ) to (  -.5rem ) (  -8px if font-size is 16px )
+        - n3    : sets ( margin ) to (   -1rem ) ( -16px if font-size is 16px )
+        - n4    : sets ( margin ) to ( -1.5rem ) ( -24px if font-size is 16px )
+        - n5    : sets ( margin ) to (   -3rem ) ( -48px if font-size is 16px )
+
+    g. Example:
+
+        <div class="pt-4 bg-warning">I only have a top padding (1.5rem = 24px)</div>
+        <div class="p-5 bg-success">I have a padding on all sides (3rem = 48px)</div>
+        <div class="m-5 pb-5 bg-info">I have a margin on all sides (3rem = 48px) and a bottom padding (3rem = 48px)</div>
+
+    h. More Spacing Examples:
+
+        - .m-#  / m-*-#     : margin on ( all ) sides
+        - .mt-# / mt-*-#    : margin ( top )
+        - .mb-# / mb-*-#    : margin ( bottom )
+        - .ml-# / ml-*-#    : margin ( left )
+        - .mr-# / mr-*-#    : margin ( right )
+        - .mx-# / mx-*-#    : margin ( left ) and ( right )
+        - .my-# / my-*-#    : margin ( top ) and ( bottom )
+        - .p-#  / p-*-#     : padding on ( all ) sides
+        - .pt-# / pt-*-#    : padding ( top )
+        - .pb-# / pb-*-#    : padding ( bottom )
+        - .pl-# / pl-*-#    : padding ( left )
+        - .pr-# / pr-*-#    : padding ( right )
+        - .py-# / py-*-#    : padding ( top ) and ( bottom )
+        - .px-# / px-*-#    : padding ( left ) and ( right )
+
+
+11. Shadows
+
+    a. Use the ( .shadow- ) classes to add ( shadows ) to an element.
+
+    b. Example:
+
+        <div class="shadow-none p-4 mb-4 bg-light">No shadow</div>
+        <div class="shadow-sm p-4 mb-4 bg-white">Small shadow</div>
+        <div class="shadow p-4 mb-4 bg-white">Default shadow</div>
+        <div class="shadow-lg p-4 mb-4 bg-white">Large shadow</div>
+
+
+12. Vertical Align
+
+    a. Use the ( .align- ) classes to change the alignment of elements.
+       ( only works on ( .inline ), ( .inline-block ), ( .inline-table ) and ( table cell ) elements )
+
+    b. Example:
+
+        <span class="align-baseline">baseline</span>
+        <span class="align-top">top</span>
+        <span class="align-middle">middle</span>
+        <span class="align-bottom">bottom</span>
+        <span class="align-text-top">text-top</span>
+        <span class="align-text-bottom">text-bottom</span>
+
+
+13. Responsive Embeds
+
+    a. Create ( responsive ) video or slideshow ( embeds ) based on the ( width ) of the ( parent ).
+
+    b. Add the ( .embed-responsive-item ) class to any ( embed ) elements.
+       ( like <iframe> or <video> ) in a ( parent ) element with ( .embed-responsive ) class
+       and an ( aspect ratio ) of your choice.
+
+    c. Example:
+
+        <!-- 21:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-21by9">
+            <iframe class="embed-responsive-item" src="..."></iframe>
+        </div>
+
+        <!-- 16:9 aspect ratio -->
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="..."></iframe>
+        </div>
+
+        <!-- 4:3 aspect ratio -->
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="..."></iframe>
+        </div>
+
+        <!-- 1:1 aspect ratio -->
+        <div class="embed-responsive embed-responsive-1by1">
+            <iframe class="embed-responsive-item" src="..."></iframe>
+        </div>
+
+
+14. Visibility
+
+    a. Use the ( .visible ) or ( .invisible ) classes to control the ( visibility ) of elements.
+    
+    b. *Note* : These classes do ( not ) change the CSS ( display ) value.
+        They ( only ) add ( visibility:visible ) or ( visibility:hidden )
+
+    c. Example:
+
+        <div class="visible">I am visible</div>
+        <div class="invisible">I am invisible</div>
+
+
+15. Position
+
+    a. Use the ( .fixed-top ) class to make any element ( fixed/stay ) at the ( top ) of the page.
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                ...
+            </nav>
+
+    b. Use the ( .fixed-bottom ) class to make any element ( fixed/stay ) at the ( bottom ) of the page.
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+                ...
+            </nav>
+
+    c. Use the ( .sticky-top ) class to make any element ( fixed/stay ) at the ( top ) of the page
+       when you scroll past it.
+       
+        Note: This class does ( not ) work in ( IE11 ) and ( earlier ).
+              ( will treat it as ( position: relative ) )
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+                ...
+            </nav>
+
+
+16. Close icon
+
+    a. Use the ( .close ) class to style a ( close ) icon.
+    
+    b. This is often used for ( alerts ) and ( modals ).
+    
+    c. Note that we use the ( &times; ) symbol to create the ( actual ) icon ( a better looking "x" ).
+       Also note that it ( floats ) right by default.
+
+    d. Example:
+
+        <button type="button" class="close">&times;</button>
+
+
+17. Screenreaders
+
+    a. Use the ( .sr-only ) class to ( hide ) an element on all devices, except screen readers.
+
+    b. Example:
+
+        <span class="sr-only">I will be hidden on all screens except for screen readers.</span>
+
+
+18. Colors
+
+    a. As described in the Colors chapter, here is a list of all ( text ) and ( background color ) classes.
+
+    b. The classes for ( text ) colors are:
+        - ( .text-muted )
+        - ( .text-primary )
+        - ( .text-success )
+        - ( .text-info )
+        - ( .text-warning )
+        - ( .text-danger )
+        - ( .text-secondary )
+        - ( .text-white )
+        - ( .text-dark )
+        - ( .text-body ) : default ( body ) color/often black
+        - ( .text-light )
+
+        Example:
+
+            <p class="text-muted">This text is muted.</p>
+            <p class="text-primary">This text is important.</p>
+            <p class="text-success">This text indicates success.</p>
+            <p class="text-info">This text represents some information.</p>
+            <p class="text-warning">This text represents a warning.</p>
+            <p class="text-danger">This text represents danger.</p>
+            <p class="text-secondary">Secondary text.</p>
+            <p class="text-dark">This text is dark grey.</p>
+            <p class="text-body">Default body color (often black).</p>
+            <p class="text-light">This text is light grey (on white background).</p>
+            <p class="text-white">This text is white (on white background).</p>
+
+    c. Contextual text classes can also be used on ( links ), which will add a ( darker hover ) color:
+
+        Example:
+
+            <a href="#" class="text-muted">Muted link.</a>
+            <a href="#" class="text-primary">Primary link.</a>
+            <a href="#" class="text-success">Success link.</a>
+            <a href="#" class="text-info">Info link.</a>
+            <a href="#" class="text-warning">Warning link.</a>
+            <a href="#" class="text-danger">Danger link.</a>
+            <a href="#" class="text-secondary">Secondary link.</a>
+            <a href="#" class="text-dark">Dark grey link.</a>
+            <a href="#" class="text-body">Body/black link.</a>
+            <a href="#" class="text-light">Light grey link.</a>
+
+    d. You can also add 50% ( opacity ) for black or white text with the ( .text-black-50 ) or ( .text-white-50 ) classes:
+
+        Example:
+
+            <p class="text-black-50">Black text with 50% opacity on white background</p>
+            <p class="text-white-50 bg-dark">White text with 50% opacity on black background</p>
+
+
+19. Background Colors
+
+    a. The classes for ( background colors ) are:
+        (1) ( .bg-primary ) class
+        (2) ( .bg-success ) class
+        (3) ( .bg-info ) class
+        (4) ( .bg-warning ) class
+        (5) ( .bg-danger ) class
+        (6) ( .bg-secondary ) class
+        (7) ( .bg-dark ) class
+        (9) ( .bg-light ) class
+
+    b. Note that ( background colors ) do ( not ) set the ( text )color,
+       so in some cases you'll want to use them together with a ( .text-* ) class.
+
+    c. Example:
+
+        <p class="bg-primary text-white">This text is important.</p>
+        <p class="bg-success text-white">This text indicates success.</p>
+        <p class="bg-info text-white">This text represents some information.</p>
+        <p class="bg-warning text-white">This text represents a warning.</p>
+        <p class="bg-danger text-white">This text represents danger.</p>
+        <p class="bg-secondary text-white">Secondary background color.</p>
+        <p class="bg-dark text-white">Dark grey background color.</p>
+        <p class="bg-light text-dark">Light grey background color.</p>
+
+
+20. Typography/Text Classes
+
+    a. here is a list of all ( typography/text ) classes:
+
+        -------------------------------------------------------------------------------------------------------------
+                Class                       Description
+        -------------------------------------------------------------------------------------------------------------
+        (01) .display-*             Display headings are used to stand out more than normal headings.
+                                    ( larger font-size and lighter font-weight )
+                                    and there are ( four ) classes to choose from:
+                                    ( .display-1 ), ( .display-2 ), ( .display-3 ), ( .display-4 ) classes
+        (02) .font-weight-bold      Bold text.
+        (03) .font-weight-bolder    Bolder bold text.
+        (04) .font-weight-normal    Normal text.
+        (05) .font-weight-light     Light weight text.
+        (06) .font-weight-lighter   Lighter weight text.
+        (07) .font-italic           Italic text.
+        (08) .lead                  Makes a paragraph stand out.
+        (09) .small                 Indicates smaller text. ( set to 85% of the size of the parent )
+        (10) .text-break            Prevents long text from breaking layout.
+        (11) .text-center           Indicates center-aligned text.
+        (12) .text-decoration-none  Removes the underline from a link.
+        (13) .text-left             Indicates left-aligned text.
+        (14) .text-justify          Indicates justified text.
+        (15) .text-monospace        Monospaced text.
+        (16) .text-nowrap           Indicates no wrap text.
+        (17) .text-lowercase        Indicates lowercased text.
+        (18) .text-reset            Resets the color of a text or a link. ( inherits the color from its parent )
+        (19) .text-right            Indicates right-aligned text.
+        (20) .text-uppercase        Indicates uppercased text.
+        (21) .text-capitalize       Indicates capitalized text.
+        (22) .initialism            Displays the text inside an ( <abbr> ) element in a slightly smaller font size.
+        (23) .list-unstyled         Removes the default list-style and left margin on list items (works on both <ul> and <ol>).     
+                                    This class only applies to immediate children list items. (to remove the default list-style from any nested lists, apply this class to any nested lists as well)
+        (24) .list-inline           Places all list items on a ( single ) line.
+                                    ( used together with ( .list-inline-item ) class on each ( <li> ) elements )
+        (25) .pre-scrollable        Makes a <pre> element scrollable.
+        -------------------------------------------------------------------------------------------------------------
+
+
+21. Block Elements
+
+    a. To make an element into a ( block ) element, add the ( .d-block ) class.
+
+    b. Use any of the ( d-*-block ) classes to ( control ) WHEN the element should be a ( block ) element
+       on a specific screen ( width ).
+
+    c. Example:
+
+        <span class="d-block bg-success">d-block</span>
+        <span class="d-sm-block bg-success">d-sm-block</span>
+        <span class="d-md-block bg-success">d-md-block</span>
+        <span class="d-lg-block bg-success">d-lg-block</span>
+        <span class="d-xl-block bg-success">d-xl-block</span>
+
+
+22. Other Display Classes
+
+    a. Other display classes are also available:
+
+        -------------------------------------------------------------------------------------------------------------
+                Class                       Description
+        -------------------------------------------------------------------------------------------------------------
+        (01) .d-none                ( Hides ) an element.
+        (02) .d-*-none              ( Hides ) an element on a specific screen size.
+        (03) .d-inline              Makes an element ( inline ).
+        (04) .d-*-inline            Makes an element ( inline ) on a specific screen size.
+        (05) .d-inline-block        Makes an element ( inline block ).
+        (06) .d-*-inline-block      Makes an element ( inline block ) on a specific screen size.
+        (07) .d-table               Makes an element ( display ) as a ( table ).
+        (08) .d-*-table             Makes an element ( display ) as a ( table ) on a specific screen size.
+        (09) .d-table-cell          Makes an element ( display ) as a ( table cell ).
+        (10) .d-*-table-cell        Makes an element ( display ) as a ( table cell ) on a specific screen size.
+        (11) .d-table-row           Makes an element ( display ) as a ( table row ).
+        (12) .d-*-table-row         Makes an element ( display ) as a ( table row ) on a specific screen size.
+        (13) .d-flex                Creates a ( flexbox container ) and transforms direct children into ( flex items ).
+        (14) .d-*-flex              Creates a ( flexbox container ) on a specific screen size.
+        (15) .d-inline-flex         Creates an ( inline flexbox container ).
+        (16) .d-*-inline-flex       Creates an ( inline flexbox container ) on a specific screen size.
+        -------------------------------------------------------------------------------------------------------------
+
+
+23. Flex
+
+    a. Use ( .flex-* ) classes to control the ( layout ) with ( flexbox ).
+
+    b. Read more about Bootstrap 4 Flex, in our next chapter.
+
+

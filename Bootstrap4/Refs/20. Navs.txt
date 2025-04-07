@@ -1,0 +1,190 @@
+============================================================
+= Bootstrap 4 - Navs
+============================================================
+
+1. Nav Menus
+
+    a. If you want to create a ( simple horizontal menu ), add the ( .nav ) class to a ( <ul> ) element,
+       followed by ( .nav-item ) for each ( <li> ) and add the ( .nav-link ) class to their ( links ).
+
+    b. Example:
+
+        <ul class="nav">
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link disabled">Disabled</a></li>
+        </ul> 
+
+
+2. Aligned Nav
+
+    a. Add the ( .justify-content-center ) class to ( center ) the nav, and the ( .justify-content-end ) class 
+       to ( right-align ) the nav.
+
+    b. Example:
+
+        <!-- Centered nav -->
+        <ul class="nav justify-content-center">
+
+        <!-- Right-aligned nav -->
+        <ul class="nav justify-content-end">
+
+
+3. Vertical Nav
+
+    a. Add the ( .flex-column ) class to create a ( vertical nav ).
+
+    b. Example:
+
+        <ul class="nav flex-column">
+
+
+4. Tabs
+
+    a. Turn the ( nav menu ) into ( navigation tabs ) with the ( .nav-tabs ) class. 
+    b. Add the ( .active ) class to the ( active/current ) link.
+    c. If you want the tabs to be togglable, see the last 9, 10.
+
+    d. Example:
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a href="#" class="nav-link active">Active</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link disabled">Disabled</a></li>
+        </ul>
+
+
+5. Pills
+
+    a. Turn the ( nav menu ) into ( navigation pills ) with the ( .nav-pills ) class.
+    b. If you want the pills to be ( togglable ), see the last 9, 10.
+
+    c. Example:
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="#" class="nav-link active">Active</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
+            <li class="nav-item"><a href="#" class="nav-link disabled">Disabled</a></li>
+        </ul>
+
+
+6. Justified Tabs/pills
+
+    a. Justify the ( tabs / pills ) with the ( .nav-justified ) class ( equal width ).
+
+    b. Example:
+
+        <ul class="nav nav-pills nav-justified">..</ul>
+        <ul class="nav nav-tabs  nav-justified">..</ul> 
+
+
+7. Pills with Dropdown
+
+    a. Example:
+
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="#">Active</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+
+            <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Disabled</a></li>
+        </ul>
+
+
+8. Tabs with Dropdown
+
+    a. Example:
+
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Active</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">Dropdown</a>
+
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+
+
+9. Toggleable / Dynamic Tabs
+
+    a. To make the tabs ( toggleable ), add the ( data-toggle="tab" ) attribute to ( each link ).
+
+    b. Then add a ( .tab-pane ) class with a ( unique ID ) for ( every tab )
+       and wrap them inside a ( <div> ) element with ( .tab-content ) class.
+
+    c. If you want the tabs to ( fade in and out ) when clicking on them,
+       add the ( .fade ) class to ( .tab-pane ) class.
+
+    d. Example:
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a data-toggle="tab" href="#home"  class="nav-link active">Home</a></li>
+            <li class="nav-item"><a data-toggle="tab" href="#menu1" class="nav-link">Menu 1</a></li>
+            <li class="nav-item"><a data-toggle="tab" href="#menu2" class="nav-link">Menu 2</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="container tab-pane active" id="home">....</div>
+            <div class="container tab-pane fade"   id="menu1">...</div>
+            <div class="container tab-pane fade"   id="menu2">...</div>
+        </div>
+
+        ** NOTE ** 
+        (1) To match ( .active ) link with ( .active .tab-pane )
+        (2) To match ( href=#id ) of each link with ( id=#id ) of each ( .tab-pane )
+
+
+10. Toggleable / Dynamic Pills
+
+    a. The same code applies to ( pills ).
+    b. only change the ( data-toggle="tab" ) attribute to ( data-toggle="pill" ).
+
+    c. Example:
+
+        <!-- Nav pills -->
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a data-toggle="pill" href="#home"  class="nav-link active">Home</a></li>
+            <li class="nav-item"><a data-toggle="pill" href="#menu1" class="nav-link">Menu 1</a></li>
+            <li class="nav-item"><a data-toggle="pill" href="#menu2" class="nav-link">Menu 2</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="container tab-pane active" id="home">....</div>
+            <div class="container tab-pane fade"   id="menu1">...</div>
+            <div class="container tab-pane fade"   id="menu2">...</div>
+        </div>
+
+        ** NOTE ** 
+        (1) To match ( .active ) link with ( .active .tab-pane )
+        (2) To match ( href=#id ) of each link with ( id=#id ) of each ( .tab-pane )
+

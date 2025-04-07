@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Accordion</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Accordion Example</h2>
+
+        <p><strong>Note:</strong> The <code>data-parent</code> attribute makes sure that all collapsible elements under the specified parent will be closed when one of the collapsible item is shown.</p>
+
+        <p></p>
+
+        <div id="accordion">
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                  in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a href="#collapse1" class="card-link" data-toggle="collapse">Collapsible Group Item #1</a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapse1" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem voluptatibus ad distinctio odio perspiciatis optio exercitationem fugit obcaecati, corporis quasi ducimus! Eos delectus animi esse nam dolor. Vero, aut pariatur!
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                  in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a href="#collapse2" class="card-link" data-toggle="collapse">Collapsible Group Item #2</a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapse2" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis veniam et odio architecto at necessitatibus nostrum sint velit consequuntur maiores, tempore explicabo non. Quam id laudantium possimus voluptatem? Dignissimos, veritatis?
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                  in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a href="#collapse3" class="card-link" data-toggle="collapse">Collapsible Group Item #3</a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapse3" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, et aperiam pariatur doloremque nam distinctio iusto perferendis vitae laudantium dolore a in. Iusto voluptatibus reprehenderit magni odio! Maiores, quo. Reprehenderit?
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

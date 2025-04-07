@@ -1,0 +1,72 @@
+============================================================
+= Bootstrap 4 - Toast
+============================================================
+
+1. Toast
+
+    a. The toast component is like an ( alert box ) that is only shown for ( a couple of seconds )
+       when something happens.
+       
+       ( i.e. when the user clicks on a button, submits a form, etc. ).
+
+
+2. How To Create a Toast
+
+    a. To create a toast, use the ( .toast ) class, and add a ( .toast-header ) and a ( .toast-body ) inside of it.
+
+        Example:
+
+            <div class="toast">
+                <div class="toast-header">
+                    Toast Header
+                </div>
+
+                <div class="toast-body">
+                    Some text inside the toast body
+                </div>
+            </div>
+
+    b. Note: Toasts must be initialized with ( jQuery ):
+
+        - select the specified element and call the ( toast() ) method.
+
+        - The following code will show all "toasts" in the document:
+
+            Example:
+
+                <script>
+
+                    $(document).ready(function(){
+                        $('.toast').toast('show');
+                    });
+
+                </script>
+
+
+3. Show and Hide a Toast
+
+    a. Toasts are ( hidden ) by ( default ).
+    
+    b. Use the ( data-autohide="false" ) attribute to show it by default.
+    
+    c. To ( close ) it, use a ( <button> ) element and add ( data-dismiss="toast" ).
+
+    d. Example:
+
+        <div class="toast" data-autohide="false">
+            <div class="toast-header">
+                <strong class="mr-auto text-primary">Toast Header</strong>
+                <small class="text-muted">5 mins ago</small>
+                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+            </div>
+
+            <div class="toast-body">
+                Some text inside the toast body
+            </div>
+        </div>
+
+        *Notice* : the ( .mr-auto ), ( .ml-2 ) and ( .mb-1) classes?
+                   They are used to add specific ( margins ).
+
+
+4. 

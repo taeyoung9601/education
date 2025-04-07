@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Progress Bar Height</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Progress Bar Height</h2>
+
+        <p>1. The <strong>height</strong> of the progress bar is <strong>1rem (16px) by default</strong>.<br>
+           2. Use the CSS <strong>height</strong> property to change the <strong>height</strong>:</p>
+
+        <p>**Note** : you must set the <strong>same height</strong> for the progress <strong>container</strong> 
+                      and the progress <strong>bar</strong>.</p>
+
+        <div class="progress" style="height: 10px;">
+            <div class="progress-bar" style="width: 40%; height: 10px"></div>
+        </div>
+
+        <p></p>
+
+        <div class="progress" style="height: 20px;">
+            <div class="progress-bar" style="width: 50%; height: 20px"></div>
+        </div>
+
+        <p></p>
+
+        <div class="progress" style="height: 30px">
+            <div class="progress-bar" style="width: 60%; height: 30px"></div>
+        </div>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

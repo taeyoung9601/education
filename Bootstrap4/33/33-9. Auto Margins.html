@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Auto Margins</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container mt-3 border">
+        <h2>Auto Margins</h2>
+
+        <p></p>
+        <p>Easily add <strong>auto margins</strong> to flex items with <code>.mr-auto</code> class
+        ( push items to the <strong>right</strong> ),<br> or by using <code>.ml-auto</code> class
+        ( push items to the <strong>left</strong> ):</p>
+
+        <p>1. <code>.mr-auto</code> class</p>
+        <div class="d-flex mb-3 bg-secondary">
+            <div class="p-2 mr-auto bg-info text-white">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary text-white">Flex item 3</div>
+        </div>
+
+        <p>2. <code>.ml-auto</code> class</p>
+        <div class="d-flex mb-3 bg-secondary">
+            <div class="p-2 bg-info text-white">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 ml-auto bg-primary text-white">Flex item 3</div>
+        </div>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

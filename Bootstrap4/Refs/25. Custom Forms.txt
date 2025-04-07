@@ -1,0 +1,172 @@
+============================================================
+= Bootstrap 4 - Custom Forms
+============================================================
+
+1. Bootstrap 4 Custom Forms
+
+    a. Bootstrap 4 comes with ( customized ) form elements, that are meant to replace ( browser defaults ).
+
+
+2. Custom Checkbox
+
+    a. To create a ( custom ) checkbox,
+        - Wrap a container element, like ( <div> ), with a class of ( .custom-control ) and ( .custom-checkbox ) around the checkbox
+        - Then add the ( .custom-control-input ) to the input with ( type="checkbox" )
+
+    b. Tip: If you use ( labels ) for accompanying ( text ),
+        - add the ( .custom-control-label ) class to it
+        - Note that the ( value ) of the ( for ) attribute should match the ( id ) of the ( checkbox )
+
+    c. Example:
+
+        <form>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck" name="example1">
+
+                <label class="custom-control-label" for="customCheck">Check this custom checkbox</label>
+            </div>
+        </form>
+
+
+3. Custom Switch
+
+    a. To create a ( custom toggle switch ),
+        - Wrap a container element, like ( <div> ), with a class of ( .custom-control ) and ( .custom-switch ) class around a checkbox. - Add the ( .custom-control-input ) class to the checkbox.
+        - Then add the ( .custom-control-label ) class to the label.
+
+    b. Example:
+
+        <form>
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1">
+                <label class="custom-control-label" for="switch1">Toggle me</label>
+            </div>
+        </form>
+
+
+4. Custom Radio buttons
+
+    a. To create a custom ( radio ) button,
+        - Wrap a container element, like ( <div> ), with classes of ( .custom-control ) and ( .custom-radio ) around the radio button.
+        - Then add the ( .custom-control-input ) class to the input with ( type="radio" ).
+
+    b. Tip: If you use ( labels ) for accompanying text,
+        - Add the ( .custom-control-label ) class to it.
+        - *Note* that the value of the ( for ) attribute should match the ( id ) of the ( radio ).
+
+    c. Example:
+
+        <form>
+            <div class="custom-control custom-radio">
+                <input type="radio" class="custom-control-input" id="customRadio" name="example1" value="customEx">
+                <label class="custom-control-label" for="customRadio">Custom radio</label>
+            </div>
+        </form>
+
+
+5. Inline Custom Form Controls
+
+    a. If you want the custom form controls to sit side by side ( inline ), add the ( .custom-control-inline ) class 
+        to the ( wrapper/container ).
+
+    b. Example:
+
+        <form>
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="customRadio" name="example" value="customEx">
+                <label class="custom-control-label" for="customRadio">Custom radio 1</label>
+            </div>
+
+            <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="customRadio2" name="example" value="customEx">
+                <label class="custom-control-label" for="customRadio2">Custom radio 2</label>
+            </div>
+        </form>
+
+
+6. Custom Select Menu
+
+    a. To create a custom select menu, add the ( .custom-select ) class to the ( <select> ) element.
+
+    b. Example:
+
+        <form>
+            <select name="cars" class="custom-select">
+                <option selected>Custom Select Menu</option>
+                <option value="volvo">Volvo</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select>
+        </form>
+
+
+7. Custom Select Menu Size
+
+    a. Use the ( .custom-select-sm ) class to create a ( small ) select menu and the ( .custom-select-lg ) class for a ( large ) one.
+
+    b. Example:
+
+        <form>
+            <!-- Small -->
+            <select name="cars" class="custom-select-sm">
+                <option selected>Small Custom Select Menu</option>
+                <option value="volvo">Volvo</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select>
+
+            <!-- Large -->
+            <select name="cars" class="custom-select-lg">
+                <option selected>Large Custom Select Menu</option>
+                <option value="volvo">Volvo</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select>
+        </form>
+
+
+8. Custom Range
+
+    a. To create a custom ( range ) menu, add the ( .custom-range ) class to an input with ( type="<range>" ).
+
+    b. Example:
+
+        <form>
+            <label for="customRange">Custom range</label>
+            <input type="range" class="custom-range" id="customRange" name="points1">
+        </form>
+
+
+9. Custom File Upload
+
+    a. To create a custom file upload,
+        - Wrap a ( container ) element with a class of ( .custom-file ) around the input with ( type="file" ).
+        - Then add the ( .custom-file-input ) class to it.
+
+    b. Tip: If you use ( labels ) for accompanying text, add the ( .custom-file-label ) class to it.
+            Note that the value of the ( for ) attribute should match the ( id ) of the checkbox.
+
+    c. *Note* : you also have to include some ( jQuery ) code 
+                if you want the ( name ) of the file to ( appear ) when you select a specific file.
+
+    d. Example:
+
+        <form>
+            <div class="custom-file">
+                <input type="file" class="custom-file-input" id="customFile">
+                <label class="custom-file-label" for="customFile">Choose file</label>
+            </div>
+        </form>
+
+
+        <script>
+
+            // Add the following code if you want the name of the file appear on select
+            $(".custom-file-input").on("change", function() {
+                var fileName = $(this).val().split("\\").pop();
+
+                $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            }); // .on
+
+        </script>
+

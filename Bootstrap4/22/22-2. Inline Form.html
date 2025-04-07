@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inline Form</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Inline form</h2>
+
+        <p>Make the viewport <strong>larger than 576px wide</strong> to see that <strong>all</strong> of the form elements are <strong>inline</strong> and <strong>left-aligned</strong>.</p>
+
+        <p>On <strong>small</strong> screens, the form groups will <strong>stack horizontally</strong>.</p>
+
+        <form action="" class="form-inline">
+            <label for="email">Email :</label>
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+
+            <label for="pwd">Password :</label>
+            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input type="checkbox" class="form-check-input" name="remember">Remember me
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

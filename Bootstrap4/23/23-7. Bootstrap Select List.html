@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bootstrap Select List</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Form control: select</h2>
+        <p>The form below contains two dropdown menus (select lists):</p>
+
+        <form action="">
+            <div class="form-group">
+                <label for="sel1">1. Select list (select one):</label>
+                <select name="select1" id="sel1" class="form-control">
+                    <option value="value1">Option 1</option>
+                    <option value="value2">Option 2</option>
+                    <option value="value3">Option 3</option>
+                    <option value="value4">Option 4</option>
+                </select>
+            </div>
+
+            <p></p>
+
+            <div class="form-group">
+                <label for="sel2">2. Mutiple select list (hold <strong>shift</strong> to select more than one):</label>
+                <select name="select2" id="sel2" class="form-control" multiple>
+                    <option value="value1">Option 1</option>
+                    <option value="value2">Option 2</option>
+                    <option value="value3">Option 3</option>
+                    <option value="value4">Option 4</option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom File Upload</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Custom File</h2>
+        <p>To create a custom file upload,<br>
+            - Wrap a <strong>container</strong> element with a class of <code>.custom-file</code>
+              around the input with <strong>type="file"</strong>.<br>
+            - Add the <code>.custom-file-input</code> to the file <strong>input</strong>.<br>
+            - Then add <code>.custom-file-label</code> class to the label.
+        </p>
+
+        
+        <form action="">
+            <p>1. Custom file:</p>
+
+            <div class="custom-file mb-3">
+                <input type="file" class="custom-file-input" id="customFile" name="filename">
+                <label for="customFile" class="custom-file-label">Choose file</label>
+            </div>
+
+            <p>2. Default file:</p>
+            <input type="file" id="myFile" name="filename2">
+
+            <div class="mt-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        <p></p>
+    </div>
+
+    
+    <script>
+        // Add the following code if you want the name of the file appear on select
+        $(".custom-file-input").on("change", function() {
+          var fileName = $(this).val().split("\\").pop();
+
+          $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+        });
+    </script>
+    
+</body>
+</html>

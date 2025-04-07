@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Bootstrap Radio Buttons #2</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Form control: inline radio buttons</h2>
+        <p>As with checkboxes, use the <code>.form-check-inline</code> class
+            if you want the radio buttons to appear on the <strong>same</strong> line</p>
+
+        <p>The form below contains three inline radio buttons. The first option is checked by default, 
+            and the last option is disabled:</p>
+
+        <form action="">
+            <div class="form-check-inline">
+                <label for="radio1" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>Option 1
+                </label>
+            </div>
+
+            <div class="form-check-inline">
+                <label for="radio2" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">Option 2
+                </label>
+            </div>
+
+            <div class="form-check-inline">
+                <label for="radio3" class="form-check-label">
+                    <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3" disabled>Option 3
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

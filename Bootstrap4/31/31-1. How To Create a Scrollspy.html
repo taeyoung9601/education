@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>How To Create a Scrollspy</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <style>
+
+        body {
+            position: relative;
+        }
+
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#section1" class="nav-link">Section 1</a></li>
+            <li class="nav-item"><a href="#section2" class="nav-link">Section 2</a></li>
+            <li class="nav-item"><a href="#section3" class="nav-link">Section 3</a></li>
+            
+            <!-- NOTE 3: if ( .dropdown ) class not exists, dropdown items appeared left-most. -->
+            <li class="nav-item dropdown">
+                <!-- NOTE 1: if ( data-toggle="dropdown" ) not exists, dropdown not activated. -->
+                <!-- NOTE 2: if ( .dropdown-toggle ) class not exists, dropdown caret not appeared. -->
+                <a href="#" id="navbardrop" class="nav-link dropdown-toggle" data-toggle="dropdown">Section 4</a>
+
+                <!-- NOTE 4: if ( .dropdown-menu ) class not exists, the below items appeared unconditionally. -->
+                <div class="dropdown-menu">
+                    <a href="#section41" class="dropdown-item">Link 1</a>
+                    <a href="#section42" class="dropdown-item">Link 2</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div id="section1" class="container-fluid bg-success" style="padding-top:70px; padding-bottom:70px;">
+        <h1>Section 1</h1>
+
+        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque harum aperiam ab omnis quis quisquam perferendis provident aspernatur, minus eveniet ullam, quas adipisci deleniti atque iste ipsa corrupti itaque. Cupiditate?</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa nulla, quisquam voluptatum quo blanditiis, enim exercitationem, corporis dolores a nam magni obcaecati fuga saepe error at dolorem dicta explicabo voluptate.</p>
+    </div>
+
+    <div id="section2" class="container-fluid bg-warning" style="padding-top:70px; padding-bottom:70px;">
+        <h1>Section 2</h1>
+
+        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium corporis, incidunt voluptates velit rerum sit adipisci ipsam. Provident quia odio autem nam doloribus quos, eos non blanditiis architecto, consequatur asperiores.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis dignissimos recusandae a consequatur. Necessitatibus deleniti unde qui in eius, amet voluptate accusantium cum iure aperiam, explicabo reprehenderit, repellat quasi. Est?</p>
+    </div>
+
+    <div id="section3" class="container-fluid bg-secondary" style="padding-top:70px; padding-bottom:70px;">
+        <h1>Section 3</h1>
+
+        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur repellat nihil atque corrupti, beatae itaque dolorem repudiandae fuga doloremque corporis perspiciatis, illum deserunt. Illum itaque ducimus cumque hic sit quo?</p>
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Itaque ullam laboriosam earum voluptate sit placeat quam reprehenderit explicabo quisquam numquam cum, assumenda eum asperiores dolor. Minima, possimus explicabo. Blanditiis, dicta?</p>
+    </div>
+
+    <div id="section41" class="container-fluid bg-danger" style="padding-top:70px; padding-bottom:70px;">
+        <h1>Section 4 &gt; Submenu 1</h1>
+
+        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsum tempora id sed, veniam veritatis rem cum molestiae velit delectus beatae pariatur, quia nostrum molestias, mollitia aliquid illum! Autem, maiores?</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque tenetur aut nihil quisquam voluptas minima. Pariatur magnam impedit cupiditate? Sequi iure quae facilis atque impedit odit eligendi, delectus ullam debitis?</p>
+    </div>
+
+    <div id="section42" class="container-fluid bg-info" style="padding-top:70px; padding-bottom:70px;">
+        <h1>Section 4 &gt; Submenu 2</h1>
+
+        <p></p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium totam vero culpa sed, maiores quibusdam rerum sapiente nostrum eveniet, fuga veritatis velit deleniti nam placeat ut aspernatur odio, nobis molestiae.</p>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente velit aliquam explicabo sint inventore! Natus libero dicta praesentium eaque repudiandae magnam, cupiditate consequuntur, quisquam, corrupti voluptatem vel explicabo amet qui.</p>
+    </div>
+    
+</body>
+</html>

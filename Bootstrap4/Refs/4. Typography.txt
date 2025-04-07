@@ -1,0 +1,174 @@
+============================================================
+= Bootstrap 4 - Text/Typography
+============================================================
+
+1. Bootstrap 4 Default Settings
+
+    a. Bootstrap 4 uses a default ( font-size ) of ( 16px ), and its ( line-height ) is ( 1.5 ).
+    b. The default ( font-family ) is "Helvetica Neue", Helvetica, Arial, sans-serif.
+    c. In addition, all ( <p> ) elements have ( margin-top: 0 ) and ( margin-bottom: 1rem ) (1rem = 16px by default).
+
+
+2. <h1> - <h6>
+
+    a. Bootstrap 4 styles HTML headings (<h1> to <h6>)  with a ( bolder font-weight ) and an ( increased font-size ) :
+
+    b. Example:
+
+        - ( h1 ) Bootstrap heading ( 2.5rem = 40px )
+        - ( h2 ) Bootstrap heading ( 2rem = 32px )
+        - ( h3 ) Bootstrap heading ( 1.75rem = 28px )
+        - ( h4 ) Bootstrap heading ( 1.5rem = 24px 
+        - ( h5 ) Bootstrap heading ( 1.25rem = 20px )
+        - ( h6 ) Bootstrap heading ( 1rem = 16px )
+
+
+3. Display Headings
+
+    a. Display headings are used to stand out more than normal headings (larger font-size and lighter font-weight), 
+    b. and there are ( four classes ) to choose from: ( .display-1, .display-2, .display-3, .display-4 )
+
+    c. Example:
+
+        <h1 class="display-1">Display 1</h1>
+        <h1 class="display-2">Display 2</h1>
+        <h1 class="display-3">Display 3</h1>
+        <h1 class="display-4">Display 4</h1>
+
+
+4. <small> - Inline element
+
+    a. In Bootstrap 4, the HTML ( <small> ) element is used to create a ( lighter, secondary text ) in any heading:
+
+    b. Example:
+
+        <h1>h1 heading <small>secondary text</small></h1>
+        <h2>h2 heading <small>secondary text</small></h2>
+        <h3>h3 heading <small>secondary text</small></h3>
+        <h4>h4 heading <small>secondary text</small></h4>
+        <h5>h5 heading <small>secondary text</small></h5>
+        <h6>h6 heading <small>secondary text</small></h6>
+
+
+5. <mark> - Inline element
+
+    a. Bootstrap 4 will style the HTML <mark> element with a ( yellow background color ) and ( some padding ) :
+
+    b. Example:
+
+        <mark>highlight</mark>
+
+
+6. <abbr> - Inline element
+
+    a. Bootstrap 4 will style the HTML <abbr> element with a ( dotted border bottom ) :
+
+    b. Example:
+
+        <abbr title="World Health Organization">WHO</abbr>
+
+
+7. <blockquote>
+
+    a. Add the ( .blockquote ) class to a <blockquote> when quoting blocks of content from another source
+    b. Add the ( .blockquote-footer ) class to a footer element to present a origin in the ( blockquote ) element
+
+    b. Example:
+
+        <blockquote class="blockquote">
+            <p>For 50 years, WWF has been protecting the future of nature. The world's leading conservation organization, WWF works in 100 countries and is supported by 1.2 million members in the United States and close to 5 million globally.</p>
+
+            <footer class="blockquote-footer">From WWF's website</footer>
+        </blockquote>
+
+
+8. <dl>
+
+    a. dl - Description Lists
+    b. Bootstrap 4 will style the HTML <dl> element in the following way:
+
+    c. Example:
+
+        <dl>
+            <dt>Coffee</dt>
+            <dd>- black hot drink</dd>
+
+            <dt>Milk</dt>
+            <dd>- white cold drink</dd>
+        </dl>
+
+
+9. <code> - Inline element
+
+    a. Bootstrap 4 will style the HTML <code> element in the following way:
+
+    b. Example:
+
+        <p>The following HTML elements: <code>span</code>, <code>section</code>, and <code>div</code> defines a section in a document.</p>
+
+
+10. <kbd> - Inline element
+
+    a. Bootstrap 4 will style the HTML <kbd> element in the following way:
+
+    b. Example:
+
+        <p>Use <kbd>ctrl + p</kbd> to open the Print dialog box.</p>
+
+
+11. <pre>
+
+    a. Bootstrap 4 will style the HTML <pre> element in the following way:
+
+    b. Example:
+
+        <pre>
+            Text in a pre element
+            is displayed in a fixed-width
+            font, and it preserves
+            both      spaces and
+            line breaks.
+        </pre>
+
+
+12. More Typography Classes
+
+    a. The Bootstrap ( 4 classes ) below can be added to ( style ) HTML elements further:
+
+        ----------------------------------------------------------------------------------------------------
+                Class 	            Description
+        ----------------------------------------------------------------------------------------------------
+            .font-weight-bold 	    Bold text
+            .font-weight-bolder 	Bolder text
+            .font-italic 	        Italic text
+            .font-weight-light 	    Light weight text
+            .font-weight-lighter 	Lighter weight text
+            .font-weight-normal 	Normal text
+            .lead 	                Makes a paragraph stand out
+            .small 	                Indicates smaller text (set to 80% of the size of the parent)
+            .text-left 	            Indicates left-aligned text
+            .text-*-left 	        Indicates left-aligned text on small, medium, large or xlarge screens
+            .text-break 	        Prevents long text from breaking layout
+            .text-center 	        Indicates center-aligned text
+            .text-*-center 	        Indicates center-aligned text on small, medium, large or xlarge screens
+            .text-decoration-none 	Removes the underline from a link
+            .text-right 	        Indicates right-aligned text
+            .text-*-right 	        Indicates right-aligned text on small, medium, large or xlarge screens
+            .text-justify 	        Indicates justified text
+            .text-monospace 	    Monospaced text
+            .text-nowrap 	        Indicates no wrap text
+            .text-lowercase 	    Indicates lowercased text
+            .text-reset 	        Resets the color of a text or a link (inherits the color from its parent)
+            .text-uppercase 	    Indicates uppercased text
+            .text-capitalize 	    Indicates capitalized text
+            .initialism 	        Displays the text inside an <abbr> element in a slightly smaller font size
+            .list-unstyled 	        Removes the default list-style and left margin on list items (works on both <ul> and <ol>).
+                                    This class only applies to immediate children list items 
+                                    (to remove the default list-style from any nested lists, apply this class to any nested lists as well)
+            .list-inline 	        Places all list items on a single line (used together with .list-inline-item on each <li> elements)
+            .pre-scrollable 	    Makes a <pre> element scrollable
+        ----------------------------------------------------------------------------------------------------
+
+
+13. 
+

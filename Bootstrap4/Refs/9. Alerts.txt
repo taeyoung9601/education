@@ -1,0 +1,76 @@
+============================================================
+= Bootstrap 4 - Alerts
+============================================================
+
+1. Bootstrap 4 Alerts
+
+    a. Bootstrap 4 provides an easy way to create ( predefined alert messages ) :
+    b. Alerts are created with the ( .alert ) class, 
+       followed by one of the ( contextual ) classes : 
+       
+       (1) .alert-success           : This alert box indicates a ( successful ) or ( positive ) action. 
+       (2) .alert-info              : This alert box indicates a ( neutral informative ) change or action. 
+       (3) .alert-warning           : This alert box indicates a ( warning ) that might need ( attention ). 
+       (4) .alert-danger            : This alert box indicates a ( dangerous ) or potentially ( negative ) action.
+       (5) .alert-primary           : This alert box indicates an ( important ) action. 
+       (6) .alert-secondary         : This alert box indicates a ( less important ) action.
+       (7) .alert-light             : ( Dark grey ) alert box. 
+       (8) .alert-dark              : ( Light grey ) alert box. 
+
+    c. Example:
+
+        <div class="alert alert-success">
+            <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+
+
+2. Alert Links
+
+    a. Add the ( alert-link ) class to any ( links ) inside the alert box to create "matching colored links":
+
+    b. Context meanings: 
+       
+       (1) .alert-success           : You should read this message. 
+       (2) .alert-info              : You should read this message. 
+       (3) .alert-warning           : You should read this message. 
+       (4) .alert-danger            : You should read this message.
+       (5) .alert-primary           : You should read this message. 
+       (6) .alert-secondary         : You should read this message. 
+       (7) .alert-light             : You should read this message. 
+       (8) .alert-dark              : You should read this message. 
+
+    c. Example:
+
+        <div class="alert alert-success">
+            <strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.
+        </div>
+
+
+3. Closing Alerts
+
+    a. To ( close ) the alert message, add a ( .alert-dismissible ) class to the ( alert container ). 
+       Then add ( class="close" ) and ( data-dismiss="alert" ) to a ( link ) or a ( button ) element.
+       ( when you click on this, the alert box will disappear )
+
+    b. ** Tip ** : &times; (×) is an HTML entity that is the ( preferred icon ) for ( close ) buttons, rather than the letter "x".
+
+    c. Example:
+
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+
+            <strong>Success!</strong> Indicates a successful or positive action.
+        </div>
+
+
+4. Animated Alerts
+
+    a. The ( .fade ) and ( .show ) classes adds a ( fading effect ) 
+       when closing the alert message :
+
+    b. Example:
+
+        <div class="alert alert-danger alert-dismissible fade show">
+        
+
+5. 

@@ -1,0 +1,72 @@
+============================================================
+= Bootstrap 4 - Images
+============================================================
+
+1. Bootstrap 4 Image Shapes
+
+    (1) Rounded Corners
+    (2) Circle
+    (3) Thumbnail
+
+
+2. Rounded Corners
+
+    a. The ( .rounded ) class adds ( rounded corners ) to an image :
+
+    b. Example:
+
+         <img src="cinqueterre.jpg" class="rounded" alt="Cinque Terre">  
+
+
+3. Circle
+
+    a. The ( .rounded-circle ) class shapes the image to a ( circle ) :
+
+    b. Example:
+
+         <img src="cinqueterre.jpg" class="rounded-circle" alt="Cinque Terre"> 
+
+
+4. Thumbnail
+
+    a. The ( .img-thumbnail ) class shapes the image to a ( thumbnail - bordered ) :
+
+    b. Example:
+
+         <img src="cinqueterre.jpg" class="img-thumbnail" alt="Cinque Terre"> 
+
+
+5. Aligning Images
+
+    a. Float an image to the ( right ) with the ( .float-right ) class or to the ( left ) with ( .float-left ) :
+
+    b. Example:
+
+        <img src="paris.jpg" class="float-left">
+        <img src="paris.jpg" class="float-right">
+
+
+6. Centered Image
+
+    a. ( Center ) an image by adding the utility classes ( .mx-auto - margin:auto ) and ( .d-block - display:block ) to the image:
+
+    b. Example:
+
+         <img src="paris.jpg" class="mx-auto d-block"> 
+
+
+7. Responsive Images
+
+    a. Images come in all sizes. So do screens.
+    b. Responsive images automatically adjust to fit the size of the screen.
+    c. Create ( responsive ) images by adding an ( .img-fluid ) class to the ( <img> ) tag.
+    d. The image will then ( scale ) nicely to the ( parent ) element.
+    e. The ( .img-fluid ) class applies ( max-width: 100%; ) and ( height: auto; ) to the image:
+    
+    f. Example:
+
+         <img class="img-fluid" src="img_chania.jpg" alt="Chania"> 
+
+
+
+

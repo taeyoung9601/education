@@ -1,0 +1,329 @@
+============================================================
+= Bootstrap 4 - Navigation Bar
+============================================================
+
+1. Navigation Bars
+
+    a. A navigation bar is a navigation header that is placed at the top of the page.
+
+
+2. Basic Navbar
+
+    a. With Bootstrap, a navigation bar can extend or collapse, depending on the screen size.
+
+    b. A standard navigation bar is created with the ( .navbar ) class, followed by a responsive collapsing class: 
+        ( .navbar-expand-xl | lg | md | sm ) ( stacks the navbar * vertically * on extra large, large, medium or small screens ).
+
+    c. To add ( links ) inside the navbar, use a ( <ul> ) element with ( class="navbar-nav" ). 
+       Then add ( <li> ) elements with a ( .nav-item ) class followed by an ( <a> ) element with a ( .nav-link ) class.
+
+    d. Example:
+
+         <!-- A grey ( horizontal ) navbar that becomes ( vertical ) on small screens -->
+        <nav class="navbar navbar-expand-sm bg-light">
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+
+        </nav> 
+
+
+3. Vertical Navbar
+
+    a. Remove the ( .navbar-expand-xl|lg|md|sm ) class to create a ( vertical ) navigation bar.
+
+    b. Example:
+
+        <!-- A vertical navbar -->
+        <nav class="navbar bg-light">
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+
+        </nav> 
+
+
+4. Centered Navbar
+
+    a. Add the ( .justify-content-center ) class to center the navigation bar.
+    b. On small screens, it will be displayed ( vertically ) and ( left-aligned )
+       because of the ( .navbar-expand-sm class )
+    
+    c. Example:
+
+        <nav class="navbar navbar-expand-sm bg-light justify-content-center">
+            ...
+        </nav> 
+
+
+5. Colored Navbar
+
+    a. Use any of the ( .bg-color ) classes to change the ( background color ) of the navbar :
+       (1) .bg-primary
+       (2) .bg-success
+       (3) .bg-info
+       (4) .bg-warning
+       (5) .bg-danger
+       (6) .bg-secondary
+       (7) .bg-dark
+       (8) .bg-light
+
+    b. *Tip*: Add a ( white ) text color to all ( links ) in the navbar
+              with the ( .navbar-dark ) class, or use the ( .navbar-light ) class to add a ( black ) text color.
+
+    c. Example:
+
+        <!-- Grey with black text -->
+        <nav class="navbar navbar-expand-sm bg-light navbar-light">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Active</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Disabled</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Black with white text -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">...</nav>
+
+        <!-- Blue with white text -->
+        <nav class="navbar navbar-expand-sm bg-primary navbar-dark">...</nav>
+
+
+6. Brand / Logo
+
+    a. The ( .navbar-brand ) class is used to ( highlight ) the brand/logo/project name of your page.
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <a class="navbar-brand" href="#">Logo</a>
+                ...
+            </nav>
+
+    b. When using the ( .navbar-brand ) class on images, 
+       Bootstrap 4 will ( automatically ) style the image to fit the navbar vertically.
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <a class="navbar-brand" href="#">
+                    <img src="bird.jpg" alt="Logo" style="width:40px;">
+                </a>
+                
+                ...
+            </nav> 
+
+
+7. Collapsing The Navigation Bar
+
+    a. Very often, especially on ( small ) screens, you want to ( hide ) the navigation links 
+       and ( replace ) them with a ( button ) that should reveal them when clicked on.
+
+    b. To create a ( collapsible ) navigation bar,
+    
+       (1) use a button with ( .navbar-toggler ) class, ( data-toggle="collapse" ) and ( data-target="#thetarget" ) attributes.
+       (2) Then ( wrap ) the navbar content (links, etc) inside a ( div ) element with ( .collapse,  .navbar-collapse ) classes,
+       (3) followed by an ( id ) that matches the ( data-target ) of the button: ( thetarget ).
+
+    c. Example:
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Navbar</a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+                
+            </div>
+        </nav>
+
+
+8. Navbar With Dropdown
+
+    a. Navbars can also hold dropdown menus.
+
+    b. Example:
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#">Logo</a>
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        Dropdown link
+                    </a>
+
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Link 1</a>
+                        <a class="dropdown-item" href="#">Link 2</a>
+                        <a class="dropdown-item" href="#">Link 3</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+
+9. Navbar Forms and Buttons
+
+    a. Add a ( <form> ) element with ( .form-inline ) class to ( group ) inputs and buttons side-by-side.
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+                <form class="form-inline" action="/action_page.php">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+
+                    <button class="btn btn-success" type="submit">Search</button>
+                </form>
+
+            </nav>
+
+    b. You can also use other input classes, such as ( .input-group-prepend ) class or ( .input-group-append ) class
+       to attach an icon or help text next to the input field.
+
+       Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+                <form class="form-inline" action="/action_page.php">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">@</span>
+                        </div>
+
+                        <input type="text" class="form-control" placeholder="Username">
+                    </div>
+                </form>
+
+            </nav> 
+
+    c. You will learn more about these classes in the Bootstrap Inputs.
+
+
+10. Navbar Text
+
+    a. Use the ( .navbar-text ) class to vertical align any elements ( inside ) the navbar that are not links
+       ( ensures proper padding and text color ).
+
+    b. Example:
+
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+            </ul>
+
+            <!-- Navbar text-->
+            <span class="navbar-text">
+                Navbar text
+            </span>
+
+        </nav> 
+
+
+11. Fixed Navigation Bar
+
+    a. The navigation bar can also be ( fixed ) at the ( top ) or at the ( bottom ) of the page.
+
+    b. A ( fixed ) navigation bar stays ( visible ) in a ( fixed ) position ( top or bottom ) independent of the page scroll.
+
+    c. The ( .fixed-top ) class makes the navigation bar ( fixed ) at the ( top ).
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+                ...
+            </nav>
+            
+    d. The ( .fixed-bottom ) class makes the navigation bar ( fixed ) at the ( bottom ).
+
+        Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-bottom">
+                ...
+            </nav>
+
+    e. Use the ( .sticky-top ) class to make the navbar ( fixed / stay ) at the ( top ) of the page 
+       when you scroll ( past ) it. 
+       
+       *Note*: This class does not work in IE11 and earlier ( will treat it as position:relative ).
+
+       Example:
+
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+                ...
+            </nav> 

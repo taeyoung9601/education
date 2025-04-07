@@ -1,0 +1,120 @@
+============================================================
+= Bootstrap 4 - Media Objects
+============================================================
+
+1. Media Objects
+
+    a. Bootstrap provides an easy way to align ( media objects ) ( like images or videos ) together with content.
+
+    b. Media objects are often used to display blog comments, tweets and so on:
+
+
+2. Basic Media Object
+
+    a. To create a ( media object ), add the ( .media ) class to a ( container element ), 
+        and place media content ( inside ) a ( child container ) with the ( .media-body ) class.
+
+    b. Add ( padding ) and ( margins ) as needed, with the ( spacing ) utilities:
+
+        Example:
+
+            <div class="media border p-3">
+                <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+
+                <div class="media-body">
+                    <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+                    <p>Lorem ipsum...</p>
+                </div>
+            </div>
+
+
+3. Nested Media Objects
+
+    a. Media objects can also be ( nested ). ( a media object inside a media object )
+
+    b. To ( nest ) media objects, place a new ( .media ) container ( inside ) the ( .media-body ) container.
+
+    c. Example:
+
+        <div class="media border p-3">
+            <img src="img_avatar3.png" alt="John Doe" class="mr-3 mt-3 rounded-circle" style="width:60px;">
+
+            <div class="media-body">
+                <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+
+                <p>Lorem ipsum...</p>
+
+                <div class="media p-3">
+                    <img src="img_avatar2.png" alt="Jane Doe" class="mr-3 mt-3 rounded-circle" style="width:45px;">
+
+                    <div class="media-body">
+                        <h4>Jane Doe <small><i>Posted on February 20 2016</i></small></h4>
+
+                        <p>Lorem ipsum...</p>
+                    </div>
+                </div> 
+            </div>
+        </div>
+
+
+4. Right-Aligned Media Image
+
+    a. To ( right-align ) the media image, add the image ( after ) the ( .media-body ) container.
+
+    b. Example:
+
+        <div class="media border p-3">
+
+            <div class="media-body">
+                <h4>John Doe <small><i>Posted on February 19, 2016</i></small></h4>
+
+                <p>Lorem ipsum...</p>
+            </div>
+
+            <img src="img_avatar3.png" alt="John Doe" class="ml-3 mt-3 rounded-circle" style="width:60px;">
+        </div>
+
+
+5. Top, Middle or Bottom Alignment
+
+    a. Use the ( flex ) utilities, ( .align-self-* ) classes to place the ( media object ) on the ( top ), ( middle ) or at the ( bottom ) :
+
+        - on the top    with ( .align-self-start ) class
+        - on the middle with ( .align-self-center ) class
+        - at the bottom with ( .align-self-end ) class
+
+    b. Example:
+
+        <!-- Media top -->
+        <div class="media">
+            <img src="img_avatar1.png" class="align-self-start mr-3" style="width:60px">
+
+            <div class="media-body">
+                <h4>Media Top</h4>
+
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
+
+        <!-- Media middle -->
+        <div class="media">
+            <img src="img_avatar1.png" class="align-self-center mr-3" style="width:60px">
+
+            <div class="media-body">
+                <h4>Media Middle</h4>
+
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
+
+        <!-- Media bottom -->
+        <div class="media">
+            <img src="img_avatar1.png" class="align-self-end mr-3" style="width:60px">
+
+            <div class="media-body">
+                <h4>Media Bottom</h4>
+
+                <p>Lorem ipsum...</p>
+            </div>
+        </div>
+

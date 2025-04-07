@@ -1,0 +1,87 @@
+============================================================
+= Bootstrap 4 - Containers
+============================================================
+
+1. You learned from the previous chapter that Bootstrap requires ( a containing element ) to wrap site contents.
+
+
+2. Containers are used to pad the content inside of them, and there are ( two container classes ) available:
+
+    (1) The ( .container )          class provides a ( responsive fixed width ) container
+    (2) The ( .container-fluid )    class provides a ( full width container, spanning the entire width of the viewport )
+
+
+3. Fixed Container
+
+    a. Use the ( .container ) class to create a responsive, fixed-width container.
+    b. Note that its width ( max-width ) will change on different screen sizes:
+
+        -------------------------------------------------------
+        Extra small                             max-width 
+        -------------------------------------------------------
+           < 576px 	Small                            100%
+           ≥ 576px 	Medium                          540px
+           ≥ 768px 	Large                           720px
+           ≥ 992px 	Extra large                     960px
+           ≥ 1200px                                1140px
+        -------------------------------------------------------
+
+    c. Example
+
+        <div class="container">
+            <h1>My First Bootstrap Page</h1>
+            <p>This is some text.</p>
+        </div>
+
+
+4. Fluid Container
+
+    a. Use the ( .container-fluid ) class to create a full width container, 
+    b. that will always span the entire width of the screen ( ** width is always 100% ** ):
+    c. Example:
+
+        <div class="container-fluid">
+            <h1>My First Bootstrap Page</h1>
+            <p>This is some text.</p>
+        </div>
+
+
+5. Container Padding
+
+    a. By default, containers have ( 15px left and right padding ), with ( no top or bottom padding ).
+    b. Therefore, we often use spacing utilities, such as extra padding and margins to make them look even better.
+
+    c. For example, ( .pt-3 ) means "add a top padding of 16px":
+
+         <div class="container pt-3"></div>
+
+        * pt-3 doesn't work in the cointainer-fluid *
+
+
+6. Container Border and Color
+
+    a. Other utilities, such as borders and colors, are also often used together with containers:
+
+    b. Example:
+
+        (1) <div class="container p-3 my-3 border"></div>
+        (2) <div class="container p-3 my-3 bg-dark text-white"></div>
+        (3) <div class="container p-3 my-3 bg-primary text-white"></div>
+
+
+7. Responsive Containers
+
+    a. You can also use the ( .container-sm | md | lg | xl ) classes to create responsive containers.
+    b. The ( max-width ) of the container will change on different screen sizes/viewports:
+
+    --------------------------------------------------------------------------------------------------------
+    Class 	                    .container-sm       .container-md       .container-lg       .container-xl
+    --------------------------------------------------------------------------------------------------------
+    Extra small : < 576px            100 %                100 %               100 %               100 %
+    Small : ≥ 576px                  540px                100 %               100 %               100 %
+    Medium : ≥ 768px 	             720px                720px               100 %               100 %
+    Large : ≥ 992px 	             960px                960px               960px               960px
+    Extra large : ≥ 1200px          1140px               1140px              1140px              1140px
+    --------------------------------------------------------------------------------------------------------
+
+

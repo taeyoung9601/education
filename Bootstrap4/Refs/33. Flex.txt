@@ -1,0 +1,346 @@
+============================================================
+= Bootstrap 4 - Flex
+============================================================
+
+1. Flex
+
+    a. Use ( flex ) classes to control the ( layout ) of Bootstrap 4 components.
+
+
+2. Flexbox
+
+    a. The biggest ( difference ) between Bootstrap 3 and Bootstrap 4 is that Bootstrap 4 now uses ( flexbox ),
+       instead of ( floats ), to handle the ( layout ).
+
+    b. The ( Flexible Box ) Layout Module, makes it easier to design ( flexible responsive layout structure )
+       ( without ) using ( float ) or ( positioning ).
+
+    c. *Note*: Flexbox is ( not ) supported in ( IE9 ) and ( earlier versions ).
+
+    d. If you require ( IE8-9 ) support, use ( Bootstrap 3 ).
+       It is the ( most stable ) version of Bootstrap, and it is still supported by the team for critical bugfixes
+       and documentation changes. However, no new features will be added to it.
+
+    e. To create a ( flexbox container ) and to transform ( direct children ) into ( flex items ),
+       use the ( .d-flex ) class:
+
+       Example:
+
+            <div class="d-flex p-3 bg-secondary text-white">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div>
+
+    f. To create an ( inline flexbox container ), use the  ( .d-inline-flex ) class:
+
+        Example:
+
+            <div class="d-inline-flex p-3 bg-secondary text-white">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary">Flex item 3</div>
+            </div>
+
+
+3. Horizontal Direction
+
+    a. Use ( .flex-row ) to display the flex items ( horizontally ) (side by side). This is ( default ).
+
+    b. Tip: Use ( .flex-row-reverse ) class to ( right-align ) the ( horizontal ) direction.
+
+    c. Example:
+
+        <div class="d-flex flex-row bg-secondary">
+            <div class="p-2 bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+
+        <div class="d-flex flex-row-reverse bg-secondary">
+            <div class="p-2 bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+
+
+4. Vertical Direction
+
+    a. Use ( .flex-column ) to display the flex items ( vertically ) ( on ( top ) of each other ),
+       or ( .flex-column-reverse ) to ( reverse ) the ( vertical ) direction.
+
+    b. Example:
+
+        <div class="d-flex flex-column">
+            <div class="p-2 bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+
+        <div class="d-flex flex-column-reverse">
+            <div class="p-2 bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+
+
+5. Justify Content
+
+    a. Use the ( .justify-content-* ) classes to change the ( alignment ) of ( flex items ).
+       Valid classes are ( .start, default ), ( .end ), ( .center ), ( .between ) or ( .around )
+
+    b. Example:
+
+        <div class="d-flex justify-content-start">...</div>
+        <div class="d-flex justify-content-end">...</div>
+        <div class="d-flex justify-content-center">...</div>
+        <div class="d-flex justify-content-between">...</div>
+        <div class="d-flex justify-content-around">...</div>
+
+
+6. Fill / Equal Widths
+
+    a. Use ( .flex-fill ) class on flex items to force them into ( equal ) widths.
+
+    b. Example:
+
+        <div class="d-flex">
+            <div class="p-2 bg-info flex-fill">Flex item 1</div>
+            <div class="p-2 bg-warning flex-fill">Flex item 2</div>
+            <div class="p-2 bg-primary flex-fill">Flex item 3</div>
+        </div>
+
+
+7. Grow
+
+    a. Use ( .flex-grow-1 ) class on a ( flex item ) to take up the ( rest ) of the space.
+    
+    b. In the example below, the first two flex items take up their necessary space,
+       while the last item takes up the ( rest ) of the ( available ) space:
+
+        Example:
+
+            <div class="d-flex">
+                <div class="p-2 bg-info">Flex item 1</div>
+                <div class="p-2 bg-warning">Flex item 2</div>
+                <div class="p-2 bg-primary flex-grow-1">Flex item 3</div>
+            </div>
+
+    c. Tip: Use ( .flex-shrink-1 ) class on a ( flex item ) to make it ( shrink ) if necessary.
+
+
+8. Order
+
+    a. Change the ( visual ) order of a ( specific ) flex item(s) with the ( .order ) classes.
+
+    b. Valid classes are ( from 0 to 12 ), where the ( lowest ) number has ( highest ) priority.
+       ( order-1 is shown before order-2, etc.. )
+
+    c. Example:
+
+        <div class="d-flex bg-secondary">
+            <div class="p-2 bg-info order-3">Flex item 1</div>
+            <div class="p-2 bg-warning order-2">Flex item 2</div>
+            <div class="p-2 bg-primary order-1">Flex item 3</div>
+        </div>
+
+
+9. Auto Margins
+
+    a. Easily add ( auto margins ) to ( flex items ) with ( .mr-auto ) class ( push items to the [ right ] ),
+        or by using ( .ml-auto ) class. ( push items to the [ left ] )
+
+    b. Example:
+
+        <div class="d-flex bg-secondary">
+            <div class="p-2 mr-auto bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 bg-primary">Flex item 3</div>
+        </div>
+
+        <div class="d-flex bg-secondary">
+            <div class="p-2 bg-info">Flex item 1</div>
+            <div class="p-2 bg-warning">Flex item 2</div>
+            <div class="p-2 ml-auto bg-primary">Flex item 3</div>
+        </div>
+
+
+10. Wrap
+
+    a. Control how flex items ( wrap ) in a flex ( container ) 
+        with :
+            (1) ( .flex-nowrap ) class ( *default* )
+            (2) ( .flex-wrap ) class
+            (3) ( .flex-wrap-reverse ) class
+
+    b. Example:
+
+        <div class="d-flex flex-wrap">..</div>
+
+        <div class="d-flex flex-wrap-reverse">..</div>
+
+        <div class="d-flex flex-nowrap">..</div>
+
+
+11. Align Content
+
+    a. Control the ( vertical ) alignment of ( gathered ) flex items with the ( .align-content-* ) classes.
+    
+    b. Valid classes are :
+        (1) ( .align-content-start ) class ( *default* )
+        (2) ( .align-content-end ) class
+        (3) ( .align-content-center ) class
+        (4) ( .align-content-between ) class
+        (5) ( .align-content-around ) class
+        (6) ( .align-content-stretch ) class
+
+    c. *Note* : These classes have ( no ) effect on ( single rows ) of flex items.
+
+    d. Example:
+
+        <div class="d-flex flex-wrap align-content-start">..</div>
+
+        <div class="d-flex flex-wrap align-content-end">..</div>
+
+        <div class="d-flex flex-wrap align-content-center">..</div>
+
+        <div class="d-flex flex-wrap align-content-around">..</div>
+
+        <div class="d-flex flex-wrap align-content-stretch">..</div>
+
+
+12. Align Items
+
+    a. Control the ( vertical ) alignment of ( single rows ) of flex items with the ( .align-items-* ) classes.
+    
+    b. Valid classes are :
+        (1) ( .align-items-start ) class
+        (2) ( .align-items-end ) class
+        (3) ( .align-items-center ) class
+        (4) ( .align-items-baseline ) class
+        (5) ( .align-items-stretch ) class ( *default* )
+
+    c. Example:
+
+        <div class="d-flex align-items-start">..</div>
+
+        <div class="d-flex align-items-end">..</div>
+
+        <div class="d-flex align-items-center">..</div>
+
+        <div class="d-flex align-items-baseline">..</div>
+
+        <div class="d-flex align-items-stretch">..</div>
+
+
+13. Align Self
+
+    a. Control the ( vertical ) alignment of a ( specified ) flex item with the ( .align-self-* ) classes.
+    
+    b. Valid classes are :
+        (1) ( .align-self-start ) class
+        (2) ( .align-self-end ) class
+        (3) ( .align-self-center ) class
+        (4) ( .align-self-baseline ) class
+        (5) ( .align-self-stretch ) class ( *default* )
+
+    c. Example:
+
+        <div class="d-flex bg-light" style="height:150px">
+            <div class="p-2 border">Flex item 1</div>
+            <div class="p-2 border align-self-start">Flex item 2</div>
+            <div class="p-2 border">Flex item 3</div>
+        </div>
+
+
+14. Responsive Flex Classes
+
+    a. ( All ) flex classes comes with additional ( responsive ) classes, which makes it easy to set a ( specific ) flex class
+        on a ( specific ) screen ( size ).
+
+    b. The ( * ) symbol can be replaced with 
+        (1) ( sm )
+        (2) ( md )
+        (3) ( lg )
+        (4) ( xl )
+
+        which represents ( small ), ( medium ), ( large ) or ( xlarge ) screens.
+
+        ==========================================================================================================================
+            Class                       Description
+        ==========================================================================================================================
+        1. Flex Container
+        --------------------------------------------------------------------------------------------------------------------------
+            .d-*-flex                   Creates a flexbox ( container ) for ( different ) screens.
+            .d-*-inline-flex            Creates an ( inline ) flexbox ( container ) for ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        2. Direction
+        --------------------------------------------------------------------------------------------------------------------------
+            .flex-*-row                 Display flex items ( horizontally ) on ( different ) screens.
+            .flex-*-row-reverse         Display flex items ( horizontally ), and ( right-aligned ), on ( different ) screens.
+            .flex-*-column              Display flex items ( vertically ) on ( different ) screens.
+            .flex-*-column-reverse      Display flex items ( vertically ), with ( reversed ) order, on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        3. Justified Content
+        --------------------------------------------------------------------------------------------------------------------------
+            .justify-content-*-start    Display flex items from the ( start, left-aligned ) on ( different ) screens.
+            .justify-content-*-end      Display flex items at the ( end, right-aligned ) on ( different ) screens.
+            .justify-content-*-center   Display flex items in the ( center ) of a flex container on ( different ) screens.
+            .justify-content-*-between  Display flex items in ( "between" ) on ( different ) screens.
+            .justify-content-*-around   Display flex items ( "around" ) on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        4. Fill / Equal Width
+        --------------------------------------------------------------------------------------------------------------------------
+            .flex-*-fill                ( Force ) flex items into ( equal widths ) on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        5. Grow
+        --------------------------------------------------------------------------------------------------------------------------
+            .flex-*-grow-0              ( Don't ) make the items ( grow ) on ( different ) screens.
+            .flex-*-grow-1              Make items ( grow ) on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        6. Shrink
+        --------------------------------------------------------------------------------------------------------------------------
+            .flex-*-shrink-0            ( Don't ) make the items ( shrink ) on ( diferent ) screens.
+            .flex-*-shrink-1            Make items ( shrink ) on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        7. Order
+        --------------------------------------------------------------------------------------------------------------------------
+            .order-*-0-12               Change the ( order ) from 0 to 12 on ( small ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        8. Wrap
+        --------------------------------------------------------------------------------------------------------------------------
+            .flex-*-nowrap              ( Don't ) wrap items on ( different ) screens.
+            .flex-*-wrap                ( Wrap ) items on ( different ) screens.
+            .flex-*-wrap-reverse        ( Reverse ) the wrapping of items on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        9. Align Content
+        --------------------------------------------------------------------------------------------------------------------------
+            .align-content-*-start      Align gathered items from the ( start ) on ( different ) screens.
+            .align-content-*-end        Align gathered items at the ( end ) on ( different ) screens.
+            .align-content-*-center     Align gathered items in the ( center ) on ( different ) screens.
+            .align-content-*-around     Align gathered items ( "around" ) on ( different ) screens.
+            .align-content-*-stretch    ( Stretch ) gathered items on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        10. Align Items
+        --------------------------------------------------------------------------------------------------------------------------
+            .align-items-*-start        Align ( single ) rows of items from the ( start ) on ( different ) screens.
+            .align-items-*-end          Align ( single ) rows of items at the ( end ) on ( different ) screens.
+            .align-items-*-center       Align ( single ) rows of items in the ( center ) on ( different ) screens.
+            .align-items-*-baseline     Align ( single ) rows of items on the ( baseline ) on ( different ) screens.
+            .align-items-*-stretch      ( Stretch ) ( single ) rows of items on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+        11. Align Self
+        --------------------------------------------------------------------------------------------------------------------------
+            .align-self-*-start         Align a flex item from the ( start ) on ( different ) screens.
+            .align-self-*-end           Align a flex item at the ( end ) on ( different ) screens.
+            .align-self-*-center        Align a flex item in the ( center ) on ( different ) screens.
+            .align-self-*-baseline      Align a flex item on the ( baseline ) on ( different ) screens.
+            .align-self-*-stretch       ( Stretch ) a flex item on ( different ) screens.
+        --------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+15. 

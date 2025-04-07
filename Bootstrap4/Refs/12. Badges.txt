@@ -1,0 +1,66 @@
+============================================================
+= Bootstrap 4 - Badges
+============================================================
+
+1. Badges
+
+    a. Badges are used to add ( additional information ) to ( any content ).
+
+    b. Use the ( .badge ) class together with a ( contextual ) class ( like .badge-secondary )
+       within ( <span> ) elements to create rectangular ( badges ).
+
+    c. **Note** : badges ( scale ) to match the size of the ( parent ) element (if any):
+
+    d. Example:
+
+        <h1>Example heading <span class="badge badge-secondary">New</span></h1>
+        <h2>Example heading <span class="badge badge-secondary">New</span></h2>
+        <h3>Example heading <span class="badge badge-secondary">New</span></h3>
+        <h4>Example heading <span class="badge badge-secondary">New</span></h4>
+        <h5>Example heading <span class="badge badge-secondary">New</span></h5>
+        <h6>Example heading <span class="badge badge-secondary">New</span></h6> 
+
+
+2. Contextual Badges
+
+    a. Use any of the ( contextual ) classes ( .badge-* ) to change the ( color ) of a badge.
+
+    b. Example:
+
+        <span class="badge badge-primary">Primary</span>
+        <span class="badge badge-secondary">Secondary</span>
+        <span class="badge badge-success">Success</span>
+        <span class="badge badge-danger">Danger</span>
+        <span class="badge badge-warning">Warning</span>
+        <span class="badge badge-info">Info</span>
+        <span class="badge badge-light">Light</span>
+        <span class="badge badge-dark">Dark</span>
+
+
+3. Pill Badges
+
+    a. Use the ( .badge-pill ) class to make the badges more ( round ).
+
+    b. Example:
+
+        <span class="badge badge-pill badge-primary">Primary</span>
+        <span class="badge badge-pill badge-secondary">Secondary</span>
+        <span class="badge badge-pill badge-success">Success</span>
+        <span class="badge badge-pill badge-danger">Danger</span>
+        <span class="badge badge-pill badge-warning">Warning</span>
+        <span class="badge badge-pill badge-info">Info</span>
+        <span class="badge badge-pill badge-light">Light</span>
+        <span class="badge badge-pill badge-dark">Dark</span>
+
+
+4. Badge inside an Element
+
+    a. use ( <span> ) element with ( .badge-light ) to create a badge within any element.
+
+    b. Example:
+
+        <button type="button" class="btn btn-primary">
+            Messages <span class="badge badge-light">4</span>
+        </button>
+
+

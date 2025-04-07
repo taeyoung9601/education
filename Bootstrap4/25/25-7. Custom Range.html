@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom Range</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Custom Range</h2>
+        <p>To create a custom range menu, add the <code>.custom-range</code> class 
+            to the <strong>input</strong> element with <strong>type="range"</strong></p>
+
+        <form action="">
+            <label for="customRange">1. Custom range</label>
+            <input type="range" class="custom-range" id="customRange" name="point1" min="10" max="100" value="20">
+
+            <label for="defaultRange">2. Default range</label>
+            <input type="range" id="defaultRange" name="point2" min="1" max="50" value="18">
+
+            <p></p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

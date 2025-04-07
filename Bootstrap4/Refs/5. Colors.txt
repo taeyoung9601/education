@@ -1,0 +1,75 @@
+============================================================
+= Bootstrap 4 - Colors
+============================================================
+
+1. Text Colors
+
+    a. Bootstrap 4 has some ( contextual classes ) that can be used to provide ( "meaning through colors" ).
+    b. The classes for text colors are :
+        .text-muted
+        .text-primary
+        .text-success
+        .text-info
+        .text-warning
+        .text-danger
+        .text-secondary
+        .text-white
+        .text-dark
+        .text-body (default body color/often black) 
+        .text-light
+
+    c. Example:
+
+        <p class="text-muted">This text is muted.</p>
+        <p class="text-primary">This text is important.</p>
+        <p class="text-success">This text indicates success.</p>
+        <p class="text-info">This text represents some information.</p>
+        <p class="text-warning">This text represents a warning.</p>
+        <p class="text-danger">This text represents danger.</p>
+        <p class="text-secondary">Secondary text.</p>
+        <p class="text-dark">This text is dark grey.</p>
+        <p class="text-body">Default body color (often black).</p>
+        <p class="text-light">This text is light grey (on white background).</p>
+        <p class="text-white">This text is white (on white background).</p>
+
+    d. Contextual text classes can also be used on ( links ), which will add a ( darker hover color ):
+
+        Example:
+
+            ...
+            <a href="#" class="text-muted">Muted link.</a>
+            ...
+
+    e. You can also add ( 50% opacity ) for black or white text with the ( .text-black-50 ) or ( .text-white-50 ) classes:
+
+        Example:
+            ...
+            <p class="text-black-50">Black text with 50% opacity on white background</p>
+            <p class="text-white-50 bg-dark">White text with 50% opacity on black background</p>
+            ...
+
+
+2. Background Colors
+
+    a. The classes for background colors are:
+        .bg-primary
+        .bg-success
+        .bg-info
+        .bg-warning
+        .bg-danger
+        .bg-secondary
+        .bg-dark
+        .bg-light.
+
+    b. *Note* that background colors do *not* set the ( text ) color, 
+        so in some cases you'll want to use them together with a ( .text-* ) class.
+
+    c. Example:
+
+        ...
+        <p class="bg-primary text-white">This text is important.</p>
+        <p class="bg-success text-white">This text indicates success.</p>
+        ...
+
+
+        

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Flex Classes #13 ( .order-*-0-12 )</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container mt-3 border">
+        <h2>Order</h2>
+
+        <p></p>
+        <p>Change the <strong>visual order</strong> of a specific flex item(s) with the <code>.order</code> classes.<br>
+            Valid classes are <strong>from 0 to 12</strong>.</p>
+
+        <p>Use <code>.order-sm|md|lg|xl-0-12</code> classes to achieve this effect on <strong>different</strong> screen sizes.<br>
+            The classes can also be <strong>combined</strong> to make an even more flexible layout.</p>
+
+        <p>Resize the browser window to see the effect:</p>
+
+        <p>a. <code>.d-flex and .order</code> classes</p>
+        <div class="d-flex mb-3">
+            <div class="p-2 order-3 bg-info text-white">Flex item 1</div>
+            <div class="p-2 order-2 bg-warning">Flex item 2</div>
+            <div class="p-2 order-1 bg-primary text-white">Flex item 3</div>
+        </div>
+
+        <p>b. <code>.d-flex and .order-sm</code> classes</p>
+        <div class="d-flex mb-3">
+            <div class="p-2 order-sm-3 bg-info text-white">Flex item 1</div>
+            <div class="p-2 order-sm-2 bg-warning">Flex item 2</div>
+            <div class="p-2 order-sm-1 bg-primary text-white">Flex item 3</div>
+        </div> 
+  
+        <p>c. <code>.d-flex and .order-md</code> classes</p>
+        <div class="d-flex mb-3">
+          <div class="p-2 order-md-3 bg-info text-white">Flex item 1</div>
+          <div class="p-2 order-md-2 bg-warning">Flex item 2</div>
+          <div class="p-2 order-md-1 bg-primary text-white">Flex item 3</div>
+        </div> 
+        
+        <p>d. <code>.d-flex and .order-lg</code>:</p>
+        <div class="d-flex mb-3">
+          <div class="p-2 order-lg-3 bg-info text-white">Flex item 1</div>
+          <div class="p-2 order-lg-2 bg-warning">Flex item 2</div>
+          <div class="p-2 order-lg-1 bg-primary text-white">Flex item 3</div>
+        </div> 
+        
+        <p>e. <code>.d-flex and .order-xl</code>:</p>
+        <div class="d-flex mb-3">
+          <div class="p-2 order-xl-3 bg-info text-white">Flex item 1</div>
+          <div class="p-2 order-xl-2 bg-warning">Flex item 2</div>
+          <div class="p-2 order-xl-1 bg-primary text-white">Flex item 3</div>
+        </div>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Custom Switch</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Custom Switch</h2>
+        
+        <p>To create a custom <strong>toggle switch</strong>,<br>
+            1. Wrap a container element, like <strong>&lt;div&gt;</strong>, with a class of <code>.custom-control</code>
+            and <code>.custom-switch</code> classes around a checkbox.<br>
+            2. add the <code>.custom-control-input</code> class to the checkbox.<br>
+            3. then add the <code>.custom-control-label</code> class to the label.</p>
+
+        <form action="">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1" name="example">
+                <label for="switch1" class="custom-control-label">Toggle me</label>
+            </div>
+
+            <p></p>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

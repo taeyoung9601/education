@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Positioning Popovers</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $(function () {
+            $('[data-toggle="popover"]').popover();
+        }); // .jq
+
+    </script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h3>Popover Example</h3>
+
+        <p></p>
+
+        <p>By default, the popover will appear on the <strong>right</strong> side of the element.</p>
+
+        <p>Use the <code>data-placement</code> attribute to set the <strong>position</strong> of the popover
+           on <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong> or the <strong>right</strong>
+           side of the element.</p>
+        <p><strong>Note</strong>: The <code>placement</code> attributes do <strong>not</strong> work
+            if it is not enough room for them.</p>
+
+        <a href="#" data-toggle="popover" title="Header1" data-content="Content1" data-placement="top">Top</a><br>
+        <a href="#" data-toggle="popover" title="Header2" data-content="Content2" data-placement="bottom">Bottom</a><br>
+        <a href="#" data-toggle="popover" title="Header3" data-content="Content3" data-placement="left">Left</a><br>
+        <a href="#" data-toggle="popover" title="Header4" data-content="Content4" data-placement="right">Right</a><br>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

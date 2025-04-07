@@ -1,0 +1,254 @@
+============================================================
+= Bootstrap 4 - Cards
+============================================================
+
+1. Cards
+
+    a. A card in Bootstrap 4 is a ( bordered box ) with some ( padding ) around its content.
+       It includes ( options ) for headers, footers, content, colors, etc.
+
+
+2. Basic Card
+
+    a. A ( basic ) card is created with the ( .card ) class, and ( content ) inside the card has a ( .card-body ) class.
+
+    b. If you are familiar with ( Bootstrap 3 ), ( cards ) replace ( old ) panels, wells, and thumbnails.
+
+    c. Example:
+
+        <div class="card">
+            <div class="card-body">Basic card</div>
+        </div>
+
+
+3. Header and Footer
+
+    a. The ( .card-header ) class adds a ( heading ) to the card and the ( .card-footer ) class adds a ( footer ) to the card.
+
+    b. Example:
+
+        <div class="card">
+            <div class="card-header">Header</div>
+            <div class="card-body">Content</div>
+            <div class="card-footer">Footer</div>
+        </div>
+
+
+4. Contextual Cards
+
+    a. To add a ( background color ) to the card with ( .card ) class, use ( contextual ) classes
+       
+       * Contextual Classes:
+
+       (1) .bg-primary
+       (2) .bg-success
+       (3) .bg-info
+       (4) .bg-warning
+       (5) .bg-danger
+       (6) .bg-secondary
+       (7) .bg-dark
+       (8) .bg-light
+
+    b. Example:
+
+        <div class="card bg-primary text-white">
+            <div class="card-body">Primary card</div>
+        </div>
+
+
+5. Titles, text, and links
+
+    a. Use ( .card-title ) to add ( card titles ) to any ( heading ) element.
+
+    b. The ( .card-text ) class is used to ( remove bottom margins ) for a ( <p> ) element
+       if it is the ( last child ) or the (  only one ) inside ( .card-body ).
+
+    c. The ( .card-link ) class adds a ( blue color ) to any ( link ), and a ( hover effect ).
+
+    d. Example:
+
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Card title</h4>
+
+                <p class="card-text">Some example text. Some example text.</p>
+
+                <a href="#" class="card-link">Card link</a>
+                <a href="#" class="card-link">Another link</a>
+            </div>
+        </div>
+
+
+6. Card Images
+
+    a. Add ( .card-img-top ) or ( .card-img-bottom ) to an <img> element to place the image 
+       at the ( top ) or at the ( bottom ) inside the card.
+
+    b. **Note** : we have added the ( image ) outside of the ( .card-body ) to span the ( entire width ).
+
+    c. Example:
+
+        <div class="card" style="width:400px">
+            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+            
+            <div class="card-body">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+        </div>
+
+
+7. Stretched Link
+
+    a. Add the ( .stretched-link ) class to a ( link ) inside the ( card ), 
+       and it will make the ( whole card clickable and hoverable ) ( = the card will act as a link ).
+
+    b. Example:
+
+        <a href="#" class="btn btn-primary stretched-link">See Profile</a>
+
+
+8. Card Image Overlays
+
+    a. Turn an image into a ( card background ) and use ( .card-img-overlay ) instead of ( .card-body ) 
+       to add ( text ) on top of the ( image ).
+
+    b. Example:
+
+        <div class="card" style="width:500px">
+            <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+
+            <div class="card-img-overlay">
+                <h4 class="card-title">John Doe</h4>
+                <p class="card-text">Some example text.</p>
+                <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+        </div>
+
+
+9. Card Columns
+
+    a. The ( .card-columns ) class creates a ( masonry-like grid ) of cards (like pinterest).
+    b. The ( layout ) will ( automatically adjust ) as you insert more cards.
+    c. **Note** : The cards are displayed ( vertically ) on ( small ) screens ( < 576px ):
+
+    d. Example:
+
+        <div class="card-columns">
+
+            <div class="card bg-primary">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the first card</p>
+                </div>
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the second card</p>
+                </div>
+            </div>
+
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the third card</p>
+                </div>
+            </div>
+
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the fourth card</p>
+                </div>
+            </div>
+
+            <div class="card bg-light">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the fifth card</p>
+                </div>
+            </div>
+
+            <div class="card bg-info">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the sixth card</p>
+                </div>
+            </div>
+
+        </div>
+
+
+10. Card Deck
+
+    a. The ( .card-deck ) class creates a ( grid ) of cards that are of ( equal height and width ).
+
+    b. The layout will ( automatically adjust ) as you insert more cards.
+
+    c. **Note** : The cards are displayed ( vertically ) on ( small ) screens ( < 576px )
+
+    d. Example:
+
+        <div class="card-deck">
+            <div class="card bg-primary">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the first card</p>
+                </div>
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the second card</p>
+                </div>
+            </div>
+
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the third card</p>
+                </div>
+            </div>
+
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                    <p class="card-text">Some text inside the fourth card</p>
+                </div>
+            </div>
+        </div>
+
+
+11. Card Group
+
+    a. The ( .card-group ) class is similar to ( .card-deck ).
+
+    b. The only difference is that the ( .card-group ) class removes ( left and right margins ) between each card.
+
+    c. **Note** : The cards are displayed ( vertically ) on small screens ( < 576px ), with top and bottom margin.
+
+    d. Example:
+
+        <div class="card-group">
+
+            <div class="card bg-primary">
+                <div class="card-body text-center">
+                <p class="card-text">Some text inside the 1st. card</p>
+                </div>
+            </div>
+
+            <div class="card bg-warning">
+                <div class="card-body text-center">
+                <p class="card-text">Some text inside the 2nd. card</p>
+                </div>
+            </div>
+
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                <p class="card-text">Some text inside the 3rd. card</p>
+                </div>
+            </div>
+
+            <div class="card bg-danger">
+                <div class="card-body text-center">
+                <p class="card-text">Some text inside the 4th. card</p>
+                </div>
+            </div>
+
+        </div>
+
+

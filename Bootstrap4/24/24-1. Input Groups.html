@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Input Groups</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h3>Input Groups</h3>
+        <p>The <code>.input-group</code> class is a <strong>container</strong> to enhance an input 
+            by adding an icon, text or a button<br>in <strong>front</strong> <code>.input-group-prepend</code> class or 
+            <strong>behind</strong> <code>.input-group-append</code> the input field as a <strong>help text</strong>.</p>
+
+        <p>Use the <code>.input-group-text</code> class to style the specified <strong>help text</strong>.</p>
+
+        <p>*Tip*: We use the <code>.mb-3</code> <strong>utility</strong> class to ensure that 
+                  the input group gets a proper <strong>margin bottom</strong>.</p>
+
+        <form action="">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">@</span>
+                </div>
+
+                <input type="text" class="form-control" id="user" name="user" placeholder="Username">
+            </div>
+
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="email" name="email" placeholder="Your Email">
+
+                <div class="input-group-append">
+                    <span class="input-group-text">@example.com</span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

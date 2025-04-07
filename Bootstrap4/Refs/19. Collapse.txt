@@ -1,0 +1,126 @@
+============================================================
+= Bootstrap 4 - Collapse
+============================================================
+
+1. Basic Collapsible
+
+    a. ( Collapsibles ) are useful when you want to hide and show ( large ) amount of content.
+
+    b. Example:
+
+        <!-- NOTE 1 : Two attributes of ( data-toggle="collapse" ) and ( data-target="#id" ) must be used in a ( <button> ) element.
+                      Here, ( "#id" ) value should point to the ( id ) attribute of ( <div> ) element to contain contents. -->
+        <button data-toggle="collapse" data-target="#demo">Collapsible</button>
+
+        <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+        <div id="demo" class="collapse">
+            Lorem ipsum dolor text....
+        </div>
+
+        * Example Explained:
+
+            - The ( .collapse ) class indicates a ( collapsible ) element ( a <div> in above example ); 
+              this is the content that will be shown or hidden with a click of a button.
+
+            - To control ( show / hide ) the ( collapsible ) content, add the ( data-toggle="collapse" ) attribute 
+              to an ( <a> ) or a ( <button> ) element.
+
+            - Then add the ( data-target="#id" ) attribute to connect the button with the ( collapsible ) content.
+              ( <div id="demo"> )
+
+    c. *Note* : For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute.
+
+        Example:
+
+            <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                            in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+                                
+                * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+            <a href="#demo" data-toggle="collapse">Collapsible</a>
+
+            <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+            <div id="demo" class="collapse">
+                Lorem ipsum dolor text....
+            </div>
+
+    d. By default, the ( collapsible ) content is ( hidden ). 
+       However, you can add the ( .show ) class to show the content by default.
+
+       Example:
+
+            <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+            <div id="demo" class="collapse show">
+                Lorem ipsum dolor text....
+            </div>
+
+
+2. Accordion
+
+    a. The following example shows a simple accordion by extending the ( card ) component.
+
+    b. *Note* : Use the ( data-parent ) attribute to make sure that ( all collapsible ) elements under the ( specified parent )
+                will be closed when one of the ( collapsible item ) is shown.
+
+    c. Example:
+
+        <div id="accordion">
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                    in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+                                        
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                        Collapsible Group Item #1
+                    </a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                    in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+                                        
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                        Collapsible Group Item #2
+                    </a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <!-- NOTE 1 : A ( data-toggle="collapse" ) attribute must be used 
+                                    in a ( <a> ) element to control ( show / hide ) the ( collapsible ) content.
+                                        
+                        * For ( <a> ) elements, you can use the ( href ) attribute instead of the ( data-target ) attribute. -->
+                    <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                        Collapsible Group Item #3
+                    </a>
+                </div>
+
+                <!-- NOTE 2 : Collapsible ( <div> ) element to contain contents must have ( .collapse ) class. -->
+                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                    <div class="card-body">
+                        Lorem ipsum..
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+

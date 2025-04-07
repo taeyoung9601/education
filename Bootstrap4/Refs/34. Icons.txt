@@ -1,0 +1,28 @@
+============================================================
+= Bootstrap 4 - Icons
+============================================================
+
+1. Icons
+
+    a. Bootstrap 4 does not have its own icon library.
+
+    b. However, there are many free icon libraries to choose from, such as ( Font Awesome ) and ( Google Material Design Icons ).
+
+    c. To use ( Font Awesome icons ), add the following to your HTML page ( No downloading or installation is required ):
+
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+            crossorigin="anonymous">
+
+    d. Then, add the ( name ) of the icon class to any ( inline ) HTML element ( like <i> or <span> ):
+
+        Example:
+
+            <i class="fas fa-cloud"></i>
+            <i class="fas fa-coffee"></i>
+            <i class="fas fa-car"></i>
+            <i class="fas fa-file"></i>
+            <i class="fas fa-bars"></i>
+    
+

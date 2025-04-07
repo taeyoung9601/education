@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>More Typography Classes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <ul>
+            <li class="font-weight-bold"><code>.font-weight-bold</code></li>
+
+            <li class="font-weight-bolder"><code>.font-weight-bolder</code></li>
+
+            <li class="font-italic"><code>.font-italic</code></li>
+
+            <li class="font-weight-light"><code>.font-weight-light</code></li>
+
+            <li class="font-weight-lighter"><code>.font-weight-lighter</code></li>
+
+            <li class="font-weight-normal"><code>.font-weight-normal</code></li>
+
+            <li class="lead"><code>.lead</code></li>
+
+            <li class="small"><code>.small</code></li>
+
+            <li class="text-left"><code>.text-left</code></li>
+
+            <li class="text-*-left"><code>.text-*-left</code> : <br>
+                <h2>Responsive Left Aligned Text</h2>
+
+                <p>Note that text is left-aligned by default.</p>
+                
+                <p class="text-left"><code>.text-left</code> : Left aligned text on all screen sizes.</p>
+                <p class="text-sm-left"><code>.text-sm-left</code> : Left aligned text on small or wider screens.</p>
+                <p class="text-md-left"><code>.text-md-left</code> : Left aligned text on medium or wider screens.</p>
+                <p class="text-lg-left"><code>.text-lg-left</code> : Left aligned text on large or wider screens.</p>
+                <p class="text-xl-left"><code>.text-xl-left</code> : Left aligned text on xlarge or wider screens.</p>
+            </li>
+
+            <li class="text-break"><code>.text-break</code> : <br>
+                <h2>Text break / Word break</h2>
+
+                <p>The <code>.text-break</code> class prevents long text from breaking layout.</p>
+                
+                <p>With <code>.text-break</code> :</p>
+                <p class="text-break">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</p>
+                
+                <p>Without <code>.text-break</code> :</p>
+                <p>AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</p>
+            </li>
+
+            <li class="text-center"><code>.text-center</code></li>
+
+            <li class="text-*-center"><code>.text-*-center</code> : <br>
+                <h2>Responsive Centered Aligned Text</h2>
+
+                <p>Resize the browser window to see the effect.</p>
+                
+                <p class="text-center"><code>text-center</code> : Center-aligned text on all screen sizes.</p>
+                <p class="text-sm-center"><code>text-sm-center</code> : Center-aligned text on small or wider screens.</p>
+                <p class="text-md-center"><code>text-md-center</code> : Center-aligned text on medium or wider screens.</p>
+                <p class="text-lg-center"><code>text-lg-center</code> : Center-aligned text on large or wider screens.</p>
+                <p class="text-xl-center"><code>text-xl-center</code> : Center-aligned text on xlarge or wider screens.</p>
+            </li>
+
+            <li class="text-right"><code>.text-right</code></li>
+
+            <li class="text-*-right"><code>.text-*-right</code> :  <br>
+                <h2>Right Aligned Text</h2>
+
+                <p>Resize the browser window to see the effect.</p>
+
+                <p class="text-right"><code>text-right</code> : Right aligned text on all screen sizes.</p>
+                <p class="text-sm-right"><code>text-sm-right</code> : Right aligned text on small or wider screens.</p>
+                <p class="text-md-right"><code>text-md-right</code> : Right aligned text on medium or wider screens.</p>
+                <p class="text-lg-right"><code>text-lg-right</code> : Right aligned text on large or wider screens.</p>
+                <p class="text-xl-right"><code>text-xl-right</code> : Right aligned text on xlarge or wider screens.</p>
+            </li>
+            
+            <li class="text-decoration-none"><a><code>.text-decoration-none</code></a></li>
+
+            <li class="text-justify"><code>.text-justify</code> : <br>
+                Justified text. Justified text. Justified text. Justified text. Justified text. Justified text.<br>
+                <strong>Tip:</strong> Try to resize the browser window to see the behaviour of justify and nowrap.
+            </li>
+            
+            <li class="text-monospace"><code>.text-monospace</code></li>
+
+            <li class="text-nowrap"><code>.text-nowrap</code> : Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt ab explicabo accusamus doloremque facilis pariatur corporis a quos eligendi temporibus enim, nulla alias commodi dolore quasi quae quo. Adipisci, totam!</li>
+            
+            <li class="text-lowercase"><code>.text-lowercase</code></li>
+
+            <li class="text-reset"><code>.text-reset</code> : <br>
+                <h2>Reset Color</h2>
+
+                <p>Use the <code>.text-reset</code> class to inherit the color from the parent.<br><br>For example, a link is blue by default, however, in this example, it inherits the grey, muted color from its parent.<br>Try to remove the class to see the differences.</p>
+
+                <p class="text-muted"><code>.text-muted, .text-reset</code> : Muted text with a <a href="#" class="text-reset">reset link</a>.</p>
+            </li>
+
+            <li class="text-uppercase"><code>.text-uppercase</code></li>
+
+            <li class="text-capitalize"><code>.text-capitalize</code></li>
+
+            <li>
+                <p>The <abbr title="World Health Organization">WHO</abbr> was founded in 1948. (normal abbr)</p>      
+                <p>The <abbr title="World Health Organization" class="initialism">WHO</abbr> was founded in 1948. (slightly smaller abbr)</p>
+            </li>
+
+            <li><code>.list-unstyled</code> : <br>
+                <ul class="list-unstyled">
+                    <li>Coffee</li>
+                    <li>Tea
+                        <ul>
+                            <li>Black tea</li>
+                            <li>Green tea</li>
+                        </ul>
+                    </li>
+                    <li>Milk</li>
+                  </ul>
+            </li>
+
+            <li><code>.list-inline</code> :<br>
+                <ul class="list-inline">
+                    <li class="list-inline-item">Coffee</li>
+                    <li class="list-inline-item">Tea</li>
+                    <li class="list-inline-item">Milk</li>
+                  </ul>
+            </li>
+
+            <li><code>.pre-scrollable</code> : <pre class="pre-scrollable">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Voluptatem sunt reprehenderit iusto nemo? Suscipit voluptates
+                aliquam distinctio ullam voluptas adipisci necessitatibus
+                ab commodi nesciunt, incidunt veniam, consequuntur praesentium in sapiente.</pre></li>
+        </ul>
+    </div>
+    
+</body>
+</html>

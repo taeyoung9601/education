@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inline Checkboxes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <p></p>
+
+    <div class="container border">
+        <p></p>
+
+        <h2>Form control: inline checkbox</h2>
+
+        <p>Use a wrapper <strong>&lt;div&gt;</strong> element with <code>.form-check-inline</code> class.</p>
+
+        <p>The form below contains three <strong>inline</strong> checkboxes:</p>
+
+        <form action="">
+            <div class="form-check-inline">
+                <label for="check1" class="form-check-label">
+                    <input type="checkbox" class="form-check-input" id="check1" name="option1" value="value1" checked>Option 1
+                </label>
+            </div>
+
+            <div class="form-check-inline">
+                <label for="check2" class="form-check-label">
+                    <input type="checkbox" class="form-check-input" id="check2" name="option2" value="value2">Option 2
+                </label>
+            </div>
+
+            <div class="form-check-inline">
+                <label for="check3" class="form-check-label">
+                    <input type="checkbox" class="form-check-input" id="check3" name="option3" value="value3" disabled>Option 3
+                </label>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+
+        <p></p>
+    </div>
+    
+</body>
+</html>

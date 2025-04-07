@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contextual Classes</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    <div class="container border">
+        <h2>Contextual Classes</h2>
+        <p>Contextual classes can be used to color the table, table rows or table cells.<br>
+           The classes that can be used are:
+
+            <ul>
+                <li><code>.table-primary</code></li>
+                <li><code>.table-success</code></li>
+                <li><code>.table-info</code></li>
+                <li><code>.table-warning</code></li>
+                <li><code>.table-danger</code></li>
+                <li><code>.table-active</code></li>
+                <li><code>.table-secondary</code></li>
+                <li><code>.table-light</code></li>
+                <li><code>.table-dark</code></li>
+            </ul>
+        </p>
+
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>Class</td>
+                <td>Default</td>
+                <td>Defaultson</td>
+                <td>def@somemail.com</td>
+              </tr>      
+              <tr class="table-primary">
+                <td><code>.table-primary</code></td>
+                <td>Primary</td>
+                <td>Joe</td>
+                <td>joe@example.com</td>
+              </tr>
+              <tr class="table-success">
+                <td><code>.table-success</code></td>
+                <td>Success</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+              </tr>
+              <tr class="table-danger">
+                <td><code>.table-danger</code></td>
+                <td>Danger</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+              </tr>
+              <tr class="table-info">
+                <td><code>.table-info</code></td>
+                <td>Info</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+              </tr>
+              <tr class="table-warning">
+                <td><code>.table-warning</code></td>
+                <td>Warning</td>
+                <td>Refs</td>
+                <td>bo@example.com</td>
+              </tr>
+              <tr class="table-active">
+                <td><code>.table-active</code></td>
+                <td>Active</td>
+                <td>Activeson</td>
+                <td>act@example.com</td>
+              </tr>
+              <tr class="table-secondary">
+                <td><code>.table-secondary</code></td>
+                <td>Secondary</td>
+                <td>Secondson</td>
+                <td>sec@example.com</td>
+              </tr>
+              <tr class="table-light">
+                <td><code>.table-light</code></td>
+                <td>Light</td>
+                <td>Angie</td>
+                <td>angie@example.com</td>
+              </tr>
+              <tr class="table-dark text-dark">
+                <td><code>.table-dark</code>, <code>.text-dark</code></td>
+                <td>Dark</td>
+                <td>Bo</td>
+                <td>bo@example.com</td>
+              </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>
