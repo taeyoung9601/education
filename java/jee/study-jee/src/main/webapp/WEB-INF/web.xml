@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns="https://jakarta.ee/xml/ns/jakartaee" 
+xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+ version="6.0">
+
+  <display-name>study-jee</display-name>
+
+  <!-- ============================  -->
+  <!-- 기본이 html, 근데 여기서 순서를 지정할수있음  -->
+  <welcome-file-list>
+    
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.html</welcome-file>
+    
+  </welcome-file-list>
+
+  <!-- ============================ -->
+
+
+  <!-- Set Timeout Of Session In Minutes -->
+  <session-config>
+    <session-timeout>10</session-timeout>
+    <cookie-config>
+      <http-only>true</http-only>
+      <secure>true</secure>
+    </cookie-config>
+    <tracking-mode>COOKIE</tracking-mode>
+  </session-config>
+
+  <!-- ============================ -->
+
+  <jsp-config>
+    <jsp-property-group>
+      <description>Set Page Encoding For all JSP file</description>
+      <display-name>GROUP1</display-name>
+      <url-pattern>*.jsp</url-pattern>
+      <page-encoding>UTF-8</page-encoding>
+      <default-content-type>text/html; charset=utf8</default-content-type>
+    </jsp-property-group>
+  </jsp-config>
+
+  <!-- ============================ --> 
+  <!-- 해당 에러들의 페이지를 지정 (>/WEB-INF/error/400.jsp 사용자가 보지못하는 위치)-->
+
+  <error-page>
+    <error-code>400</error-code>
+    <location>/WEB-INF/error/400.jsp</location>
+  </error-page>
+
+  <error-page>
+    <error-code>404</error-code>
+    <location>/WEB-INF/error/404.jsp</location>
+  </error-page>
+
+    <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/error/500.jsp</location>
+  </error-page>
+
+  <!-- ============================ -->
+
+   <data-source>
+        <description>My DataSource For scott Schema</description>
+        
+        <name>jdbc/mysql/scott2</name>
+        <class-name>com.mysql.cj.jdbc.Driver</class-name>
+        <url>jdbc:mysql://0.0.0.0:3306/scott?characterEncoding=UTF-8&amp;serverTimezone=Asia/Seoul</url>
+        <user>scott</user>
+        <password>mysql</password>
+
+        <!-- Set to false if connections should *Not participate in transactions. -->
+        <transactional>true</transactional>
+        <!-- Isolation level for connections. -->
+        <isolation-level>TRANSACTION_READ_COMMITTED</isolation-level>
+
+        <!-- Number of connections that should be created when a connection pool is initialized. -->
+        <initial-pool-size>3</initial-pool-size>
+        <!-- Maximum number of connections that should be concurrently allocated for a connection pool. -->
+        <max-pool-size>10</max-pool-size>
+        <!-- Minimum number of connections that should be concurrently allocated for a connection pool. -->
+        <min-pool-size>3</min-pool-size>
+
+        <!-- The number of seconds that a physical connection should remain unused in the pool 
+               before the connection is closed for a connection pool. -->
+        <max-idle-time>10</max-idle-time>
+        <!-- The total number of statements that a connection pool should keep open. -->
+        <max-statements>1000</max-statements>
+    </data-source>
+
+  <!-- ============================ -->
+
+  <context-param>
+    <param-name>PARAM1</param-name>
+    <param-value>VALUE1</param-value>
+  </context-param>
+  <context-param>
+    <param-name>PARAM2</param-name>
+    <param-value>VALUE2</param-value>
+  </context-param>
+  <context-param>
+    <param-name>PARAM3</param-name>
+    <param-value>VALUE3</param-value>
+  </context-param>
+  <servlet>
+    <servlet-name>MappedInWebXmlServlet</servlet-name>
+    <servlet-class>org.zerock.myapp.servlet.MappedInWebXmlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MappedInWebXmlServlet</servlet-name>
+    <url-pattern>/MappedInWebXmlServlet</url-pattern>
+    <url-pattern>/MIWX</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InitParamServlet</servlet-name>
+    <servlet-class>org.zerock.myapp.servlet.InitParamServlet</servlet-class>
+    <init-param>
+      <param-name>jdbcDriver</param-name>
+      <param-value>org.h2.Driver</param-value>
+    </init-param>
+    <init-param>
+      <param-name>jdbcUrl</param-name>
+      <param-value>jdbc:h2:tcp://0.0.0.0:9092/C:/app/h2/data/seoul;schema=jpa_schema</param-value>
+    </init-param>
+    <init-param>
+      <param-name>jdbcUser</param-name>
+      <param-value>jpa</param-value>
+    </init-param>
+    <init-param>
+      <param-name>jdbcPass</param-name>
+      <param-value>h2</param-value>
+    </init-param>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>InitParamServlet</servlet-name>
+    <url-pattern>/InitParam</url-pattern>
+  </servlet-mapping>
+</web-app>

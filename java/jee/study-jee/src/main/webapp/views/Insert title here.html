@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>insert New Employee</title>
+</head>
+<body>
+    <h3>/views/insertForm.html</h3>
+    <hr>
+
+    <form action="/EmpInsert" method="post">
+        <fieldset>
+            <legend>신규사원등록</legend>
+
+            <ul>
+                <li>
+                    <label for="empno">사원번호</label>
+                    <input type="number" name="empno">
+                </li>
+                <li>
+                    <label for="empno">사원명</label>
+                    <input type="number" name="ename">
+                </li>
+                <li>
+                    <label for="empno">급여</label>
+                    <input type="number" name="sal">
+                </li>
+                <li>
+                    <label for="empno">부서</label>
+                    <input type="number" name="deptno">
+                </li>
+
+                <li>&nbsp;</li>
+                <li><input type="submit" value="전송"></li>
+            </ul>
+        </fieldset>
+    </form>
+
+</body>
+</html>

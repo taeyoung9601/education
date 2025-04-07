@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Values Parameter</title>
+</head>
+<body>
+    <h3>/views/SportAndGender.html</h3>
+    <hr>
+    
+    <form action="/SportAndGender" method="post">
+        <fieldset>
+            <legend>좋아하는 운동 및 성별</legend>
+
+            <ul>
+                <li>
+                    <label for="baseball">야구</label>
+                    <input type="checkbox" name= "sports" value="야구">
+
+                    <label for="football">축구</label>
+                    <input type="checkbox" name= "sports" value="축구">
+
+                    <label for="basketball">농구</label>
+                    <input type="checkbox" name= "sports" value="농구" checked>
+                </li>
+                <li>
+                    <label for="gender">남자</label>
+                    <input type="radio" name= "gender" value="남자">
+
+                    <label for="gender">여자</label>
+                    <input type="radio" name= "gender" value="여자" checked>
+                </li>
+                <li>&nbsp;</li>
+                <li>
+                    <input type= "submit" value= "전송">
+                </li>
+            </ul>
+
+        </fieldset>
+    </form>
+
+</body>
+</html>

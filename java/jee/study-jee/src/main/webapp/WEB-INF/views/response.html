@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>응답화면</title>
+
+</head>
+<body>
+    <h3> /WEB-INF/views/response.html </h3>
+    <hr>
+    
+    <pre>
+    	(1)만약 프론트 UI구현이, 순수 HTML5 기술로만 구현되었다면
+    	이 UI는 정적인 파일이기 때문에, 모델 데이터를 동적으로 넣을 수가
+    	없습니다. 때문에, 이런 경우에는 HTML5 문서파일들을 모두 백엔드 서버의 webapp(/)폴더
+    	밑으로 복사해 넣고, 이중 .html파일의 확장자를 .jsp로 변경해서,
+    	자바 코드로 모델 데이터를 넣게 하여, 최종 응답화면을 생성해야 합니다.
+    	(2)하지만 만약 프론트 UI 구현이 리액트 같은 프레임 워크를 이용한 어플리케이션 형태로 구현되었다면 
+    	프론트도 APP , 백엔드도 APP 이기 때문에 최종 응답을 구현할 책임은 프론트 APP이 되고 
+    	백엔드 APP 은 프론트 APP 이 요청한 데이터를 JSON/HTML 같은 형태로 제공하게 된다.
+    	
+    </pre>
+</body>
+</html>
