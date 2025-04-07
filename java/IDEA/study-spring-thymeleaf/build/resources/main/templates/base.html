@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thymeleaf-Base</title>
+
+    <style>
+        .class1{
+            color: green;
+        }
+        .class2{
+            color: blue;
+        }
+    </style>
+
+</head>
+<body>
+    <h3>/templates/base.html</h3>
+    <hr>
+
+    <p>1. message:<span th:text="${message}">Here, replace with thymeleaf's value</span></p>
+    <p>2. message:<span>[[${message}]]</span></p>
+    <p>3. person: name - <span th:text="${person.name}"></span>, age - <span th:text="${person.age}"></span></p>
+    <p>4. person: name - <span> [[${person.name}]]</span>, age - <span> [[${person.age}]]</span></p>
+    <p>5. isMale: <span th:text="${isMale}">Print out isMale variable</span></p>
+    <p>6. isMale: <span>[[${isMale}]]</span></p>
+    <p>7. person.name: [[${person.getName()}]]</p>
+    <p>8. isMale? <span th:if="${isMale}">I'm male</span></p>
+    <p>9. isFemale? <span th:unless="${isMale}">I'm female</span></p>
+    <p>10. isFemale? <span th:unless="false">I'm male</span></p>
+    <p>11. message2 <span th:utext="${message2}">Contents with html tags</span></p>
+    <p>12. th:value<input type="hidden" name="name" th:value="${message}"/></p>
+    <p>13. th:value <input type="text" name="name" value=""/></p>
+    <p>14. th:each</p>
+    <ul>
+<!--        <li th:each="person: ${persons}" th:text="${`Name(`+person.name +`),Age(`+ person.age`}"></li>-->
+        <li th:each="person: ${persons}">[[${person.name}]],[[${person.age}]]</li>
+    </ul>
+
+    <p>15. th:href</p>
+    <span><a href="/person/me?name=Tae&age=27">LINK1</a></span>
+<!--    <span><a th:href="@{URL(param1=value1, param2=value2,...">LINK</a></span>-->
+    <span><a th:href="@{/person/me(name= Tae, age=27)}">LINK2</a></span>
+
+    <p>16. th:href</p>
+    <input type="text" th:name="name" value="Tae"/>
+    <input type="text" th:name="${role}" value="Tae"/>
+
+    <p>17. th:value</p>
+    Name: <input type="text" th:name="name" value="Tae"/>
+    Age: <input type="text" th:name="age" value="${role}"/>
+
+    <p>18. th:placeholer - Caution: Not literal value permitted.</p>
+    Name: <input type="text" th:name="name" value="Tae" th:placeholder="${namePlaceHolder}"/>
+    Age: <input type="text" th:name="age" value="${role}" th:placeholder="${agePlaceHolder}"/>
+
+    <p>19. th:src Caution: Not literal value permitted.</p>
+<!--    <img th:src="http://image.io/1234"/>-->
+    <img th:src="${imgPath}"/>
+
+    <p>20. th:style Caution: Not literal value permitted.</p>
+<!--    <span th:style="font-size:40px; color:red;">th:style</span><br>-->
+    <span th:style="${style1}">th:style</span><br>
+
+    <p>21. th:class</p>
+    <span th:class="class1">th:class</span><br>
+    <span th:class="class2">th:class</span><br>
+<!--    <span th:class="${isMale? 'class1':${class3}}">th:class</span><br> XX-->
+    <span th:class="${isMale? 'class1':'class3'}">th:class</span><br>
+
+    <p>22. th:checked</p>
+    <input type="checkbox" th:checked="checked"/>Movie
+    <input type="checkbox" th:checked="true"/>Working
+    <input type="checkbox" th:checked="${true}"/>Reading
+    <hr>
+    <input type="radio" th:checked="checked"/>Movie
+    <input type="radio" th:checked="${''}"/>Working
+    <input type="radio" th:checked="${true}"/>Reading
+
+
+
+
+
+
+</body>
+</html>

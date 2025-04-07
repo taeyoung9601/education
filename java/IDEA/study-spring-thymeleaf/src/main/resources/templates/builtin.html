@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf Built-in Object</title>
+</head>
+<body>
+    <h3>/templates/builtin.html</h3>
+    <hr>
+
+    <h3>Thymeleaf Built-in Objects</h3>
+    <p>1. #ctx</p>
+    <span>This built-in object should be used with standalone Thymeleaf template engine</span>
+    <p>#ctx: <span th:text="${#ctx.getClass().getName()}">ctx</span></p>
+
+    <hr>
+    <p>2. #vars</p>
+    <span>This built-in object should be used with standalone Thymeleaf template engine</span>
+<!--    <p>#vars: <span th:text="${#vars}">vars</span></p>-->
+    <hr>
+
+    <p>3. #locale</p>
+    <p>#locale.language: <span th:text="${#locale.language}"></span></p>
+    <hr>
+
+    <!-- The 'request', 'session', 'servletContext' and 'response' expression utility objects are no longer available by default for template expressions
+           and their use is not recommended. In cases where they are really needed, they should be manually added as context variables. (***) -->
+    <p>4. request - without # symbol</p>
+<!--    <p>request.requestURI: <span th:text="${request.requestURI}"></span></p>-->
+<!--    <p>request.requestURI: <span th:text="${request.requestURI}"></span></p>-->
+    <hr>
+
+    <p>5. session - without # symbol</p>
+
+    <p>6. #uris</p>
+
+    <p>7. #dates</p>
+    <p>dates.format: <span th:text="${#dates.format(#dates.createNow(),'yyyy/MM/dd HH:mm:ss:SSS')}"></span></p>
+    <hr>
+
+    <p>8. #numbers</p>
+    <p>#numbers.formatDecimal(number, minPrecision, maxPrecision):
+        <span th:text="${#numbers.formatDecimal(1234.567890,1,2)}"></span></p>
+
+
+    <p>9. #strings</p>
+    <p>#strings.substring(string,start,end): <span th:text="${#strings.substring('Hello World',0,4)}"></span></p>
+    <p>#strings contains(origin_string, substring): <span th:text="${#strings.contains('Thymeleaf','leaf')}"></span></p>
+    <p>#strings.toUpperCase(): <span th:text="${#strings.toUpperCase('Tae')}"></span></p>
+    <p>#strings.toLowerCase(): <span th:text="${#strings.toLowerCase('Tae')}"></span></p>
+    <p>#strings: <span th:text="${#strings.getClass().getName()}"></span></p>
+
+    <p>10. #objects</p>
+
+    <p>11. #booles</p>
+
+    <p>12. #arrays</p>
+
+    <p>13. #lists</p>
+
+    <p>14. #sets</p>
+
+    <p>15. #maps</p>
+
+    <p>16. #aggregates</p>
+
+
+</body>
+</html>
