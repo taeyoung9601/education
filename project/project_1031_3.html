@@ -1,0 +1,75 @@
+<script>
+    var arr = ['자', '축', '인', '묘', '진', '사', '오', '미', '인', '유', '술', '해',
+               '자', '축', '인', '묘', '진', '사', '오', '미', '인', '유', '술', '해'];
+    
+    var text1 = '미';                                            //  출발 지점
+    var text2 = '나';                                             // 도착 지점
+    var startIndex = 0;                                           // 텍스트 인덱스를 찾기위한 기준점
+    var text1Index1 =null;                                             // 순방향 출발 텍스트 인덱스
+    var text2Index1 =null;                                             // 순방향 도착 텍스트 인덱스
+    var nextIndex = 12                                            // 다음 주기 인덱스(해당 텍스트 다음 주기 인덱스)
+
+    for(startIndex;startIndex<arr.length;startIndex++){                   // 순방향 텍스트별 인덱스 구하기 
+        if(arr.at(startIndex) == text1 && text1Index1 === null){
+            text1Index1 = startIndex;
+            console.log("출발지점", text1Index1);
+        }
+        if(arr.at(startIndex) == text2  && text2Index1 === null){
+            text2Index1 = startIndex;
+            console.log("도착 지점:", text2Index1);
+        }
+        if (text1Index1 !== null && text2Index1 !== null) {
+            break;
+        }
+    }
+    if (text1Index1 !== null && text2Index1 !== null) {                  // 순방향거리계산
+        var 순방향거리계산 = text2Index1 - text1Index1;
+        
+        if (순방향거리계산 < 0) {
+            순방향거리계산 += nextIndex;
+        }
+
+        console.log("순방향 거리계산:", 순방향거리계산);
+    } else {
+        console.log("거리 계산 실패: 출발 또는 도착 지점이 배열에 없습니다.");
+    }
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    var startIndex = 23;
+    var text1Index2 = null;                                              // 역방향 출발 텍스트인덱스
+    var text2Index2 = null;                                               // 역방향 도착 텍스트인덱스
+
+    for(startIndex;startIndex>=0;startIndex--){                    // 역방향 텍스트별 인덱스 구하기
+        if(arr.at(startIndex) == text1 && text1Index2 === null){
+            text1Index2 = startIndex;
+            console.log("출발지점", text1Index2);
+        }
+        if(arr.at(startIndex) == text2 && text2Index2 === null){
+            text2Index2 = startIndex;
+            console.log("도착지점", text2Index2);
+        }
+        if (text1Index2 !== null && text2Index2 !== null) {
+            break;
+        }
+    }
+    if (text1Index2 !== null && text2Index2 !== null) {                  // 역방향거리계산
+        var 역방향거리계산 = text2Index2 - text1Index2;
+        
+        if (역방향거리계산 < 0) {
+            역방향거리계산 += nextIndex;
+        }
+
+        console.log("역방향 거리계산:", 역방향거리계산);
+    } else {
+        console.log("거리 계산 실패: 출발 또는 도착 지점이 배열에 없습니다.");
+    }
+//////////////////////////////////////////////////////////////////////////
+    if (순방향거리계산 === undefined || 역방향거리계산 === undefined){                                              // 순방향거리계산과 역방향거리계산 비교 후 콘솔 출력
+    console.log("출발 또는 도착 지점이 배열에 없어 거리계산이 되지않음.");
+    }else if(순방향거리계산 === 역방향거리계산){
+        console.log("순방향거리와 역방향거리가 같음", 순방향거리계산);
+    }else if(순방향거리계산>역방향거리계산){
+        console.log("순방향거리가 더 가까움", 순방향거리계산);
+    }else {"역방향거리가 더 가까움", 역방향거리계산}
+
+// text2의 인덱스가 text1의 인덱스보다 커야함.
+</script>

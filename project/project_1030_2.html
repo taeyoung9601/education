@@ -1,0 +1,52 @@
+<!-- <script>
+    var randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+    var 수 = 2
+
+    for(수 ;수<1000;수++ ){
+
+    }
+</script> -->
+
+<script>
+
+var max = 1000;
+var min = 2;
+var loop = 100;
+
+
+function 무작위정수생성(max_v,min_v){
+    var random = Math.floor(Math.random() * (max_v - min_v + 1)) + min_v;
+    return random;
+}
+
+function 무작위정수반환(maxValue,minValue){
+    /*
+    var func = 무작위정수생성;
+    return func(maxValue, minValue); 
+    */
+   
+    var randomNumber = 무작위정수생성(maxValue,minValue);
+    return randomNumber; 
+}
+
+function 소수체크(randomNumber){
+    for(var checkmin=2; checkmin<randomNumber; checkmin++){
+        if(randomNumber % checkmin == 0){
+            return false;
+        }
+    
+    } return true;                // 너 4번에 던져서 체크해
+}
+
+function 정해진범위안소수판별함수(){
+    for(var i = 0; i < loop; i++ ){
+        var randomNumber = 무작위정수반환(max, min);
+        var ischeck = 소수체크(randomNumber);
+        console.log(i, `randomNumber : ${randomNumber} // 소수여부 : ${ischeck}`);
+        //console.log("randomNumber :", randomNumber, "// 소수여부 : ", ischeck);
+    }
+}
+
+정해진범위안소수판별함수();
+
+</script>

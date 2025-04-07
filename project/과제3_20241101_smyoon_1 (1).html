@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* table style */
+        table {
+            width: 600px;
+            height: 600px;
+            margin: auto;
+            border-collapse: collapse; /* 각 칸의 테두리 분리 여부, separate(기본값)*/
+        }
+        td {
+            border: 2px solid #333333;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        /* div style */
+        div.note {
+            margin-top: 30px;
+            font-size: 1.3em;
+        }
+        div.info {
+            width: 600px;
+            margin: auto;
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        /* color style */
+        .color_on {
+            background-color: yellow;
+         }          
+        .color_off {
+            background-color: transparent;
+        }
+    </style>
+
+    <script>
+    </script>
+</head>
+<body>
+
+
+    <section>
+
+        <div class="info">
+            <div>
+                임의 숫자 : <span id="numberInfo"></span>
+            </div>
+            <div>
+                배열 위치 : <span id="numberInfo2"></span>
+            </div>
+        </div>
+
+        <!--
+            * table 만들기 Emmet
+                1. table>tr*5>td*5[id=]
+                2. table>tr*5>td*5#
+                3. table>tr*2>td*25#${$} : 숫자 자동 입력, tr 태그 5줄마다 별도 삽입 필요
+                4. table>tr*5[id=tr$]>td*5[class=td$]{$}
+        -->
+        <table>
+            <tr id="tr0">
+                <td class="td0">0/0</td>
+                <td class="td1">0/1</td>
+                <td class="td2">0/2</td>
+                <td class="td3">0/3</td>
+                <td class="td4">0/4</td>
+            </tr>
+            <tr id="tr1">
+                <td class="td0">1/0</td>
+                <td class="td1">1/1</td>
+                <td class="td2">1/2</td>
+                <td class="td3">1/3</td>
+                <td class="td4">1/4</td>
+            </tr>
+            <tr id="tr2">
+                <td class="td0">2/0</td>
+                <td class="td1">2/1</td>
+                <td class="td2">2/2</td>
+                <td class="td3">2/3</td>
+                <td class="td4">2/4</td>
+            </tr>
+            <tr id="tr3">
+                <td class="td0">3/0</td>
+                <td class="td1">3/1</td>
+                <td class="td2">3/2</td>
+                <td class="td3">3/3</td>
+                <td class="td4">3/4</td>
+            </tr>
+            <tr id="tr4">
+                <td class="td0">4/0</td>
+                <td class="td1">4/1</td>
+                <td class="td2">4/2</td>
+                <td class="td3">4/3</td>
+                <td class="td4">4/4</td>
+            </tr>
+        </table>
+
+    </section>
+
+
+    
+    <script>
+
+        function getRandomNumber (min, max) {
+            //Step1. 무작위 정수 구하기
+            var randomNo = Math.floor(  Math.random() * (max - min + 1) ) + min;
+
+            //Step2. 웹브라우저 콘솔탭에 보여주기
+            console.log(randomNo);
+
+            //step3. info > numberInfo  span에 임의 숫자 보이기
+            document.getElementById('numberInfo').innerText = randomNo;
+
+            return randomNo;
+        }
+
+
+
+
+        var panelByCellCount = 5; // 2차 배열 생성 수 : 5 X 5
+        
+        //초기배열 생성 방법 1
+        //var panel = Array.from(new Array(panelByCellCount), () => new Array(panelByCellCount).fill(0));
+
+        //초기배열 생성 방법 2
+        var panel = [];
+        for (var i = 0; i < panelByCellCount ; i++) {
+            panel[i] = [];
+            for (var j = 0; j < panelByCellCount ; j++) {
+                panel[i][j] = 0;
+            }
+        }
+
+        console.log("panel : ", panel);
+
+        var x;
+        var y;
+
+        setInterval(() => {
+            var min = 0;
+            var max = (panelByCellCount - 1);
+
+            //step4. 배열 0 만들기 밑 색상 지우기
+            if(  !(x == undefined || y == undefined)  ) {
+                panel[x][y] = 0;
+                document.querySelector("#tr" + x + " > .td" + y).classList.remove('color_on');
+            }
+
+            //step1. 행과 열의 랜덤 숫자 받아오기
+            x = getRandomNumber(min, max);
+            y = getRandomNumber(min, max);
+            console.log(x, ' / ', y);
+            document.getElementById('numberInfo2').innerText = x + ' / ' + y;
+
+            //step2. 배열에 1 넣어주기
+            panel[x][y] = 1;
+            console.log("panel : ", panel);
+
+            //step3. 배열 위치에 해당하는 td에 배경색 널기
+            document.querySelector("#tr" + x + " > .td" + y).classList.add('color_on');
+            
+        }, 5000);
+        
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<script>
+    var arr = [];     
+
+    for(var i=0; i<=4; i++){
+        arr[i]=[]
+        for(var j=0; j<=4; j++){
+            arr[i][j] = 0;
+        }
+    }
+    console.log(arr);
+        
+    var x = 0;
+    var y = 0;
+
+    setInterval(() => {
+        var max = 4;
+        var min = 0;
+        arr[x][y] = 0;
+        x = Math.floor(Math.random() * (max - min + 1)) + min;
+        y = Math.floor(Math.random() * (max - min + 1)) + min;
+        console.log(x,y);
+        
+        // if (currentCell){
+        //     currentCell.classList.add('color2');
+        // }  
+        
+        // currentCell = document.getElementById(randomNumber);
+
+        // if (currentCell){   
+        //     currentCell.classList.add('color1');
+        // }
+        
+
+    arr[x][y] = 1;                         // 색을
+    console.log(arr);   
+    }, 5000)
+
+  한발자국
+</script>
